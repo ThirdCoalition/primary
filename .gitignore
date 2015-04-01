@@ -1,0 +1,4 @@
+*~
+*.pyc
+build/*
+db.sqlite3
