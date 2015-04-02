@@ -17,10 +17,15 @@ class Approval(models.Model):
     candidate = models.ForeignKey(Candidate)
     vote = models.ForeignKey(Vote)
 
-#class Sums(Candidate):
-#    approval = models.FloatField()
-#    candidate = models.ForeignKey(Candidate)
-#
-#    class Meta:
-#        managed = False
-#        ordering = ['-approval']
+# This is a view. Not entirely sure why candi_id and candi_ptr_id are both required
+# create view primary_sums as
+# select candidate_id, candidate_id as candidate_ptr_id, sum(rating) as approval
+#   from primary_approval
+#   group by candidate_id
+class Sums(Candidate):
+    approval = models.IntegerField()
+    candidate = models.ForeignKey(Candidate, related_name='+')
+
+    class Meta:
+        managed = False
+        ordering = ['-approval']

@@ -12,17 +12,18 @@
 <div class="topdiv">
   <form method="post" action="/saverange"> {% csrf_token %}
     <table class="results">
-      <tr>
+      <tr class="favorite">
         <td class="range">
+	  <a href="/vote" style="font-size:large;">&laquo; Change Favorite</a>
           <div style="background-color:{{ fav.color }};">
             <p style="font-size:x-large; color:{{ fav.fgcolor }}; margin:4px;">10</p>
             <input type="hidden" class="rangeValue" name="{{ fav.id }}" value=10 />
           </div>
         </td>
       
-        <td class="candidate">
-          <p>{{ fav.name }} - {{ fav.synopsis }}</p>
-          <a href="{{ fav.link }}">homepage</a>
+        <td class="candidate" style="background-color:gainsboro; border:2px dashed black;">
+          <p><b>{{ fav.name }}</b> - {{ fav.synopsis }}</p>
+          <a href="{{ fav.link }}" target="_blank">homepage</a>
         </td>
       </tr>
 
@@ -39,7 +40,7 @@
       
           <td class="candidate">
             <p>{{ c.name }} - {{ c.synopsis }}</p>
-            <a href="{{ c.link }}">homepage</a>
+            <a href="{{ c.link }}" target="_blank">homepage</a>
           </td>
         </tr>
       {% endif %}

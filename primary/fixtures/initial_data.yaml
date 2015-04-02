@@ -11,7 +11,7 @@
   pk: 2
   fields:
     name: Green
-    synopsis: Live with the Planet, not on it.
+    synopsis: Live with the Planet, not on it
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.gp.org
     color: Green
@@ -20,7 +20,7 @@
   pk: 3
   fields:
     name: DDP
-    synopsis: "By the People, For the People. [Transparency: Us]"
+    synopsis: "By the People, For the People [Transparency: Us]"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://igg.me/at/ddp
     color: BurlyWood
@@ -42,7 +42,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.constitutionparty.org
     color: DarkRed
-    fgcolor: LightGrey
+    fgcolor: White
 - model: primary.Candidate
   pk: 6
   fields:
@@ -92,11 +92,11 @@
   pk: 11
   fields:
     name: Tea
-    synopsis: Republican Schism.
+    synopsis: Republican Schism
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.teaparty.org
     color: Black
-    fgcolor: LightGrey
+    fgcolor: White
 - model: primary.Candidate
   pk: 12
   fields:

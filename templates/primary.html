@@ -7,22 +7,24 @@
 <div class="topdiv" style="padding-top:4px;">
   <p>Primary results are published on a live, as-recorded basis. {% if saved %}Thanks for voting!{% else %}<a href="/vote">Vote</a>{% endif %}</p>
 
-  <p>This is a pre-alpha sneak preview. Votes will determine initial ballot ordering on the next release. Please do not spam. If it appears like you spammed, your votes will count negatively instead of positively.</p>
+  <p>This is a pre-alpha sneak preview. Votes will determine initial ballot ordering on the next release. Please do not spam. If it appears like you spammed, your votes will be discounted manually. Alpha release will include reasonable spam-prevention - login will be required (fb, twitter, g+, lin, et al.)
 
-  <p>Vote counts will be fully reset each major release (alpha, beta, live). The new parties you see below were write-in entries on the last survey.</p>
+  <p>For fairness, vote counts will be fully reset each major release (alpha, beta, live). The new parties you see below were write-in entries on the last survey.</p>
 </div>
 
 <div class="topdiv">
   <table class="results">
-  {% for c in candidates %}
+  {% for r in ratings %}
     <tr>
       <td class="score">
-        <div style="width:200px; color:{{ c.fgcolor }}; background-color:{{ c.color }};">10%</div>
+        <div style="width:{{ r.display_width }}px; color:{{ r.candidate.fgcolor }}; background-color:{{ r.candidate.color }};">
+          {{ r.approval }}%
+        </div>
       </td>
       
       <td class="candidate">
-        <p>{{ c.name }} - {{ c.synopsis }}</p>
-        <a href="{{ c.link }}">homepage</a>
+        <p>{{ r.candidate.name }} - {{ r.candidate.synopsis }}</p>
+        <a href="{{ r.candidate.link }}" target="_blank">homepage</a>
       </td>
     </tr>
   {% endfor %} 

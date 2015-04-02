@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from datetime import datetime
 
-from primary.models import Candidate, Vote, Approval
+from primary.models import Candidate, Vote, Approval, Sums
 from models import Visit
 
 def sections():
@@ -56,9 +56,22 @@ def record_ratings(request):
     if total >= 15:
         map(lambda a: a.save(), approvals)
 
-def home(request):
-    record_visit(request, 'home')
-    return render(request, 'primary.html', dict(full_context(), saved=('saved' in request.GET)))
+def get_percentages():
+    ratings = Sums.objects.all()
+    total = sum(map(lambda r: r.approval, ratings))
+    for rating in ratings:
+        rating.approval = 100 * rating.approval / total
+
+        # arbitrary scaling factor and minimum width
+        setattr(rating, 'display_width', rating.approval * 20 + 40)
+
+    return ratings
+
+def primary(request):
+    record_visit(request, 'primary')
+    return render(request, 'primary.html', dict(full_context(),
+                                                ratings = get_percentages(),
+                                                saved = ('saved' in request.GET)))
 
 def vote(request):
     record_visit(request, 'vote')
