@@ -6,6 +6,7 @@
     logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
     link: http://www.lp.org
     color: GoldenRod
+    fgcolor: Black
 - model: primary.Candidate
   pk: 2
   fields:
@@ -14,6 +15,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.gp.org
     color: Green
+    fgcolor: Black
 - model: primary.Candidate
   pk: 3
   fields:
@@ -22,6 +24,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://igg.me/at/ddp
     color: BurlyWood
+    fgcolor: Black
 - model: primary.Candidate
   pk: 4
   fields:
@@ -30,6 +33,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.reformparty.org
     color: DarkSlateBlue
+    fgcolor: Black
 - model: primary.Candidate
   pk: 5
   fields:
@@ -38,6 +42,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.constitutionparty.org
     color: DarkRed
+    fgcolor: LightGrey
 - model: primary.Candidate
   pk: 6
   fields:
@@ -46,59 +51,94 @@
     logo: http://todoidentifyfounder.com
     link: http://www.occupywallst.org
     color: Silver
+    fgcolor: Black
 - model: primary.Candidate
   pk: 7
+  fields:
+    name: EFF
+    synopsis: Defending your Digital Rights
+    logo: http://todoidentifyfounder.com
+    link: http://www.eff.org
+    color: Magenta
+    fgcolor: Black
+- model: primary.Candidate
+  pk: 8
   fields:
     name: Fact-Checkers
     synopsis: Non-Partisan Accuracy Organization
     logo: http://todoidentifyfounder.com
     link: http://www.factcheck.org
     color: DarkTurquoise
+    fgcolor: Black
 - model: primary.Candidate
-  pk: 8
+  pk: 9
+  fields:
+    name: Socialist
+    synopsis: Right-to-Life benefits for all Citizens
+    logo: http://todoidentifyfounder.com
+    link: http://www.socialistparty-usa.org
+    color: YellowGreen
+    fgcolor: Black
+- model: primary.Candidate
+  pk: 10
   fields:
     name: Coffee
     synopsis: Democratic Schism
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.coffeepartyusa.com
     color: SaddleBrown
+    fgcolor: Black
 - model: primary.Candidate
-  pk: 9
+  pk: 11
   fields:
     name: Tea
     synopsis: Republican Schism.
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.teaparty.org
     color: Black
+    fgcolor: LightGrey
 - model: primary.Candidate
-  pk: 10
+  pk: 12
   fields:
     name: Technocracy
     synopsis: Informed on Technology and Science
     logo: http://todoidentifyfounder.com
     link: http://reddit.com/r/technocracy
     color: OrangeRed
+    fgcolor: Black
 - model: primary.Candidate
-  pk: 11
+  pk: 13
   fields:
     name: Transhumanism
     synopsis: Transform the Human Condition
     logo: http://todoidentifyfounder.com
     link: http://en.wikipedia.org/wiki/Transhumanism
     color: DarkOrchid
+    fgcolor: Black
 - model: primary.Candidate
-  pk: 12
+  pk: 14
+  fields:
+    name: Legalization
+    synopsis: End Prohibition
+    logo: http://todoidentifyfounder.com
+    link: http://en.wikipedia.org/wiki/Legalization
+    color: DarkGreen
+    fgcolor: Black
+- model: primary.Candidate
+  pk: 15
   fields:
     name: Democrat
     synopsis: Same Old "Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.democrats.org
     color: Blue
+    fgcolor: Black
 - model: primary.Candidate
-  pk: 13
+  pk: 16
   fields:
     name: Republican
     synopsis: Same Old "Not Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.gop.com
     color: Red
+    fgcolor: Black

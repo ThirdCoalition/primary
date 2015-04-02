@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="topdiv" style="padding-top:4px;">
+  <p>Next, assign an Approval Rating to one or more other parties on the scale [0,9].</p>
+  <p>0: Completely Dissaprove. 9: Fully Approve. Don't forget to <a href="javascript:void(0);" onclick="saveRange();">Save</a> when you're done.</p>
+</div>
+
+<div class="topdiv">
+  <form method="post" action="/saverange"> {% csrf_token %}
+    <table class="results">
+      <tr>
+        <td class="range">
+          <div style="background-color:{{ fav.color }};">
+            <p style="font-size:x-large; color:{{ fav.fgcolor }}; margin:4px;">10</p>
+            <input type="hidden" class="rangeValue" name="{{ fav.id }}" value=10 />
+          </div>
+        </td>
+      
+        <td class="candidate">
+          <p>{{ fav.name }} - {{ fav.synopsis }}</p>
+          <a href="{{ fav.link }}">homepage</a>
+        </td>
+      </tr>
+
+    {% for c in candidates %}
+      {% if c.id != fav.id %}
+        <tr>
+          <td class="range">
+            <div style="background-color:{{ c.color }};">
+              <input name="{{ c.id }}" value="0" maxlength="1" tabindex="{{ c.id }}" class="rangeValue"
+                     onclick="javascript: this.value=''"
+                     onblur="javascript: if (this.value=='') this.value='0'" />
+            </div>
+          </td>
+      
+          <td class="candidate">
+            <p>{{ c.name }} - {{ c.synopsis }}</p>
+            <a href="{{ c.link }}">homepage</a>
+          </td>
+        </tr>
+      {% endif %}
+    {% endfor %}
+
+    </table>
+  </form>
+</div>
+
+<div class="topdiv" style="padding-top:4px;">
+  <p>Don't forget to <a href="javascript:void(0);" onclick="saveRange()">Save</a></p>
+</div>
+
+{% endblock %}

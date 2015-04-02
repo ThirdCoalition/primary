@@ -4,6 +4,32 @@
   <head>
     <meta charset="utf-8">
     <title>Third Coalition</title>
+    <script type="text/javascript">
+      function saveRange() {
+        var inputs = document.querySelectorAll(".rangeValue");
+        var valid = true;
+        var total = 0;
+
+        for (var i=0; i<inputs.length; i++) {
+          var numeric = Number(inputs[i].value);
+          if (numeric >= 0 && numeric <= 10) {
+            total += numeric;
+          } else {
+            valid = false;
+            break;
+          }
+        }
+        
+        if (!valid) {
+          alert("You have entered an invalid entry. All values should be numeric in the range [0,9].");
+        } else if (total < 15) {
+          alert("You must assign at least 5 total approval points to affiliates.");
+        } else {
+          document.querySelector("form").submit();
+        }
+      }
+    </script>
+
     <style>
       .banner {
         height:60px;
@@ -21,11 +47,19 @@
       .navdiv {
         background-color:lightgreen;
         height:28px;
-        padding-top:4px;
+        padding:4px;
+        vertical-align:middle;
       }
       .navdiv a {
+        margin:2px 6px;
+        vertical-align:middle;
         font-size:large;
-        margin-left:6px; margin-right:6px;
+      }
+      .navdiv p {
+        display:inline-block;
+        margin:2px 6px;
+        font-size:large;
+        vertical-align:middle;
       }
       .results {
         width:100%;
@@ -34,7 +68,7 @@
       .score {
         font-size:xx-large;
         text-align:right;
-        width:50%;
+        width:40%;
         padding-right:8px;
       }
       .score div {
@@ -54,26 +88,53 @@
         font-size:large;
         margin:2px;
       }
+      .range {
+        width:30%;
+        text-align:right;
+      }
+      .range a {
+        font-size:xx-large;
+      }
+      .range div {
+        text-align:center;
+        vertical-align:middle;
+        width:40px;
+        height:34px;
+        padding:8px 4px 4px;
+        display:inline-block;
+      }
+      .range input {
+        width:30px;
+        border:1px;
+        border-radius:4px;
+        font-size:x-large;
+        text-align:center;
+        margin-bottom:2px;
+       
+      }
     </style>
   </head>
   <body>
     <div class="topdiv" style="height:80px; vertical-align:middle;">
       <img src="{% static 'banner.png' %}" alt="banner"
 	   class="banner" />
-      <p style="font-size:xx-large; display:inline-block">Third Coalition</p>
+      <p style="font-size:xx-large; display:inline-block;"><b>Third Coalition</b></p>
       <img src="{% static 'banner.png' %}" alt="banner"
 	   class="banner" />
     </div>
 
     <div class="topdiv navdiv" style="">
-      <a href="/">Primary</a>
-      <a href="help">Help Us</a>
-      <a href="about">About Us</a>
-      <a href="reform">Electoral Reform</a>
-      <a href="related">Related Organizations</a>
-      <a href="news">News</a>
-      <a href="blog">Blog</a>
-      <a href="contact">Contact Us</a>
+      {% for page in sections %}
+        {% if request.path == "/vote" and page.title == "Primary" %}
+          <a href="/">Primary</a><p>&raquo; Vote</p>
+        {% elif request.path == "/range" and page.title == "Primary" %}
+          <a href="/">Primary</a><p>&raquo; Range Approval</p>
+        {% elif request.path == page.location %}
+          <p>{{ page.title }}</p>
+        {% else %}
+          <a href="{{ page.location }}">{{ page.title }}</a>
+        {% endif %}
+      {% endfor %}
     </div>
 
     {% block content %}

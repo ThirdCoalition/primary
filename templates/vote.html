@@ -5,15 +5,17 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>First, select your favorite party</p>
+  <p>First, select your favorite party.</p>
 </div>
 
 <div class="topdiv">
   <table class="results">
   {% for c in candidates %}
     <tr>
-      <td class="score" style="width:40%">
-        <div style="width:40px; background-color:{{ c.color }};"><a href="#">[x]</a></div>
+      <td class="range">
+        <div style="background-color:{{ c.color }};">
+          <a href="/range?name={{ c.name }}">[x]</a>
+        </div>
       </td>
       
       <td class="candidate">
@@ -26,8 +28,7 @@
 </div>
 
 <div class="topdiv" style="padding-top:4px;">
-  <img src="{% static 'logins.png' %}" alt="Logins" />
-  <p style="display:inline; font-size:x-large;"> To <a href="vote">Vote</a>. [TODO: Authentication]</p>
+  <p style="display:inline; font-size:x-large;"> To <a href="/vote">Vote</a>. [TODO: Authentication]</p>
 </div>
 
 {% endblock %}
