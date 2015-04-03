@@ -7,6 +7,7 @@ class Candidate(models.Model):
     link = models.URLField()
     color = models.CharField(max_length=30)
     fgcolor = models.CharField(max_length=30)
+    shame = models.BooleanField(default=False)
 
 class Vote(models.Model):
     ip = models.GenericIPAddressField()

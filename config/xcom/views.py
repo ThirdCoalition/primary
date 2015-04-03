@@ -12,7 +12,7 @@ def sections():
             {'title': 'Electoral Reform', 'location': '/reform'},
             {'title': 'Related Organizations', 'location': '/related'},
             {'title': 'News', 'location': '/news'},
-            {'title': 'Blog', 'location': '/blog'},
+            {'title': 'Cartoons', 'location': '/blog'},
             {'title': 'Contact', 'location': '/contact'}]
 
 def full_context():
@@ -65,7 +65,7 @@ def get_percentages():
         # arbitrary scaling factor and minimum width
         setattr(rating, 'display_width', rating.approval * 20 + 40)
 
-    return ratings
+    return sorted(ratings, key=lambda rating: rating.candidate.shame, reverse=True)
 
 def primary(request):
     record_visit(request, 'primary')

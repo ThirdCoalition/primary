@@ -7,6 +7,7 @@
     link: http://www.lp.org
     color: GoldenRod
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 2
   fields:
@@ -16,6 +17,7 @@
     link: http://www.gp.org
     color: Green
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 3
   fields:
@@ -25,6 +27,7 @@
     link: http://igg.me/at/ddp
     color: BurlyWood
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 4
   fields:
@@ -34,6 +37,7 @@
     link: http://www.reformparty.org
     color: DarkSlateBlue
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 5
   fields:
@@ -43,6 +47,7 @@
     link: http://www.constitutionparty.org
     color: DarkRed
     fgcolor: White
+    shame: false
 - model: primary.Candidate
   pk: 6
   fields:
@@ -52,6 +57,7 @@
     link: http://www.occupywallst.org
     color: Silver
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 7
   fields:
@@ -61,6 +67,7 @@
     link: http://www.eff.org
     color: Magenta
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 8
   fields:
@@ -70,6 +77,7 @@
     link: http://www.factcheck.org
     color: DarkTurquoise
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 9
   fields:
@@ -79,6 +87,7 @@
     link: http://www.socialistparty-usa.org
     color: YellowGreen
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 10
   fields:
@@ -88,6 +97,7 @@
     link: http://www.coffeepartyusa.com
     color: SaddleBrown
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 11
   fields:
@@ -97,6 +107,7 @@
     link: http://www.teaparty.org
     color: Black
     fgcolor: White
+    shame: false
 - model: primary.Candidate
   pk: 12
   fields:
@@ -106,6 +117,7 @@
     link: http://reddit.com/r/technocracy
     color: OrangeRed
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 13
   fields:
@@ -115,6 +127,7 @@
     link: http://en.wikipedia.org/wiki/Transhumanism
     color: DarkOrchid
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 14
   fields:
@@ -124,6 +137,7 @@
     link: http://en.wikipedia.org/wiki/Legalization
     color: DarkGreen
     fgcolor: Black
+    shame: false
 - model: primary.Candidate
   pk: 15
   fields:
@@ -133,6 +147,7 @@
     link: http://www.democrats.org
     color: Blue
     fgcolor: Black
+    shame: true
 - model: primary.Candidate
   pk: 16
   fields:
@@ -142,3 +157,4 @@
     link: http://www.gop.com
     color: Red
     fgcolor: Black
+    shame: true
