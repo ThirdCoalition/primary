@@ -1,2 +1,14 @@
-# primary
-Will serve the True Primary application and probably the ThirdCoalition home page.
+# How to run your own primary
+
+This code has been set-up for and tested on the Heroku platform.
+We recommmend you stick to Heroku cause it's awesome.
+
+1. Customize primary/fixtures/
+
+2. python manage.py migrate
+
+3. python manage.py loaddata primary/fixtures/your_data.yaml
+
+4. python manage.py initial_vote
+
+5. Enjoy!
