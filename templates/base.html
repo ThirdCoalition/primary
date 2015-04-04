@@ -132,7 +132,7 @@
         {% elif request.path == "/range" and page.title == "Primary" %}
           <a href="/">Primary</a><p>&raquo; Range Approval</p>
         {% elif request.path == page.location %}
-          <p>{{ page.title }}</p>
+          <p><b>{{ page.title }}</b></p>
         {% else %}
           <a href="{{ page.location }}">{{ page.title }}</a>
         {% endif %}

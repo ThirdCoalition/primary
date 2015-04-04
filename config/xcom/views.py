@@ -13,7 +13,13 @@ def sections():
             {'title': 'Related Organizations', 'location': '/related'},
             {'title': 'News', 'location': '/news'},
             {'title': 'Cartoons', 'location': '/blog'},
+            {'title': 'Almanac', 'location': '/almanac'},
             {'title': 'Contact', 'location': '/contact'}]
+
+def almanacs():
+    return [(dict(title="Foundations", location="foundations"),
+             dict(title="The Way Back (wikis)", location="wayback"),
+             dict(title="There and Back", location="thereandback"),
 
 def full_context():
     return {'sections': sections(), 'candidates': Candidate.objects.all()}
@@ -110,6 +116,10 @@ def freechange(request):
 def news(request):
     record_visit(request, 'news')
     return render(request, 'news.html', full_context())
+
+def almanac(request):
+    record_visit(request, 'almanac')
+    return render(request, 'almanac.html', dict(full_context(), almanacs=))
 
 def blog(request):
     record_visit(request, 'blog')
