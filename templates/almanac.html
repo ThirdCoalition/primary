@@ -4,143 +4,144 @@
 
 {% block content %}
 
-<div class="topdiv navdiv">
-  <p><b>Almanac &raquo;</b></p>
-  {% for section in almanacs %}
-    <a href="#{{ section.location }}">{{ section.title }}</a>
-  {% endfor %}
+{% for row in almanacs %}
+<div class="topdiv navdiv" style="background-color:#FF9900;">
+    {% for section in row %}
+      <a href="#{{ section.location }}">{{ section.title }}</a>
+    {% endfor %}
 </div>
+{% endfor %}
 
 <div class="topdiv" style="padding-top:4px;">
   <div class="topdiv category">
     <a name="foundations"></a>
     <p><b>Foundations</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0307593967/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307593967&linkCode=as2&tag=endersvote-20&linkId=XJB2763CCHA7XCKU">Foundation Trilogy</a> - A Theory of Everything</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0307593967/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307593967&linkCode=as2&tag=endersvote-20&linkId=XJB2763CCHA7XCKU">Foundation Trilogy</a> - A Theory of Everything</p>
 
-    <p><a href="http://www.amazon.com/gp/product/145165443X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=145165443X&linkCode=as2&tag=endersvote-20&linkId=CNAI3RFYSK3M4WLQ">Smartest Kids in the World</a> - An absolute must read</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/145165443X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=145165443X&linkCode=as2&tag=endersvote-20&linkId=CNAI3RFYSK3M4WLQ">Smartest Kids in the World</a> - An absolute must read</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0451524934/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0451524934&linkCode=as2&tag=endersvote-20&linkId=4MDSQZOSH7HZD7HD">1984</a> - Dangers of the Two-Party System</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0451524934/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0451524934&linkCode=as2&tag=endersvote-20&linkId=4MDSQZOSH7HZD7HD">1984</a> - Dangers of the Two-Party System</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0060850523/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060850523&linkCode=as2&tag=endersvote-20&linkId=QFO5SCNFEBTNM535">Brave New World</a> - Truly Profound</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0060850523/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0060850523&linkCode=as2&tag=endersvote-20&linkId=QFO5SCNFEBTNM535">Brave New World</a> - Truly Profound</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553208845/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553208845&linkCode=as2&tag=endersvote-20&linkId=HABPPG3CCGRC6RIP">Siddhartha</a> - On the path to Enlightenment</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553208845/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553208845&linkCode=as2&tag=endersvote-20&linkId=HABPPG3CCGRC6RIP">Siddhartha</a> - On the path to Enlightenment</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0143037889/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0143037889&linkCode=as2&tag=endersvote-20&linkId=MDNIHNLJACH2KWKO">The Singularity is Near</a> or the shorter <a href="http://www.amazon.com/gp/product/1936661659/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1936661659&linkCode=as2&tag=endersvote-20&linkId=G3UXWZZ7XWOAYO2A">Singularity Rising</a> - Must read one</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0143037889/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0143037889&linkCode=as2&tag=endersvote-20&linkId=MDNIHNLJACH2KWKO">The Singularity is Near</a> or the shorter <a target="_blank" href="http://www.amazon.com/gp/product/1936661659/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1936661659&linkCode=as2&tag=endersvote-20&linkId=G3UXWZZ7XWOAYO2A">Singularity Rising</a> - Must read one</p>
   </div>
 
   <div class="topdiv category">
     <a name="wayback"></a>
     <p><b>The Way Back (wiki reading)</b></p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Ouroboros">Ouroboros</a> - An ancient meme related to the <a href="http://en.wikipedia.org/wiki/Phoenix_(mythology)">Phoenix</a></p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Ouroboros">Ouroboros</a> - An ancient meme related to the <a target="_blank" href="http://en.wikipedia.org/wiki/Phoenix_(mythology)">Phoenix</a></p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Pandora%27s_box">Pandora's Box</a> - The Tree of Knowledge?</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Pandora%27s_box">Pandora's Box</a> - The Tree of Knowledge?</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Tower_of_Babel">Tower of Babel</a> - Disconnect Theory?</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Tower_of_Babel">Tower of Babel</a> - Disconnect Theory?</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Sisyphus">Sisyphus</a> - On the importance of hard work</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Sisyphus">Sisyphus</a> - On the importance of hard work</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Book_of_Revelation">Book of Revelations</a> - Enlightenment</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Book_of_Revelation">Book of Revelations</a> - Enlightenment</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Etymologiae">Etymologiae (what's in a name?)</a> - Patron saint of CS</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Etymologiae">Etymologiae (what's in a name?)</a> - Patron saint of CS</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Algorithm">Algorithms</a> (thanks al-Kwharizmi!)</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Algorithm">Algorithms</a> (thanks al-Kwharizmi!)</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/The_Renaissance">The Renaissance</a> - The Technological Renaissance has already begun?</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/The_Renaissance">The Renaissance</a> - The Technological Renaissance has already begun?</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Great_Awakening">Great Awakening</a> (of society? our collective conscious?)</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Great_Awakening">Great Awakening</a> (of society? our collective conscious?)</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Convergent_evolution">Convergent Evolution</a> - Great minds think alike.</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Convergent_evolution">Convergent Evolution</a> - Great minds think alike.</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Resonance">Resonance</a> - Self-Amplification (a T.O.E.?)</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Resonance">Resonance</a> - Self-Amplification (a T.O.E.?)</p>
 
-    <p><a href="http://en.wikipedia.org/wiki/Transcendence">Transcendence</a> - On the path to Enlightenment</p>
+    <p><a target="_blank" href="http://en.wikipedia.org/wiki/Transcendence">Transcendence</a> - On the path to Enlightenment</p>
   </div>
 
   <div class="topdiv category">
     <a name="thereandback"></a>
     <p><b>There and Back Again</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/1505573947/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1505573947&linkCode=as2&tag=endersvote-20&linkId=MNS7ECYAJHBL7MYP">Journey to the Center of the Earth</a></p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1505573947/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1505573947&linkCode=as2&tag=endersvote-20&linkId=MNS7ECYAJHBL7MYP">Journey to the Center of the Earth</a></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0062315005/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062315005&linkCode=as2&tag=endersvote-20&linkId=GS4GQFVVHSI7EVCR">Alchemist</a> - The moving, powerful journey of a lone shepherd</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0062315005/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062315005&linkCode=as2&tag=endersvote-20&linkId=GS4GQFVVHSI7EVCR">Alchemist</a> - The moving, powerful journey of a lone shepherd</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000JCSPG0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000JCSPG0&linkCode=as2&tag=endersvote-20&linkId=JYJDBLOIDUKVZK75">Stargate</a> - On the Importance of Portal</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000JCSPG0/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000JCSPG0&linkCode=as2&tag=endersvote-20&linkId=JYJDBLOIDUKVZK75">Stargate</a> - On the Importance of Portal</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000FC11A6/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000FC11A6&linkCode=as2&tag=endersvote-20&linkId=FZR3WZYVCEIFOU2U">Cryptonomicon</a> - The inspiration for BitCoin?</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000FC11A6/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000FC11A6&linkCode=as2&tag=endersvote-20&linkId=FZR3WZYVCEIFOU2U">Cryptonomicon</a> - The inspiration for BitCoin?</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000S6BKSC/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000S6BKSC&linkCode=as2&tag=endersvote-20&linkId=YSXFWPORO6BS6XUH">Fifth Element</a> - At the intersection of Old & New (aka The Middle)</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000S6BKSC/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000S6BKSC&linkCode=as2&tag=endersvote-20&linkId=YSXFWPORO6BS6XUH">Fifth Element</a> - At the intersection of Old & New (aka The Middle)</p>
   </div>
 
   <div class="topdiv category">
     <a name="infrastructure"></a>
     <p><b>Galactic Infrastructure</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/076534825X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=076534825X&linkCode=as2&tag=endersvote-20&linkId=DJ6T62ERFPGX3DLH">Spin</a> / <a href="http://www.amazon.com/gp/product/0765348268/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765348268&linkCode=as2&tag=endersvote-20&linkId=VWY6FDPEECMAIKDA">Axis</a> / <a href="http://www.amazon.com/gp/product/0765363208/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765363208&linkCode=as2&tag=endersvote-20&linkId=ZKAM6I4TSLVJHKCF">Vortex</a> - Must Read</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/076534825X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=076534825X&linkCode=as2&tag=endersvote-20&linkId=DJ6T62ERFPGX3DLH">Spin</a> / <a target="_blank" href="http://www.amazon.com/gp/product/0765348268/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765348268&linkCode=as2&tag=endersvote-20&linkId=VWY6FDPEECMAIKDA">Axis</a> / <a target="_blank" href="http://www.amazon.com/gp/product/0765363208/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765363208&linkCode=as2&tag=endersvote-20&linkId=ZKAM6I4TSLVJHKCF">Vortex</a> - Must Read</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1597800449/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1597800449&linkCode=as2&tag=endersvote-20&linkId=H6GV4WMOALXXJYMS">Algebraist</a> - How to become a Seer / Disconnect Theory</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1597800449/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1597800449&linkCode=as2&tag=endersvote-20&linkId=H6GV4WMOALXXJYMS">Algebraist</a> - How to become a Seer / Disconnect Theory</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0345333926/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345333926&linkCode=as2&tag=endersvote-20&linkId=PLPCS54KWCSUS2F5">Ringworld</a> - Dyson Structure / Disconnect Theory</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0345333926/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345333926&linkCode=as2&tag=endersvote-20&linkId=PLPCS54KWCSUS2F5">Ringworld</a> - Dyson Structure / Disconnect Theory</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0061054887/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0061054887&linkCode=as2&tag=endersvote-20&linkId=5TFE3QM2RPAZGGIU">The Dispossessed</a> - TPS & Disconnect Theory</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0061054887/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0061054887&linkCode=as2&tag=endersvote-20&linkId=5TFE3QM2RPAZGGIU">The Dispossessed</a> - TPS & Disconnect Theory</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0441007317/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0441007317&linkCode=as2&tag=endersvote-20&linkId=7AFZ27EJXIAB4POK">Left Hand of Darkness</a> - Evolution</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0441007317/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0441007317&linkCode=as2&tag=endersvote-20&linkId=7AFZ27EJXIAB4POK">Left Hand of Darkness</a> - Evolution</p>
   </div>
 
   <div class="topdiv category">
     <a name="memory"></a>
     <p><b>On the Nature of Memory</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/B004YRSBTW/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004YRSBTW&linkCode=as2&tag=endersvote-20&linkId=KKX5XZA7462VKHGI">Memento</a> - Memory Hacking</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B004YRSBTW/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004YRSBTW&linkCode=as2&tag=endersvote-20&linkId=KKX5XZA7462VKHGI">Memento</a> - Memory Hacking</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0062060562/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062060562&linkCode=as2&tag=endersvote-20&linkId=3HNB3Q3WGDRJQKVZ">Before I go to Sleep</a> - Memory Hacking / Manipulation</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0062060562/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0062060562&linkCode=as2&tag=endersvote-20&linkId=3HNB3Q3WGDRJQKVZ">Before I go to Sleep</a> - Memory Hacking / Manipulation</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0385333498/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0385333498&linkCode=as2&tag=endersvote-20&linkId=WZ2WG7Q66IBVIQHR">Slaughterhouse 5</a> - The Ol' Switcheroo</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0385333498/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0385333498&linkCode=as2&tag=endersvote-20&linkId=WZ2WG7Q66IBVIQHR">Slaughterhouse 5</a> - The Ol' Switcheroo</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0345404475/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345404475&linkCode=as2&tag=endersvote-20&linkId=KFVMOB76VO7IS3W3">Do Androids Dream of Electric Sheep?</a> - Blade Runner Inspiration</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0345404475/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0345404475&linkCode=as2&tag=endersvote-20&linkId=KFVMOB76VO7IS3W3">Do Androids Dream of Electric Sheep?</a> - Blade Runner Inspiration</p>
 
-    <p><a href="http://www.amazon.com/gp/product/157863461X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=157863461X&linkCode=as2&tag=endersvote-20&linkId=BFC5CJXDT5C3ECNP">Secret History of Consciousness</a></p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/157863461X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=157863461X&linkCode=as2&tag=endersvote-20&linkId=BFC5CJXDT5C3ECNP">Secret History of Consciousness</a></p>
 
-    <p><a href="http://www.amazon.com/gp/product/1401943772/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1401943772&linkCode=as2&tag=endersvote-20&linkId=FM3AOS4XV34V5YWY">One Mind - Part of a Greater Consciousness and why it matters</a></p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1401943772/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1401943772&linkCode=as2&tag=endersvote-20&linkId=FM3AOS4XV34V5YWY">One Mind - Part of a Greater Consciousness and why it matters</a></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0691018332/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0691018332&linkCode=as2&tag=endersvote-20&linkId=QXWY7ZYOR3QUDHSQ">Arch-Types and the Collective Unconscious</a> - In contrast to the above</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0691018332/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0691018332&linkCode=as2&tag=endersvote-20&linkId=QXWY7ZYOR3QUDHSQ">Arch-Types and the Collective Unconscious</a> - In contrast to the above</p>
   </div>
 
   <div class="topdiv category">
     <a name="empire"></a>
     <p><b>Empire Building</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0609809644/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0609809644&linkCode=as2&tag=endersvote-20&linkId=4FA2NJQYHX2SAUTL">Genghis Khan and the making of the modern world</a> - On the Power of Benevolent Empire</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0609809644/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0609809644&linkCode=as2&tag=endersvote-20&linkId=4FA2NJQYHX2SAUTL">Genghis Khan and the making of the modern world</a> - On the Power of Benevolent Empire</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0452287081/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0452287081&linkCode=as2&tag=endersvote-20&linkId=OC6JEUYIHJCJU2P4">Confessions of an Economic Hit-Man</a> - Non-Violent Imperialism</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0452287081/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0452287081&linkCode=as2&tag=endersvote-20&linkId=OC6JEUYIHJCJU2P4">Confessions of an Economic Hit-Man</a> - Non-Violent Imperialism</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0786918071/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0786918071&linkCode=as2&tag=endersvote-20&linkId=ECXMVZID4BBOPDSI">Dragonlance (War of Souls)</a> - Fantasy Epic - Birth of an Empire</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0786918071/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0786918071&linkCode=as2&tag=endersvote-20&linkId=ECXMVZID4BBOPDSI">Dragonlance (War of Souls)</a> - Fantasy Epic - Birth of an Empire</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1846072840/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1846072840&linkCode=as2&tag=endersvote-20&linkId=GJG6T6GWMQIUFGEU">Rome: Rise and Fall of an Empire</a> - The old Arch-Type for Empire Building</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1846072840/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1846072840&linkCode=as2&tag=endersvote-20&linkId=GJG6T6GWMQIUFGEU">Rome: Rise and Fall of an Empire</a> - The old Arch-Type for Empire Building</p>
   </div>
 
   <div class="topdiv category">
     <a name="disobedience"></a>
-    <p><b>On Disobedience and breaking the Meld</b></p>
+    <p><b>On the Importance of Disobedience</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/B001H1SVO8/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001H1SVO8&linkCode=as2&tag=endersvote-20&linkId=XYUP3YREG2WSTS5P">Fight Club</a> - Anarchist Philosophy</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B001H1SVO8/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001H1SVO8&linkCode=as2&tag=endersvote-20&linkId=XYUP3YREG2WSTS5P">Fight Club</a> - Anarchist Philosophy - Jubilee Theory</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B00L6AW1D2/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00L6AW1D2&linkCode=as2&tag=endersvote-20&linkId=UJ3KAFZ6PL2OH5NN">Spartacus</a> - Today's Lannisters are less obvious</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B00L6AW1D2/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00L6AW1D2&linkCode=as2&tag=endersvote-20&linkId=UJ3KAFZ6PL2OH5NN">Spartacus</a> - Today's Lannisters are less obvious</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0812550706/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0812550706&linkCode=as2&tag=endersvote-20&linkId=U6T6JFBIJ6S7CMNU">Ender's Game</a> - At the intersection of Hate and Love</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0812550706/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0812550706&linkCode=as2&tag=endersvote-20&linkId=U6T6JFBIJ6S7CMNU">Ender's Game</a> - At the intersection of Hate and Love</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0312890176/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0312890176&linkCode=as2&tag=endersvote-20&linkId=NHTBHF7VNWZ6XM6N">Book of the New Sun</a> / <a href="http://www.amazon.com/gp/product/0312890184/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0312890184&linkCode=as2&tag=endersvote-20&linkId=MAFKGN6YQB5DFD3T">Part 2</a> - SciFi Epic on Arch-Types</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0312890176/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0312890176&linkCode=as2&tag=endersvote-20&linkId=NHTBHF7VNWZ6XM6N">Book of the New Sun</a> / <a target="_blank" href="http://www.amazon.com/gp/product/0312890184/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0312890184&linkCode=as2&tag=endersvote-20&linkId=MAFKGN6YQB5DFD3T">Part 2</a> - SciFi Epic on Arch-Types</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B002ZBPPHA/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B002ZBPPHA&linkCode=as2&tag=endersvote-20&linkId=FZHAJRGSRCN4T7GW">I am Legend</a> - Never give up. Never surrender. I've heard great things about the <a href="http://www.amazon.com/gp/product/0765357151/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765357151&linkCode=as2&tag=endersvote-20&linkId=IJAJKZO4E4GHIXJX">book</a></p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B002ZBPPHA/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B002ZBPPHA&linkCode=as2&tag=endersvote-20&linkId=FZHAJRGSRCN4T7GW">I am Legend</a> - Never give up. Never surrender. I've heard great things about the <a target="_blank" href="http://www.amazon.com/gp/product/0765357151/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765357151&linkCode=as2&tag=endersvote-20&linkId=IJAJKZO4E4GHIXJX">book</a></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0544336267/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0544336267&linkCode=as2&tag=endersvote-20&linkId=OL4IU64T6OIHYQ5F">The Giver</a> - New Colors</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0544336267/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0544336267&linkCode=as2&tag=endersvote-20&linkId=OL4IU64T6OIHYQ5F">The Giver</a> - New Colors</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000SW16NU/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000SW16NU&linkCode=as2&tag=endersvote-20&linkId=KE7AFASSLWDKKAZJ">Kingdom of Heaven</a> - Pay attention to Edward Norton</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000SW16NU/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000SW16NU&linkCode=as2&tag=endersvote-20&linkId=KE7AFASSLWDKKAZJ">Kingdom of Heaven</a> - Pay attention to Edward Norton</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000I9YWDO/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000I9YWDO&linkCode=as2&tag=endersvote-20&linkId=R3ETG3BWPUGBJLIT">Office Space</a> - Money is not the end-all be-all</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000I9YWDO/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000I9YWDO&linkCode=as2&tag=endersvote-20&linkId=R3ETG3BWPUGBJLIT">Office Space</a> - Money is not the end-all be-all</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0451526341/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0451526341&linkCode=as2&tag=endersvote-20&linkId=7DVDRQHGHL4572SE">Animal Farm</a> - How to manipulate and farm</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0451526341/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0451526341&linkCode=as2&tag=endersvote-20&linkId=7DVDRQHGHL4572SE">Animal Farm</a> - How to manipulate and farm</p>
   </div>
 
 
@@ -148,15 +149,15 @@
     <a name="meme"></a>
     <p><b>Meme Theory</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553380958/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553380958&linkCode=as2&tag=endersvote-20&linkId=OBOUMIARO4IM7QVL">Snow Crash</a> - Sumeria FTW</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553380958/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553380958&linkCode=as2&tag=endersvote-20&linkId=OBOUMIARO4IM7QVL">Snow Crash</a> - Sumeria FTW</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0765342626/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765342626&linkCode=as2&tag=endersvote-20&linkId=V6APDOGFO2WXHIF3">Existence</a> - A Galactic Meme</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0765342626/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0765342626&linkCode=as2&tag=endersvote-20&linkId=V6APDOGFO2WXHIF3">Existence</a> - A Galactic Meme</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553287893/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553287893&linkCode=as2&tag=endersvote-20&linkId=NBIIMIKOFR3LFPQC">Rendevous with Rama</a> - Stellar Seed Theory</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553287893/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553287893&linkCode=as2&tag=endersvote-20&linkId=NBIIMIKOFR3LFPQC">Rendevous with Rama</a> - Stellar Seed Theory</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000IZXRGQ/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000IZXRGQ&linkCode=as2&tag=endersvote-20&linkId=GI6TQK5KSYOE2KQQ">Future World</a> - How to be a Leader</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000IZXRGQ/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000IZXRGQ&linkCode=as2&tag=endersvote-20&linkId=GI6TQK5KSYOE2KQQ">Future World</a> - How to be a Leader</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0547572298/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0547572298&linkCode=as2&tag=endersvote-20&linkId=MACYBAOPLVEMB6WZ">Ubik</a> - Surviving Purgatory</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0547572298/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0547572298&linkCode=as2&tag=endersvote-20&linkId=MACYBAOPLVEMB6WZ">Ubik</a> - Surviving Purgatory</p>
   </div>
 
 
@@ -164,171 +165,171 @@
     <a name="signs"></a>
     <p><b>Signs and Semiotics</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/B004NDDD04/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004NDDD04&linkCode=as2&tag=endersvote-20&linkId=FQA5AZFTGZDPAJ57">Signs</a> - On the Importance of Serendipity</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B004NDDD04/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B004NDDD04&linkCode=as2&tag=endersvote-20&linkId=FQA5AZFTGZDPAJ57">Signs</a> - On the Importance of Serendipity</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B008234K3U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B008234K3U&linkCode=as2&tag=endersvote-20&linkId=AAJJPRP6BDYHIAS2">Jeff Who Lives at Home</a> - Listen to the Universe</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B008234K3U/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B008234K3U&linkCode=as2&tag=endersvote-20&linkId=AAJJPRP6BDYHIAS2">Jeff Who Lives at Home</a> - Listen to the Universe</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0307744574/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307744574&linkCode=as2&tag=endersvote-20&linkId=MU3KNVH7SCWJRVSC">Aleph</a> - That Moment When..</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0307744574/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307744574&linkCode=as2&tag=endersvote-20&linkId=MU3KNVH7SCWJRVSC">Aleph</a> - That Moment When..</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0307474275/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307474275&linkCode=as2&tag=endersvote-20&linkId=WHCJPOHK3TZ2A4L4">Da Vinci Code</a> - Semiotics Intro</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0307474275/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307474275&linkCode=as2&tag=endersvote-20&linkId=WHCJPOHK3TZ2A4L4">Da Vinci Code</a> - Semiotics Intro</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1495423646/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1495423646&linkCode=as2&tag=endersvote-20&linkId=QWVPE6L2CACQIMEJ">Illuminati</a> - Semiotics Follow-Up</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1495423646/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1495423646&linkCode=as2&tag=endersvote-20&linkId=QWVPE6L2CACQIMEJ">Illuminati</a> - Semiotics Follow-Up</p>
   </div>
 
   <div class="topdiv category">
     <a name="ouroboros"></a>
     <p><b>Our-O-Boros</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/B00APQH7O6/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00APQH7O6&linkCode=as2&tag=endersvote-20&linkId=VWCLX7CDFJLNL2KC">Primer</a> - On the Importance of a Fail-Safe</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B00APQH7O6/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00APQH7O6&linkCode=as2&tag=endersvote-20&linkId=VWCLX7CDFJLNL2KC">Primer</a> - On the Importance of a Fail-Safe</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000ICXQF6/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000ICXQF6&linkCode=as2&tag=endersvote-20&linkId=RA6KCWGZDCNXTHGW">12 Monkeys</a> - Time Travel without One?</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000ICXQF6/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000ICXQF6&linkCode=as2&tag=endersvote-20&linkId=RA6KCWGZDCNXTHGW">12 Monkeys</a> - Time Travel without One?</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B001DM1VXE/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001DM1VXE&linkCode=as2&tag=endersvote-20&linkId=ITLBCDCRWAKTNX6Y">Pi</a> - A singular devotion</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B001DM1VXE/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B001DM1VXE&linkCode=as2&tag=endersvote-20&linkId=ITLBCDCRWAKTNX6Y">Pi</a> - A singular devotion</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0156027321/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0156027321&linkCode=as2&tag=endersvote-20&linkId=RTQZOJNKGNEWTJWX">Life of Pi</a> - A wandering devotion</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0156027321/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0156027321&linkCode=as2&tag=endersvote-20&linkId=RTQZOJNKGNEWTJWX">Life of Pi</a> - A wandering devotion</p>
   </div>
 
   <div class="topdiv category">
     <a name="labyrinths"></a>
     <p><b>Labyrinths</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0547773749/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0547773749&linkCode=as2&tag=endersvote-20&linkId=IPCBEL2BOI3YM436">A Wizard of Earthsea</a>, <a href="http://www.amazon.com/gp/product/0689845367/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0689845367&linkCode=as2&tag=endersvote-20&linkId=JSCHSXA6F54VDM74">Tombs of Atuan</a> - Don't Get Lost</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0547773749/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0547773749&linkCode=as2&tag=endersvote-20&linkId=IPCBEL2BOI3YM436">A Wizard of Earthsea</a>, <a target="_blank" href="http://www.amazon.com/gp/product/0689845367/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0689845367&linkCode=as2&tag=endersvote-20&linkId=JSCHSXA6F54VDM74">Tombs of Atuan</a> - Don't Get Lost</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0375703764/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0375703764&linkCode=as2&tag=endersvote-20&linkId=TBXMYU66OSHQA6AJ">House of Leaves</a> - Get Lost</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0375703764/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0375703764&linkCode=as2&tag=endersvote-20&linkId=TBXMYU66OSHQA6AJ">House of Leaves</a> - Get Lost</p>
   </div>
 
   <div class="topdiv category">
     <a name="guides"></a>
     <p><b>Labyrinth Guides</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0307887448/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307887448&linkCode=as2&tag=endersvote-20&linkId=OD36M7UNP5JZAVE">Ready Player One</a> - More Almanacs Inc.</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0307887448/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307887448&linkCode=as2&tag=endersvote-20&linkId=OD36M7UNP5JZAVE">Ready Player One</a> - More Almanacs Inc.</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553290991/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553290991&linkCode=as2&tag=endersvote-20&linkId=PZUKYFOSRTIUJZK5">Nightfall</a> - On the Importance of Patterns</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553290991/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553290991&linkCode=as2&tag=endersvote-20&linkId=PZUKYFOSRTIUJZK5">Nightfall</a> - On the Importance of Patterns</p>
 
-    <p><a href="http://www.amazon.com/gp/product/038533348X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=038533348X&linkCode=as2&tag=endersvote-20&linkId=UGHK25E2YTDP6KLE">Sirens of Titan</a> - Go with the Flow</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/038533348X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=038533348X&linkCode=as2&tag=endersvote-20&linkId=UGHK25E2YTDP6KLE">Sirens of Titan</a> - Go with the Flow</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553213458/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553213458&linkCode=as2&tag=endersvote-20&linkId=KDFDTEOI2E2BQFR7">Through the Looking Glass</a> - Broken Shards</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553213458/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553213458&linkCode=as2&tag=endersvote-20&linkId=KDFDTEOI2E2BQFR7">Through the Looking Glass</a> - Broken Shards</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0307887898/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307887898&linkCode=as2&tag=endersvote-20&linkId=RO3NYHOUWCMOEGAK">Lean Startup</a> - A Guide for Entrepreneurs</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0307887898/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0307887898&linkCode=as2&tag=endersvote-20&linkId=RO3NYHOUWCMOEGAK">Lean Startup</a> - A Guide for Entrepreneurs</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0441569595/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0441569595&linkCode=as2&tag=endersvote-20&linkId=A5O6PNCPP6EH74AH">Neuromancer</a> - A Guide for the Internet</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0441569595/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0441569595&linkCode=as2&tag=endersvote-20&linkId=A5O6PNCPP6EH74AH">Neuromancer</a> - A Guide for the Internet</p>
 
-    <p><a href="http://www.amazon.com/gp/product/080214442X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=080214442X&linkCode=as2&tag=endersvote-20&linkId=PPZBV42PDGMHV264">Waiting for Godot</a> - Who is Godot?</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/080214442X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=080214442X&linkCode=as2&tag=endersvote-20&linkId=PPZBV42PDGMHV264">Waiting for Godot</a> - Who is Godot?</p>
   </div>
 
   <div class="topdiv category">
     <a name="pitfalls"></a>
     <p><b>Common Pitfalls</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/B0036EH3U2/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0036EH3U2&linkCode=as2&tag=endersvote-20&linkId=2PIDBVL6SUVU5P25">Battlestar Galactica</a> - The A.I. Wars</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B0036EH3U2/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B0036EH3U2&linkCode=as2&tag=endersvote-20&linkId=2PIDBVL6SUVU5P25">Battlestar Galactica</a> - The A.I. Wars</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B00A2FSXHK/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A2FSXHK&linkCode=as2&tag=endersvote-20&linkId=LTF65PXECTZF7WLW">Minority Report</a> - How to predict the future Irresponsibly</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B00A2FSXHK/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00A2FSXHK&linkCode=as2&tag=endersvote-20&linkId=LTF65PXECTZF7WLW">Minority Report</a> - How to predict the future Irresponsibly</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0440180295/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0440180295&linkCode=as2&tag=endersvote-20&linkId=NRXW4XEY2TSDXCKH">Cat's Cradle</a> - A Grey Goo Dystopic</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0440180295/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0440180295&linkCode=as2&tag=endersvote-20&linkId=NRXW4XEY2TSDXCKH">Cat's Cradle</a> - A Grey Goo Dystopic</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0679725164/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0679725164&linkCode=as2&tag=endersvote-20&linkId=6PRZXIP6OELWT7CC">No Exit</a> - How to get stuck</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0679725164/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0679725164&linkCode=as2&tag=endersvote-20&linkId=6PRZXIP6OELWT7CC">No Exit</a> - How to get stuck</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1451673310/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1451673310&linkCode=as2&tag=endersvote-20&linkId=ZM6KHZ2SREFVFHO6">Farenheit 451</a> - How to devolve society</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1451673310/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1451673310&linkCode=as2&tag=endersvote-20&linkId=ZM6KHZ2SREFVFHO6">Farenheit 451</a> - How to devolve society</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000NIF51S/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000NIF51S&linkCode=as2&tag=endersvote-20&linkId=JU2SPWM46AMI7LHF">Paycheck</a> - How to love life as a COG</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000NIF51S/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000NIF51S&linkCode=as2&tag=endersvote-20&linkId=JU2SPWM46AMI7LHF">Paycheck</a> - How to love life as a COG</p>
   </div>
 
   <div class="topdiv category">
     <a name="compendiums"></a>
     <p><b>Guided Compendiums</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0679433139/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0679433139&linkCode=as2&tag=endersvote-20&linkId=L7MZUI5YRHGDKGKO">The Divine Comedy</a> - How to Escape Hell</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0679433139/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0679433139&linkCode=as2&tag=endersvote-20&linkId=L7MZUI5YRHGDKGKO">The Divine Comedy</a> - How to Escape Hell</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0140424385/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0140424385&linkCode=as2&tag=endersvote-20&linkId=GAFGOACU2636IDMF">Canterbury Tales</a> - How to Trigger a Renaissance</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0140424385/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0140424385&linkCode=as2&tag=endersvote-20&linkId=GAFGOACU2636IDMF">Canterbury Tales</a> - How to Trigger a Renaissance</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553283685/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553283685&linkCode=as2&tag=endersvote-20&linkId=COJCO5N74GQYDRKG">Hyperion</a> - Today's Canterbury Tails</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553283685/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553283685&linkCode=as2&tag=endersvote-20&linkId=COJCO5N74GQYDRKG">Hyperion</a> - Tomorrow's Canterbury Tails</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0375507256/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0375507256&linkCode=as2&tag=endersvote-20&linkId=5HYCTAZCYDBHVJ23">Cloud Atlas</a> - How to Transcend Time</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0375507256/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0375507256&linkCode=as2&tag=endersvote-20&linkId=5HYCTAZCYDBHVJ23">Cloud Atlas</a> - How to Transcend Time</p>
 
-    <p>The other <a href="http://www.amazon.com/gp/product/0385336950/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0385336950&linkCode=as2&tag=endersvote-20&linkId=Y5ZQYRR74NZQ5CXL">Cloud Atlas</a> - Less known but relevant</p>
+    <p>The other <a target="_blank" href="http://www.amazon.com/gp/product/0385336950/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0385336950&linkCode=as2&tag=endersvote-20&linkId=Y5ZQYRR74NZQ5CXL">Cloud Atlas</a> - Less known but relevant</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1416594930/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1416594930&linkCode=as2&tag=endersvote-20&linkId=5OYH5AB3MWKTK5N7">The Fifth Column (and 49 other stories)</a> - Building Tall</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1416594930/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1416594930&linkCode=as2&tag=endersvote-20&linkId=5OYH5AB3MWKTK5N7">The Fifth Column (and 49 other stories)</a> - Building Tall</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1451638728/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1451638728&linkCode=as2&tag=endersvote-20&linkId=HORN2CYTU457XMSS">The Sixth Column</a> - Building Wide</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1451638728/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1451638728&linkCode=as2&tag=endersvote-20&linkId=HORN2CYTU457XMSS">The Sixth Column</a> - Building Wide</p>
 
-    <p><a href="http://www.amazon.com/gp/product/055338256X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=055338256X&linkCode=as2&tag=endersvote-20&linkId=OSTCJMF4GS4ZLMGB">I, Robot</a> - Asimov meets Sherlock</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/055338256X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=055338256X&linkCode=as2&tag=endersvote-20&linkId=OSTCJMF4GS4ZLMGB">I, Robot</a> - Asimov meets Sherlock</p>
   </div>
 
   <div class="topdiv category">
     <a name="simulacra"></a>
     <p><b>Simulacra and Simulation</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0472065211/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0472065211&linkCode=as2&tag=endersvote-20&linkId=7HX5MWSH5WGL4OF3">Simulacra and Simulation</a> - Inspired <a href="http://www.amazon.com/gp/product/B000HAB4KS/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000HAB4KS&linkCode=as2&tag=endersvote-20&linkId=HBMHPLBXO52G7U6P">The Matrix</a></p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0472065211/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0472065211&linkCode=as2&tag=endersvote-20&linkId=7HX5MWSH5WGL4OF3">Simulacra and Simulation</a> - Inspired <a target="_blank" href="http://www.amazon.com/gp/product/B000HAB4KS/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000HAB4KS&linkCode=as2&tag=endersvote-20&linkId=HBMHPLBXO52G7U6P">The Matrix</a></p>
 
-    <p><a href="http://www.amazon.com/gp/product/B000I8ES2A/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000I8ES2A&linkCode=as2&tag=endersvote-20&linkId=NFEVWKDFBVEZMWSC">Thirteenth Floor</a> - Convergent Evolution (vis-a-vis The Matrix)</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B000I8ES2A/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B000I8ES2A&linkCode=as2&tag=endersvote-20&linkId=NFEVWKDFBVEZMWSC">Thirteenth Floor</a> - Convergent Evolution (vis-a-vis The Matrix)</p>
 
-    <p><a href="http://www.amazon.com/gp/product/B002ZCY872/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B002ZCY872&linkCode=as2&tag=endersvote-20&linkId=BSIDXKCASV4EL64T">Caprica</a> - Batttlestar Origin Story. Must watch</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B002ZCY872/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B002ZCY872&linkCode=as2&tag=endersvote-20&linkId=BSIDXKCASV4EL64T">Caprica</a> - Batttlestar Origin Story. Must watch</p>
   
-    <p><a href="http://www.amazon.com/gp/product/B009ZQRS2I/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B009ZQRS2I&linkCode=as2&tag=endersvote-20&linkId=F24BQ6FQB5ZZQNHT">eXistenZ</a> - On the Importance of Meta</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/B009ZQRS2I/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B009ZQRS2I&linkCode=as2&tag=endersvote-20&linkId=F24BQ6FQB5ZZQNHT">eXistenZ</a> - On the Importance of Meta</p>
   </div>
 
   <div class="topdiv category">
     <a name="cs"></a>
     <p><b>Computer Science</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/1400075998/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1400075998&linkCode=as2&tag=endersvote-20&linkId=CEQVYLRRPDZVKL6E">Turing</a> - My Intellectual Anscestor</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1400075998/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1400075998&linkCode=as2&tag=endersvote-20&linkId=CEQVYLRRPDZVKL6E">Turing</a> - My Intellectual Anscestor</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0262033844/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0262033844&linkCode=as2&tag=endersvote-20&linkId=PNKYHM7TWQDOZQHC">Algorithms</a> - How to compute efficiently</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0262033844/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0262033844&linkCode=as2&tag=endersvote-20&linkId=PNKYHM7TWQDOZQHC">Algorithms</a> - How to compute efficiently</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0486478831/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0486478831&linkCode=as2&tag=endersvote-20&linkId=6AFRNMNN5OC55TWK">Functional Programming</a> - How to code efficiently</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0486478831/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0486478831&linkCode=as2&tag=endersvote-20&linkId=6AFRNMNN5OC55TWK">Functional Programming</a> - How to code efficiently</p>
 
-    <p><a href="http://www.amazon.com/gp/product/3319133136/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=3319133136&linkCode=as2&tag=endersvote-20&linkId=O5ZGJFSVCRRP45QA">Foundations of Programming Languages</a> - How to design a language</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/3319133136/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=3319133136&linkCode=as2&tag=endersvote-20&linkId=O5ZGJFSVCRRP45QA">Foundations of Programming Languages</a> - How to design a language</p>
 
-    <p><a href="http://www.amazon.com/gp/product/1439873402/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1439873402&linkCode=as2&tag=endersvote-20&linkId=EQB76B3AZF7KZDO6">Reversible Computing</a> - How to use resources efficiently</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1439873402/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1439873402&linkCode=as2&tag=endersvote-20&linkId=EQB76B3AZF7KZDO6">Reversible Computing</a> - How to use resources efficiently</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0815804520">Man: Computer, Ape, or Angel?</a> - A collection of essays</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0815804520">Man: Computer, Ape, or Angel?</a> - A collection of essays</p>
 
-    <p><a href="http://principles.liquidfeedback.org/">Principles of Liquid Feedback</a> - The guiding light for the DDP</p>
+    <p><a target="_blank" href="http://principles.liquidfeedback.org/">Principles of Liquid Feedback</a> - The guiding light for the DDP</p>
   </div>
 
   <div class="topdiv category">
     <a name="verysmall"></a>
     <p><b>The Very Small</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553275720/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553275720&linkCode=as2&tag=endersvote-20&linkId=NDJ5TT7KSEUI6G2C">Fantastic Voyage</a> - Hop on the Magic School Bus</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553275720/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553275720&linkCode=as2&tag=endersvote-20&linkId=NDJ5TT7KSEUI6G2C">Fantastic Voyage</a> - Hop on the Magic School Bus</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0465022537/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465022537&linkCode=as2&tag=endersvote-20&linkId=ZRMTM5WAHNLWRNM5">Life's Ratchet</a> - How Molecular Machines Extract Order From Chaos</p>
-    <p><a href="http://www.amazon.com/gp/product/0387849246/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0387849246&linkCode=as2&tag=endersvote-20&linkId=UO7PU4YWRC6P2GUN">The Machinery of Life</a> - A Picture says a Thousand Words</a></p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0465022537/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465022537&linkCode=as2&tag=endersvote-20&linkId=ZRMTM5WAHNLWRNM5">Life's Ratchet</a> - How Molecular Machines Extract Order From Chaos</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0387849246/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0387849246&linkCode=as2&tag=endersvote-20&linkId=UO7PU4YWRC6P2GUN">The Machinery of Life</a> - A Picture says a Thousand Words</a></p>
   </div>
 
   <div class="topdiv category">
     <a name="universal"></a>
     <p><b>Universal Non-Faction</b></p>
   
-    <p><a href="http://www.amazon.com/gp/product/0452296544/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0452296544&linkCode=as2&tag=endersvote-20&linkId=LWXTMYXLZ2BOUW3S">From Eternity to Here</a> - On The Arrow of Time</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0452296544/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0452296544&linkCode=as2&tag=endersvote-20&linkId=LWXTMYXLZ2BOUW3S">From Eternity to Here</a> - On The Arrow of Time</p>
 
-    <p><a href="http://www.amazon.com/gp/product/039333810X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=039333810X&linkCode=as2&tag=endersvote-20&linkId=ZDNTNUR6UZMJ5JUT">The Elegant Universe</a> - An Introduction to Modern Physics Theory</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/039333810X/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=039333810X&linkCode=as2&tag=endersvote-20&linkId=ZDNTNUR6UZMJ5JUT">The Elegant Universe</a> - An Introduction to Modern Physics Theory</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0553380168/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553380168&linkCode=as2&tag=endersvote-20&linkId=2WDPMNULZXN4OIBH">Brief History of Time</a> - Get Caught up on the last 13.7 Billion Years</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0553380168/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0553380168&linkCode=as2&tag=endersvote-20&linkId=2WDPMNULZXN4OIBH">Brief History of Time</a> - Get Caught up on the last 13.7 Billion Years</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0465026567/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465026567&linkCode=as2&tag=endersvote-20&linkId=4ZJ43DQTN42DS4IZ">Godel, Escher, Bach: The Golden Braid</a> - At the intersection of CS, Art, and Philosophy</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0465026567/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0465026567&linkCode=as2&tag=endersvote-20&linkId=4ZJ43DQTN42DS4IZ">Godel, Escher, Bach: The Golden Braid</a> - At the intersection of CS, Art, and Philosophy</p>
   </div>
 
   <div class="topdiv category">
     <a name="kafkaesque"></a>
     <p><b>Kafkaesque</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/1557427666/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1557427666&linkCode=as2&tag=endersvote-20&linkId=C2TUGKAAYKZH3DRA">Metamorphosis</a> - When the World Doesn't Understand You</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/1557427666/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1557427666&linkCode=as2&tag=endersvote-20&linkId=C2TUGKAAYKZH3DRA">Metamorphosis</a> - When the World Doesn't Understand You</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0142437239/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0142437239&linkCode=as2&tag=endersvote-20&linkId=BPCLWWVUAS5LLXKX">Don Quixote</a> - When the World is Against You</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0142437239/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0142437239&linkCode=as2&tag=endersvote-20&linkId=BPCLWWVUAS5LLXKX">Don Quixote</a> - When the World is Against You</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0156007754/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0156007754&linkCode=as2&tag=endersvote-20&linkId=EFLG2MK2SKSK426S">Blindness</a> - The One-Eyed Man is King</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0156007754/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0156007754&linkCode=as2&tag=endersvote-20&linkId=EFLG2MK2SKSK426S">Blindness</a> - The One-Eyed Man is King</p>
   </div>
 
   <div class="topdiv category">
     <a name="sedaris"></a>
     <p><b>Sedaris</b></p>
 
-    <p><a href="http://www.amazon.com/gp/product/0316038407/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316038407&linkCode=as2&tag=endersvote-20&linkId=SQSCPCOIZ2RXZAHY">Squirrel Seeks Chipmunk</a> - Fables for Today</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0316038407/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316038407&linkCode=as2&tag=endersvote-20&linkId=SQSCPCOIZ2RXZAHY">Squirrel Seeks Chipmunk</a> - Fables for Today</p>
 
-    <p><a href="http://www.amazon.com/gp/product/0316078913/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316078913&linkCode=as2&tag=endersvote-20&linkId=ZIKMQ77J2QNBKZJB">Holidays On Ice</a> - Fables for Family</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0316078913/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316078913&linkCode=as2&tag=endersvote-20&linkId=ZIKMQ77J2QNBKZJB">Holidays On Ice</a> - Fables for Family</p>
   
-    <p><a href="http://www.amazon.com/gp/product/0316776963/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316776963&linkCode=as2&tag=endersvote-20&linkId=FGICFULXUXFCSOPW">Me Talk Pretty One Day</a> - Memoirs</p>
+    <p><a target="_blank" href="http://www.amazon.com/gp/product/0316776963/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0316776963&linkCode=as2&tag=endersvote-20&linkId=FGICFULXUXFCSOPW">Me Talk Pretty One Day</a> - Memoirs</p>
   </div>
 </div>
 

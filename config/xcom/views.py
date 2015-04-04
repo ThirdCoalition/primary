@@ -17,9 +17,24 @@ def sections():
             {'title': 'Contact', 'location': '/contact'}]
 
 def almanacs():
-    return [(dict(title="Foundations", location="foundations"),
-             dict(title="The Way Back (wikis)", location="wayback"),
+    return [[dict(title="Foundations", location="foundations"),
+             dict(title="Wikis (back-story)", location="wayback"),
              dict(title="There and Back", location="thereandback"),
+             dict(title="Infrastructure", location="infrastructure"),
+             dict(title="Memory", location="memory"),
+             dict(title="Disobedience", location="disobedience"),
+             dict(title="Meme Theory", location="meme"),
+             dict(title="Signs", location="signs")],
+            [dict(title="Ouroboros", location="ouroboros"),
+             dict(title="Labyrinths", location="labyrinths"),
+             dict(title="Guides", location="guides"),
+             dict(title="Compendiums", location="compendiums"),
+             dict(title="Simulacra", location="simulacra"),
+             dict(title="CS", location="cs"),
+             dict(title="Very Small", location="verysmall"),
+             dict(title="Universal", location="universal"),
+             dict(title="Kafkaesque", location="kafkaesque"),
+             dict(title="Sedaris", location="sedaris")]]
 
 def full_context():
     return {'sections': sections(), 'candidates': Candidate.objects.all()}
@@ -77,6 +92,7 @@ def primary(request):
     record_visit(request, 'primary')
     return render(request, 'primary.html', dict(full_context(),
                                                 ratings = get_percentages(),
+                                                numvotes = Vote.objects.count(),
                                                 saved = ('saved' in request.GET)))
 
 def vote(request):
@@ -119,7 +135,7 @@ def news(request):
 
 def almanac(request):
     record_visit(request, 'almanac')
-    return render(request, 'almanac.html', dict(full_context(), almanacs=))
+    return render(request, 'almanac.html', dict(full_context(), almanacs=almanacs()))
 
 def blog(request):
     record_visit(request, 'blog')
