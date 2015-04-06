@@ -158,3 +158,13 @@
     color: Red
     fgcolor: Black
     shame: true
+- model: primary.Candidate
+  pk: 17
+  fields:
+    name: Justice
+    synopsis: Remove Money From Politics
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.justicepartyusa.org/
+    color: DeepSkyBlue
+    fgcolor: Black
+    shame: false

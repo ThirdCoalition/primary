@@ -18,6 +18,7 @@ def sections():
 
 def almanacs():
     return [[dict(title="Foundations", location="foundations"),
+             dict(title="Brain Train", location="braintrain"),
              dict(title="Wikis (back-story)", location="wayback"),
              dict(title="There and Back", location="thereandback"),
              dict(title="Infrastructure", location="infrastructure"),
@@ -100,8 +101,12 @@ def vote(request):
     return render(request, 'vote.html', full_context())
 
 def range(request):
-    record_visit(request, 'range', request.GET['name'])
-    return render(request, 'range.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['name'])))
+    record_visit(request, 'range', request.GET['fav'])
+    return render(request, 'range.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav'])))
+
+def approval(request):
+    record_visit(request, 'approval', request.GET['fav'])
+    return render(request, 'approval.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav'])))
 
 def saverange(request):
     record_visit(request, 'saverange')
