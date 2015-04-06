@@ -7,8 +7,8 @@ from models import Visit
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
+            {'title': 'Platform', 'location': '/about'},
             {'title': 'Help Wanted', 'location': '/help'},
-            {'title': 'About Us', 'location': '/about'},
             {'title': 'Electoral Reform', 'location': '/reform'},
             {'title': 'Related Organizations', 'location': '/related'},
             {'title': 'News', 'location': '/news'},
