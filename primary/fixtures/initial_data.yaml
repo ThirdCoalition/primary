@@ -61,12 +61,12 @@
 - model: primary.Candidate
   pk: 7
   fields:
-    name: EFF
+    name: Pirate
     synopsis: Defending your Digital Rights
     logo: http://todoidentifyfounder.com
-    link: http://www.eff.org
-    color: Magenta
-    fgcolor: Black
+    link: http://www.uspirates.org
+    color: Black
+    fgcolor: White
     shame: false
 - model: primary.Candidate
   pk: 8
@@ -75,7 +75,7 @@
     synopsis: Non-Partisan Accuracy Organization
     logo: http://todoidentifyfounder.com
     link: http://www.factcheck.org
-    color: DarkTurquoise
+    color: Magenta
     fgcolor: Black
     shame: false
 - model: primary.Candidate
@@ -105,8 +105,8 @@
     synopsis: Republican Schism
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.teaparty.org
-    color: Black
-    fgcolor: White
+    color: FireBrick
+    fgcolor: Black
     shame: false
 - model: primary.Candidate
   pk: 12
