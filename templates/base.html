@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <title>Third Coalition</title>
     <script type="text/javascript">
+      function toggleApproval(ele) {
+        input = ele.querySelector("input");
+        if (input.value == "0")
+          input.value = "5";
+        else
+          input.value = "0";
+      }
+
       function saveRange() {
         var inputs = document.querySelectorAll(".rangeValue");
         var valid = true;
@@ -37,9 +45,10 @@
         display:inline;
       }
       .topdiv {
-        width:100%;
         text-align:center;
         position:relative;
+        padding:0% 10%;
+        width:80%
       }
       .topdiv p {
         font-size:x-large;
@@ -55,15 +64,14 @@
       .topdiv li {
          margin:8px 0px;
       }
-      .paddedcenter {
-        padding:0% 10%;
-        width:80%
-      }
       .navdiv {
         background-color:lightgreen;
         height:28px;
         padding:4px;
         vertical-align:middle;
+        width:100%;
+        text-align:center;
+        position:relative;
       }
       .navdiv a {
         margin:2px 6px;
@@ -129,6 +137,14 @@
         text-align:center;
         margin-bottom:2px;
       }
+      .range input:disabled {
+        background-color:white;
+        color:black;
+      }
+      .range input:hover {
+        cursor:pointer;
+        background-color:AliceBlue;
+      }
     </style>
   </head>
   <body>
@@ -140,10 +156,12 @@
 	   class="banner" />
     </div>
 
-    <div class="topdiv navdiv" style="">
+    <div class="navdiv" style="">
       {% for page in sections %}
         {% if request.path == "/vote" and page.title == "Primary" %}
           <a href="/">Primary</a><p>&raquo; Vote</p>
+        {% elif request.path == "/approval" and page.title == "Primary" %}
+          <a href="/">Primary</a><p>&raquo; Approval</p>
         {% elif request.path == "/range" and page.title == "Primary" %}
           <a href="/">Primary</a><p>&raquo; Range Approval</p>
         {% elif request.path == page.location %}

@@ -8,8 +8,7 @@
   <p class="introtext">Primary results are published on a live, as-recorded basis. {{ numvotes }} votes recorded so far. {% if saved %}Thanks for voting!{% else %}Record <b>your</b> <a href="/vote">Vote</a>.{% endif %}</p>
 </div>
 
-<div class="topdiv">
-  <table class="results">
+<table class="results">
   {% for r in ratings %}
     <tr>
       <td class="score">
@@ -24,8 +23,7 @@
       </td>
     </tr>
   {% endfor %} 
-  </table>
-</div>
+</table>
 
 <div class="topdiv" style="padding-top:4px;">
   <p style="display:inline; font-size:x-large;">{% if saved %}Thanks for voting!{% else %}Cast your <a href="/vote">Vote</a>. [TODO: Authentication]{% endif %}</p>
