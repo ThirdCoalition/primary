@@ -38,7 +38,7 @@ def almanacs():
              dict(title="Sedaris", location="sedaris")]]
 
 def full_context():
-    return {'sections': sections(), 'candidates': Candidate.objects.all()}
+    return {'sections': sections()}
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -89,6 +89,11 @@ def get_percentages():
 
     return sorted(ratings, key=lambda rating: rating.candidate.shame, reverse=True)
 
+def get_ballot():
+    percentages = get_percentages()
+    return map(lambda rating: rating.candidate,
+               sorted(percentages, key=lambda rating: rating.approval, reverse=True))
+
 def primary(request):
     record_visit(request, 'primary')
     return render(request, 'primary.html', dict(full_context(),
@@ -98,15 +103,18 @@ def primary(request):
 
 def vote(request):
     record_visit(request, 'vote')
-    return render(request, 'vote.html', full_context())
+    return render(request, 'vote.html', dict(full_context(),
+                                             candidates = get_ballot()))
 
 def range(request):
     record_visit(request, 'range', request.GET['fav'])
-    return render(request, 'range.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav'])))
+    return render(request, 'range.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav']),
+                                              candidates = get_ballot()))
 
 def approval(request):
     record_visit(request, 'approval', request.GET['fav'])
-    return render(request, 'approval.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav'])))
+    return render(request, 'approval.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav']),
+                                                 candidates = get_ballot()))
 
 def saverange(request):
     record_visit(request, 'saverange')
