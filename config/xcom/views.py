@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from datetime import datetime
+from random import shuffle
 
 from primary.models import Candidate, Vote, Approval, Sums
 from models import Visit
@@ -105,6 +106,13 @@ def vote(request):
     record_visit(request, 'vote')
     return render(request, 'vote.html', dict(full_context(),
                                              candidates = get_ballot()))
+
+def random(request):
+    record_visit(request, 'random')
+
+    candidates = get_ballot()
+    shuffle(candidates)
+    return render(request, 'vote.html', dict(full_context(), candidates=candidates))
 
 def range(request):
     record_visit(request, 'range', request.GET['fav'])
