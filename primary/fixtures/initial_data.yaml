@@ -22,7 +22,7 @@
   pk: 3
   fields:
     name: DDP
-    synopsis: "By the People, For the People [Transparency: Us]"
+    synopsis: "Be The Change [Transparency: Us]"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://igg.me/at/ddp
     color: BurlyWood
@@ -162,7 +162,7 @@
   pk: 17
   fields:
     name: Justice
-    synopsis: Remove Money From Politics
+    synopsis: Justice for All
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.justicepartyusa.org/
     color: DeepSkyBlue
