@@ -81,7 +81,7 @@ def record_ratings(request):
 
 def get_percentages():
     ratings = Sums.objects.all()
-    total = sum(map(lambda r: r.approval, ratings))
+    total = max(sum(map(lambda r: r.approval, ratings)), 1)
     for rating in ratings:
         rating.approval = 100 * rating.approval / total
 
