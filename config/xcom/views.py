@@ -92,8 +92,9 @@ def get_percentages():
 
 def get_ballot():
     percentages = get_percentages()
-    return map(lambda rating: rating.candidate,
-               sorted(percentages, key=lambda rating: rating.approval, reverse=True))
+    return sorted(map(lambda rating: rating.candidate,
+                      sorted(percentages, key=lambda rating: rating.approval, reverse=True)),
+                  key=lambda candidate: candidate.shame)
 
 def primary(request):
     record_visit(request, 'primary')
