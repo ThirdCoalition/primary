@@ -1,0 +1,100 @@
+- model: primary.Candidate
+  pk: 1
+  fields:
+    name: HungerVote
+    synopsis: (or EndersVote)
+    logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
+    link: http://www.lp.org
+    color: Green
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 2
+  fields:
+    name: ReclaimCongress.org
+    synopsis: " "
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.gp.org
+    color: GoldenRod
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 3
+  fields:
+    name: ThirdAlliance
+    synopsis: (or ThirdAllies)
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://igg.me/at/ddp
+    color: DarkRed
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 4
+  fields:
+    name: ThirdCoalition
+    synopsis: " "
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.reformparty.org
+    color: DarkSlateBlue
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 5
+  fields:
+    name: ThirdPartyPrimary
+    synopsis: (Fight TPP with TPP)
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.constitutionparty.org
+    color: Silver
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 6
+  fields:
+    name: ThirdPrimary
+    synopsis: " "
+    logo: http://todoidentifyfounder.com
+    link: http://www.occupywallst.org
+    color: SaddleBrown
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 7
+  fields:
+    name: ThirdsUnite
+    synopsis: " "
+    logo: http://todoidentifyfounder.com
+    link: http://www.uspirates.org
+    color: Magenta
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 8
+  fields:
+    name: TruePrimary.com
+    synopsis: " "
+    logo: http://todoidentifyfounder.com
+    link: http://www.factcheck.org
+    color: DeepSkyBlue
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 9
+  fields:
+    name: .org
+    synopsis: TPS Report
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.democrats.org
+    color: Blue
+    fgcolor: Black
+    shame: true
+- model: primary.Candidate
+  pk: 10
+  fields:
+    name: .com
+    synopsis: TPS Report
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.gop.com
+    color: Red
+    fgcolor: Black
+    shame: true

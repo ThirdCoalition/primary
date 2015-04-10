@@ -1,5 +1,5 @@
 *~
 *.pyc
 build/*
-db.sqlite3
+*.sqlite3
 static_root/*
