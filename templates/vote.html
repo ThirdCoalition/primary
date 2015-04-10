@@ -14,7 +14,9 @@
     <tr>
       <td class="range">
         <div style="background-color:{{ c.color }};">
-          <a href="/approval?fav={{ c.name }}">[x]</a>
+          <span onclick="javascript: location.href='/approval?fav={{ c.name }}';">
+            <input class="rangeValue" readonly="readonly" />
+          </span>
         </div>
       </td>
       
