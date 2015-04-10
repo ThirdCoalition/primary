@@ -11,6 +11,4 @@ We recommmend you stick to Heroku cause it's awesome.
 
 4. install the summary view found in primary/models.py
 
-5. python manage.py initial_vote #todo: change the view so this is not neccessary
-
 6. Enjoy!
