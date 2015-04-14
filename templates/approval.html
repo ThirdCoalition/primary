@@ -6,7 +6,7 @@
 
 <div class="topdiv" style="padding-top:4px;">
   <p>Next, select any other parties that you approve of.</p>
-  <p>For more granularity, switch to <a href="/range?fav={{ fav.name }}">Range Voting</a>. Don't forget to <a href="javascript:void(0);" onclick="saveRange();">Save</a> when you're done.</p>
+  <p>Don't forget to <a href="javascript:void(0);" onclick="saveRange();">Save</a> when you're done.</p>
 </div>
 
 <div class="topdiv">
@@ -17,7 +17,7 @@
 	  <a href="/vote" style="font-size:large;">&laquo; Change Favorite</a>
             <div style="background-color:{{ fav.color }};">
               <span onclick="javascript: location.href='/vote';">
-                <input name="{{ fav.id }}" class="rangeValue" value="10"
+                <input name="{{ fav.id }}" class="rangeValue" value="5"
                        tabindex="{{ fav.id }}" readonly="readonly" />
               </span>
             </div>
@@ -33,9 +33,16 @@
       {% if c.id != fav.id %}
         <tr>
           <td class="range">
+            <div style="padding-bottom:8px; width:26px;">
+              <img class="arrow" src="{% static 'uparrow.png' %}"
+                   onclick="javascript: tinkerApproval('{{ c.id }}', 1);" />
+              <img class="arrow" src="{% static 'downarrow.png' %}"
+                   onclick="javascript: tinkerApproval('{{ c.id }}', -1);" />
+            </div>
+
             <div style="background-color:{{ c.color }};">
               <span onclick="javascript: toggleApproval(this);">
-                <input name="{{ c.id }}" value="0" readonly="readonly"
+                <input name="{{ c.id }}" id="{{ c.id }}" value="0" readonly="readonly"
                        maxlength="1" tabindex="{{ c.id }}" class="rangeValue" />
               </span>
             </div>

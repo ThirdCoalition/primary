@@ -5,12 +5,33 @@
     <meta charset="utf-8">
     <title>Third Coalition</title>
     <script type="text/javascript">
+      function updateFavorite() {
+        var inputs = document.querySelectorAll(".rangeValue");
+        var total = 0;
+
+        for (var i=1; i<inputs.length; i++) {
+          var numeric = Number(inputs[i].value);
+          total += numeric;
+        }
+
+        inputs[0].value = 5 + Math.min(total, 5);
+      }
+
+      function tinkerApproval(id, delta) {
+        input = document.getElementById(id);
+        input.value = Math.min(9, Math.max(0, Number(input.value) + delta));
+
+        updateFavorite();
+      }
+
       function toggleApproval(ele) {
         input = ele.querySelector("input");
         if (input.value == "0")
           input.value = "5";
         else
           input.value = "0";
+
+        updateFavorite();
       }
 
       function saveRange() {
@@ -113,6 +134,16 @@
       .candidate a {
         font-size:large;
         margin:2px;
+      }
+      .arrow {
+        height:16px;
+        opacity:.5;
+        filter:alpha(opacity=50);
+      }
+      .arrow:hover {
+        cursor:pointer;
+        opacity:.8;
+        filter:alpha(opacity=80);
       }
       .range {
         width:30%;
