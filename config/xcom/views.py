@@ -58,7 +58,6 @@ def record_ratings(request):
     approvals = []
     total = 0
 
-    # TODO: Less slacker validation
     for key in request.POST:
         try:
             id = int(key)
@@ -66,17 +65,15 @@ def record_ratings(request):
         except ValueError:
             continue
 
-        if rating > 10:
+        if rating > 10 or rating < 0:
             continue
 
         total += rating
         approvals += [Approval(rating=rating, candidate=Candidate.objects.get(id=id), vote=vote)]
 
-    # Spammers may try naively submitting 10/0/0/0 ratings.
-    # This is not real spam protection, but let's pretend to accept the submissions.
-    # Considering we are open source, if someone really wants to spam it will not take long to figure out.
-    # TODO: Actual spam protection
-    if total >= 15:
+    # favorite is allowed 5 points + 1 point for each non-favorite approval point
+    favorite = max(map(lambda a:a.rating, approvals))
+    if min(5, (total - 5) / 2) == favorite - 5:
         map(lambda a: a.save(), approvals)
 
 def get_percentages():
@@ -86,7 +83,7 @@ def get_percentages():
         rating.approval = 100 * rating.approval / total
 
         # arbitrary scaling factor and minimum width
-        setattr(rating, 'display_width', rating.approval * 20 + 40)
+        setattr(rating, 'display_width', min(25, max(2, rating.approval)) * 20)
 
     return sorted(ratings, key=lambda rating: rating.candidate.shame, reverse=True)
 

@@ -37,22 +37,18 @@
       function saveRange() {
         var inputs = document.querySelectorAll(".rangeValue");
         var valid = true;
-        var total = 0;
 
         for (var i=0; i<inputs.length; i++) {
           var numeric = Number(inputs[i].value);
           if (numeric >= 0 && numeric <= 10) {
-            total += numeric;
-          } else {
-            valid = false;
-            break;
-          }
+            continue;
+          }          
+          valid = false;
+          break;
         }
         
         if (!valid) {
           alert("You have entered an invalid entry. All values should be numeric in the range [0,9].");
-        } else if (total < 15) {
-          alert("You must assign at least 5 total approval points to affiliates.");
         } else {
           document.querySelector("form").submit();
         }

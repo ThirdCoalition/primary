@@ -22,7 +22,7 @@
   pk: 3
   fields:
     name: DDP
-    synopsis: "Be The Change [Transparency: Us]"
+    synopsis: Be The Change
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://igg.me/at/ddp
     color: BurlyWood
@@ -51,16 +51,6 @@
 - model: primary.Candidate
   pk: 6
   fields:
-    name: Occupy
-    synopsis: Demonstration Army
-    logo: http://todoidentifyfounder.com
-    link: http://www.occupywallst.org
-    color: Silver
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 7
-  fields:
     name: Pirate
     synopsis: Defending your Digital Rights
     logo: http://todoidentifyfounder.com
@@ -69,17 +59,7 @@
     fgcolor: White
     shame: false
 - model: primary.Candidate
-  pk: 8
-  fields:
-    name: Fact-Checkers
-    synopsis: Non-Partisan Accuracy Organization
-    logo: http://todoidentifyfounder.com
-    link: http://www.factcheck.org
-    color: Magenta
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 9
+  pk: 7
   fields:
     name: Socialist
     synopsis: Right-to-Life benefits for all Citizens
@@ -89,7 +69,7 @@
     fgcolor: Black
     shame: false
 - model: primary.Candidate
-  pk: 10
+  pk: 8
   fields:
     name: Coffee
     synopsis: Democratic Schism
@@ -99,7 +79,7 @@
     fgcolor: Black
     shame: false
 - model: primary.Candidate
-  pk: 11
+  pk: 9
   fields:
     name: Tea
     synopsis: Republican Schism
@@ -109,7 +89,7 @@
     fgcolor: Black
     shame: false
 - model: primary.Candidate
-  pk: 12
+  pk: 10
   fields:
     name: Technocracy
     synopsis: Informed on Technology and Science
@@ -119,27 +99,7 @@
     fgcolor: Black
     shame: false
 - model: primary.Candidate
-  pk: 13
-  fields:
-    name: Transhumanism
-    synopsis: Transform the Human Condition
-    logo: http://todoidentifyfounder.com
-    link: http://en.wikipedia.org/wiki/Transhumanism
-    color: DarkOrchid
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 14
-  fields:
-    name: Legalization
-    synopsis: End Prohibition
-    logo: http://todoidentifyfounder.com
-    link: http://en.wikipedia.org/wiki/Legalization
-    color: DarkGreen
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 15
+  pk: 11
   fields:
     name: Democrat
     synopsis: Same Old "Change"
@@ -149,7 +109,7 @@
     fgcolor: Black
     shame: true
 - model: primary.Candidate
-  pk: 16
+  pk: 12
   fields:
     name: Republican
     synopsis: Same Old "Not Change"
@@ -159,12 +119,22 @@
     fgcolor: Black
     shame: true
 - model: primary.Candidate
-  pk: 17
+  pk: 13
   fields:
     name: Justice
     synopsis: Justice for All
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.justicepartyusa.org/
     color: DeepSkyBlue
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 14
+  fields:
+    name: Modern Whig
+    synopsis: Common Sense, Courage, Country
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.modernwhig.org/
+    color: DarkOrchid
     fgcolor: Black
     shame: false
