@@ -21,7 +21,7 @@
 - model: primary.Candidate
   pk: 3
   fields:
-    name: DDP
+    name: Direct Democracy
     synopsis: Be The Change
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://igg.me/at/ddp

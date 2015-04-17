@@ -9,13 +9,9 @@ from models import Visit
 def sections():
     return [{'title': 'Primary', 'location': '/'},
             {'title': 'Platform', 'location': '/about'},
-            {'title': 'Help Wanted', 'location': '/help'},
-            {'title': 'Electoral Reform', 'location': '/reform'},
-            {'title': 'Related Organizations', 'location': '/related'},
-            {'title': 'News', 'location': '/news'},
-            {'title': 'Cartoons', 'location': '/blog'},
-            {'title': 'Almanac', 'location': '/almanac'},
-            {'title': 'Contact', 'location': '/contact'}]
+            {'title': 'Parties', 'location': '/parties'},
+            {'title': 'NPOs', 'location': '/related'},
+            {'title': 'About', 'location': '/contact'}]
 
 def almanacs():
     return [[dict(title="Foundations", location="foundations"),
