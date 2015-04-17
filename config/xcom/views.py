@@ -8,10 +8,10 @@ from models import Visit
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
-            {'title': 'Platform', 'location': '/about'},
+            {'title': 'Platform', 'location': '/platform'},
             {'title': 'Parties', 'location': '/parties'},
-            {'title': 'NPOs', 'location': '/related'},
-            {'title': 'About', 'location': '/contact'}]
+            {'title': 'NPOs', 'location': '/npos'},
+            {'title': 'About', 'location': '/about'}]
 
 def almanacs():
     return [[dict(title="Foundations", location="foundations"),
@@ -98,8 +98,7 @@ def primary(request):
 
 def vote(request):
     record_visit(request, 'vote')
-    return render(request, 'vote.html', dict(full_context(),
-                                             candidates = get_ballot()))
+    return render(request, 'vote.html', dict(full_context(), candidates = get_ballot()))
 
 def random(request):
     record_visit(request, 'random')
@@ -124,38 +123,18 @@ def saverange(request):
 
     return redirect("/?saved")
 
-def help(request):
-    record_visit(request, 'help')
-    return render(request, 'help.html', full_context())
-
 def about(request):
     record_visit(request, 'about')
     return render(request, 'about.html', full_context())
 
-def reform(request):
-    record_visit(request, 'reform')
-    return render(request, 'reform.html', full_context())
+def npos(request):
+    record_visit(request, 'npos')
+    return render(request, 'npos.html', full_context())
 
-def related(request):
-    record_visit(request, 'related')
-    return render(request, 'related.html', full_context())
+def platform(request):
+    record_visit(request, 'platform')
+    return render(request, 'platform.html', full_context())
 
-def freechange(request):
-    record_visit(request, 'freechange')
-    return render(request, 'freechange.html', full_context())
-
-def news(request):
-    record_visit(request, 'news')
-    return render(request, 'news.html', full_context())
-
-def almanac(request):
-    record_visit(request, 'almanac')
-    return render(request, 'almanac.html', dict(full_context(), almanacs=almanacs()))
-
-def blog(request):
-    record_visit(request, 'blog')
-    return render(request, 'blog.html', full_context())
-
-def contact(request):
-    record_visit(request, 'contact')
-    return render(request, 'contact.html', full_context())
+def parties(request):
+    record_visit(request, 'parties')
+    return render(request, 'parties.html', full_context())
