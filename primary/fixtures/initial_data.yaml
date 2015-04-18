@@ -42,7 +42,7 @@
   pk: 5
   fields:
     name: Constitution
-    synopsis: Fundamentalist Scholars
+    synopsis: Virtue, Liberty, Independence
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.constitutionparty.org
     color: DarkRed
@@ -71,36 +71,6 @@
 - model: primary.Candidate
   pk: 8
   fields:
-    name: Coffee
-    synopsis: Democratic Schism
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.coffeepartyusa.com
-    color: SaddleBrown
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 9
-  fields:
-    name: Tea
-    synopsis: Republican Schism
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.teaparty.org
-    color: FireBrick
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 10
-  fields:
-    name: Technocracy
-    synopsis: Informed on Technology and Science
-    logo: http://todoidentifyfounder.com
-    link: http://reddit.com/r/technocracy
-    color: OrangeRed
-    fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 11
-  fields:
     name: Democrat
     synopsis: Same Old "Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -109,7 +79,7 @@
     fgcolor: Black
     shame: true
 - model: primary.Candidate
-  pk: 12
+  pk: 9
   fields:
     name: Republican
     synopsis: Same Old "Not Change"
@@ -119,7 +89,7 @@
     fgcolor: Black
     shame: true
 - model: primary.Candidate
-  pk: 13
+  pk: 10
   fields:
     name: Justice
     synopsis: Justice for All
@@ -129,7 +99,7 @@
     fgcolor: Black
     shame: false
 - model: primary.Candidate
-  pk: 14
+  pk: 11
   fields:
     name: Modern Whig
     synopsis: Common Sense, Courage, Country
