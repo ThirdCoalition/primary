@@ -9,7 +9,7 @@ from models import Visit
 def sections():
     return [{'title': 'Primary', 'location': '/'},
             {'title': 'Platform', 'location': '/platform'},
-            {'title': 'Parties', 'location': '/parties'},
+            {'title': 'Regions', 'location': '/regions'},
             {'title': 'NPOs', 'location': '/npos'},
             {'title': 'About', 'location': '/about'}]
 
@@ -135,6 +135,6 @@ def platform(request):
     record_visit(request, 'platform')
     return render(request, 'platform.html', full_context())
 
-def parties(request):
-    record_visit(request, 'parties')
-    return render(request, 'parties.html', full_context())
+def regions(request):
+    record_visit(request, 'regions')
+    return render(request, 'regions.html', full_context())
