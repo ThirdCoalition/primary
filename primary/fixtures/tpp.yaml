@@ -1,0 +1,40 @@
+- model: primary.Candidate
+  pk: 1
+  fields:
+    name: Sign
+    synopsis: 
+    logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
+    link: http://www.lp.org
+    color: Red
+    fgcolor: Black
+    shame: true
+- model: primary.Candidate
+  pk: 2
+  fields:
+    name: Do not Sign
+    synopsis: 
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.gp.org
+    color: Blue
+    fgcolor: Black
+    shame: true
+- model: primary.Candidate
+  pk: 3
+  fields:
+    name: Open
+    synopsis: Reveal contents publicly
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://igg.me/at/ddp
+    color: GoldenRod
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 4
+  fields:
+    name: Delay
+    synopsis: Do not Fast-Track
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.reformparty.org
+    color: DarkOrchid
+    fgcolor: Black
+    shame: false
