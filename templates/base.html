@@ -26,8 +26,12 @@
 
       function toggleApproval(ele) {
         input = ele.querySelector("input");
-        if (input.value == "0")
+        val = Number(input.value);
+
+        if (val >= 0 && val < 5)
           input.value = "5";
+        else if (val >= 5 && val < 9)
+          input.value = "9";
         else
           input.value = "0";
 
