@@ -203,9 +203,9 @@
       {% endfor %}
 
       {% if user and not user.is_anonymous %}
-        <a href="/logout">Logout</a>
+        <a href="{% url 'auth:logout' %}?next={{ request.path }}">Logout</a>
       {% else %}
-        <a href="/login">Login</a>
+        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login</a>
       {% endif %}
     </div>
 
