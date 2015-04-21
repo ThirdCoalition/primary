@@ -201,6 +201,12 @@
           <a href="{{ page.location }}">{{ page.title }}</a>
         {% endif %}
       {% endfor %}
+
+      {% if user and not user.is_anonymous %}
+        <a href="/logout">Logout</a>
+      {% else %}
+        <a href="/login">Login</a>
+      {% endif %}
     </div>
 
     {% block content %}
