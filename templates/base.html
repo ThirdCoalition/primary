@@ -114,6 +114,10 @@
         height:24px;
         vertical-align:bottom;
       }
+      .logins img {
+        height:24px;
+        vertical-align:bottom;
+      }
       .topdiv.introtext {
         font-size:medium;
       }
@@ -218,7 +222,7 @@
           <span>
             <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
               <img src="{% static 'facebook.png' %}" /></a>
-            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+            <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
               <img src="{% static 'reddit.png' %}" /></a>
           </span>
       {% endif %}

@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p class="introtext">Primary results are published live. {{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} {% if voted %}<a href="/approval">Adjust</a> your vote anytime.{% else %}Record <b>your</b> <a href="/vote">Vote</a>.{% endif %}</p>
+  <p class="introtext">{{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} {% if voted %}<a href="/approval">Adjust</a> your vote anytime.{% else %}Please login to vote.{% endif %}</p>
 </div>
 
 <table class="results">
@@ -26,7 +26,7 @@
 </table>
 
 <div class="topdiv" style="padding-top:4px;">
-  <p style="display:inline; font-size:x-large;">{% if saved %}Thanks for voting!{% else %}Cast your <a href="/vote">Vote</a>. [TODO: Authentication]{% endif %}</p>
+  <p style="display:inline; font-size:x-large;">{% if voted %}<a href="/approval">Adjust</a> your vote anytime.{% else %}Please login to vote.{% endif %}</p>
 </div>
 
 {% endblock %}

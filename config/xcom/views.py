@@ -94,19 +94,28 @@ def get_ballot():
                       sorted(percentages, key=lambda rating: rating.approval, reverse=True)),
                   key=lambda candidate: candidate.shame)
 
+def user_voted(request):
+    return Approval.objects.filter(user=request.user).count > 0
+
+
 def primary(request):
     record_visit(request, 'primary')
     return render(request, 'primary.html', dict(full_context(),
                                                 ratings = get_percentages(),
                                                 numvotes = Approval.objects.filter(candidate_id=1).count(),
-                                                voted = request.user.is_authenticated() and \
-                                                    (Approval.objects.filter(user=request.user).count() > 0),
+                                                voted = request.user.is_authenticated() and user_voted(request),
                                                 saved = ('saved' in request.GET)))
 
-@login_required(redirect_field_name=None)
 def vote(request):
     record_visit(request, 'vote')
-    return render(request, 'vote.html', dict(full_context(), candidates = get_ballot()))
+
+    if not request.user.is_authenticated():
+        return render(request, 'login.html', dict(full_context()))
+    
+    if not user_voted(request):
+        return render(request, 'vote.html', dict(full_context(), candidates = get_ballot()))
+
+    return approval(request)
 
 @login_required(redirect_field_name=None)
 def random(request):
