@@ -17,7 +17,7 @@
 	  <a href="/vote" style="font-size:large;">&laquo; Change Favorite</a>
             <div style="background-color:{{ fav.color }};">
               <span onclick="javascript: location.href='/vote';">
-                <input name="{{ fav.id }}" class="rangeValue" value="5"
+                <input name="{{ fav.id }}" class="rangeValue" value="10"
                        tabindex="{{ fav.id }}" readonly="readonly" />
               </span>
             </div>
@@ -42,7 +42,7 @@
 
             <div style="background-color:{{ c.color }};">
               <span onclick="javascript: toggleApproval(this);">
-                <input name="{{ c.id }}" id="{{ c.id }}" value="0" readonly="readonly"
+                <input name="{{ c.id }}" id="{{ c.id }}" value="{{ c.rating }}" readonly="readonly"
                        maxlength="1" tabindex="{{ c.id }}" class="rangeValue" />
               </span>
             </div>

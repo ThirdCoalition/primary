@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from datetime import datetime
 from random import shuffle
 
-from primary.models import Candidate, Vote, Approval, Sums
+from primary.models import Candidate, Approval, Sums
 from models import Visit
 
 def sections():
@@ -46,14 +47,11 @@ def get_client_ip(request):
     return ip
 
 def record_visit(request, section, arg=""):
-    Visit(ip=get_client_ip(request), time=datetime.now(), page=section, arg=arg).save()
+    return
+#    Visit(ip=get_client_ip(request), time=datetime.now(), page=section, arg=arg).save()
 
 def record_ratings(request):
-    vote = Vote(ip=get_client_ip(request), time=datetime.now())
-    vote.save()
-    approvals = []
-    total = 0
-
+    fav_saved = False
     for key in request.POST:
         try:
             id = int(key)
@@ -64,13 +62,20 @@ def record_ratings(request):
         if rating > 10 or rating < 0:
             continue
 
-        total += rating
-        approvals += [Approval(rating=rating, candidate=Candidate.objects.get(id=id), vote=vote)]
+        if rating == 10:
+            if fav_saved:
+                rating = 9
+            else:
+                fav_saved = True
 
-    # favorite is allowed 5 points + 1 point for each non-favorite approval point
-    favorite = max(map(lambda a:a.rating, approvals))
-    if min(5, (total - 5) / 2) == favorite - 5:
-        map(lambda a: a.save(), approvals)
+        try:
+            approval = Approval.objects.get(candidate=Candidate.objects.get(id=id), user=request.user)
+            approval.rating = rating
+            approval.save()
+        except Approval.DoesNotExist:
+            Approval(rating=rating, candidate=candi, user=request.user).save()
+        except Candidate.DoesNotExist:
+            continue
 
 def get_percentages():
     ratings = Sums.objects.all()
@@ -93,13 +98,17 @@ def primary(request):
     record_visit(request, 'primary')
     return render(request, 'primary.html', dict(full_context(),
                                                 ratings = get_percentages(),
-                                                numvotes = Vote.objects.count(),
+                                                numvotes = Approval.objects.filter(candidate_id=1).count(),
+                                                voted = request.user.is_authenticated() and \
+                                                    (Approval.objects.filter(user=request.user).count() > 0),
                                                 saved = ('saved' in request.GET)))
 
+@login_required(redirect_field_name=None)
 def vote(request):
     record_visit(request, 'vote')
     return render(request, 'vote.html', dict(full_context(), candidates = get_ballot()))
 
+@login_required(redirect_field_name=None)
 def random(request):
     record_visit(request, 'random')
 
@@ -107,16 +116,21 @@ def random(request):
     shuffle(candidates)
     return render(request, 'vote.html', dict(full_context(), candidates=candidates))
 
-def range(request):
-    record_visit(request, 'range', request.GET['fav'])
-    return render(request, 'range.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav']),
-                                              candidates = get_ballot()))
-
+@login_required(redirect_field_name=None)
 def approval(request):
-    record_visit(request, 'approval', request.GET['fav'])
-    return render(request, 'approval.html', dict(full_context(), fav=Candidate.objects.get(name=request.GET['fav']),
-                                                 candidates = get_ballot()))
+    candidates = get_ballot()
+    for candi in candidates:
+        rating = 0
+        try:
+            rating = Approval.objects.get(candidate=candi, user=request.user).rating
+        except Approval.DoesNotExist:
+            pass
+        setattr(candi, 'rating', rating)
+    
+    fav = max(candidates, key=lambda candi: candi.rating)
+    return render(request, 'approval.html', dict(full_context(), fav=fav, candidates = candidates))
 
+@login_required(redirect_field_name=None)
 def saverange(request):
     record_visit(request, 'saverange')
     record_ratings(request)

@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p class="introtext">Primary results are published on a live, as-recorded basis. {{ numvotes }} votes recorded so far. {% if saved %}Thanks for voting!{% else %}Record <b>your</b> <a href="/vote">Vote</a>.{% endif %}</p>
+  <p class="introtext">Primary results are published live. {{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} {% if voted %}<a href="/approval">Adjust</a> your vote anytime.{% else %}Record <b>your</b> <a href="/vote">Vote</a>.{% endif %}</p>
 </div>
 
 <table class="results">
