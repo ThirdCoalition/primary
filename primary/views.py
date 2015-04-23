@@ -128,7 +128,7 @@ def vote(request):
         setattr(candi, 'rating', rating)
     
     fav = max(candidates, key=lambda candi: candi.rating)
-    return render(request, 'approval.html', dict(full_context(), fav=fav, candidates = candidates))
+    return render(request, 'approval.html', dict(full_context(), fav=fav, candidates=candidates))
 
 @login_required(redirect_field_name=None)
 def saverange(request):
@@ -147,3 +147,9 @@ def platform(request):
 
 def regions(request):
     return render(request, 'regions.html', full_context())
+
+def blog(request):
+    return render(request, 'blog.html', full_context())
+
+def almanac(request):
+    return render(request, 'almanac.html', dict(full_context(), almanacs = almanacs()))
