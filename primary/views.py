@@ -7,11 +7,9 @@ from datetime import datetime
 from models import Candidate, Approval, Sums
 
 def sections():
-    return [{'title': 'Primary', 'location': '/'},
+    return [{'title': 'Blog', 'location': '/'},
             {'title': 'Platform', 'location': '/platform'},
-            {'title': 'Regions', 'location': '/regions'},
-            {'title': 'NPOs', 'location': '/npos'},
-            {'title': 'About', 'location': '/about'}]
+            {'title': 'Almanac', 'location': '/almanac'}]
 
 def almanacs():
     return [[dict(title="Foundations", location="foundations"),

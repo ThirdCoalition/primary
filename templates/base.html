@@ -238,20 +238,6 @@
           <a href="{{ page.location }}">{{ page.title }}</a>
         {% endif %}
       {% endfor %}
-
-      {% if user and user.is_authenticated %}
-        {% if request.path == "/account" %}<p><b>Account</b></p>
-        {% else %}<a href="/account">Account</a>
-        {% endif %}
-      {% else %}
-        <p>Login:</p>
-          <span>
-            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
-              <img src="{% static 'facebook.png' %}" /></a>
-            <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
-              <img src="{% static 'reddit.png' %}" /></a>
-          </span>
-      {% endif %}
     </div>
 
     <form id="favform" style="display:none;" method="post" action="/vote">
