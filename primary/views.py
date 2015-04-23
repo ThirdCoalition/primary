@@ -153,3 +153,7 @@ def blog(request):
 
 def almanac(request):
     return render(request, 'almanac.html', dict(full_context(), almanacs = almanacs()))
+
+@login_required(redirect_field_name=None)
+def account(request):
+    return render(request, 'account.html', full_context())
