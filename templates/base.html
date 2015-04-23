@@ -240,7 +240,9 @@
       {% endfor %}
 
       {% if user and user.is_authenticated %}
-        <a href="/account">Account</a>
+        {% if request.path == "/account" %}<p><b>Account</b></p>
+        {% else %}<a href="/account">Account</a>
+        {% endif %}
       {% else %}
         <p>Login:</p>
           <span>
