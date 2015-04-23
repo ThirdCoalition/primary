@@ -5,14 +5,14 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>Please login:
+  <p>Welcome to the Third Party Primary! Please login:
           <span class="logins">
             <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
               <img src="{% static 'facebook.png' %}" /></a>
             <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
               <img src="{% static 'reddit.png' %}" /></a>
           </span>
-     to vote</p>
+     to vote.</p>
 </div>
 
 {% endblock %}
