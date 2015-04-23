@@ -95,6 +95,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
+    'social.backends.reddit.RedditOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -103,3 +104,5 @@ LOGIN_URL = '/'
 
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('FACEBOOK_SECRET')
+SOCIAL_AUTH_REDDIT_KEY = os.environ.get('REDDIT_KEY')
+SOCIAL_AUTH_REDDIT_SECRET = os.environ.get('REDDIT_SECRET')

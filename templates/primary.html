@@ -5,7 +5,14 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p class="introtext">{{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} {% if voted %}<a href="/approval">Adjust</a> your vote anytime.{% else %}Please login to vote.{% endif %}</p>
+  <p class="introtext">{{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} 
+    {% if user.is_authenticated %}
+      {% if voted %}<a href="/vote">Adjust</a> your vote anytime.
+      {% else %}Cast your <a href="/vote">Vote</a>
+      {% endif %}
+    {% else %}Please login to vote.
+    {% endif %}
+  </p>
 </div>
 
 <table class="results">
@@ -26,7 +33,14 @@
 </table>
 
 <div class="topdiv" style="padding-top:4px;">
-  <p style="display:inline; font-size:x-large;">{% if voted %}<a href="/approval">Adjust</a> your vote anytime.{% else %}Please login to vote.{% endif %}</p>
+  <p style="display:inline; font-size:x-large;">
+    {% if user.is_authenticated %}
+      {% if voted %}<a href="/vote">Adjust</a> your vote anytime.
+      {% else %}Cast your <a href="/vote">Vote</a>
+      {% endif %}
+    {% else %}Please login to vote.
+    {% endif %}
+  </p>
 </div>
 
 {% endblock %}

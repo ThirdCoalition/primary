@@ -1,11 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 from django.shortcuts import render, redirect
 
 from datetime import datetime
-from random import shuffle
 
 from primary.models import Candidate, Approval, Sums
-from models import Visit
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
@@ -46,9 +45,14 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
-def record_visit(request, section, arg=""):
-    return
-#    Visit(ip=get_client_ip(request), time=datetime.now(), page=section, arg=arg).save()
+def record_one_rating(request, candi_id, rating):
+    candi = Candidate.objects.get(id=candi_id)
+    try:
+        approval = Approval.objects.get(candidate=candi, user=request.user)
+        approval.rating = rating
+        approval.save()
+    except Approval.DoesNotExist:
+        Approval(rating=rating, candidate=candi, user=request.user).save()
 
 def record_ratings(request):
     fav_saved = False
@@ -68,14 +72,7 @@ def record_ratings(request):
             else:
                 fav_saved = True
 
-        try:
-            approval = Approval.objects.get(candidate=Candidate.objects.get(id=id), user=request.user)
-            approval.rating = rating
-            approval.save()
-        except Approval.DoesNotExist:
-            Approval(rating=rating, candidate=candi, user=request.user).save()
-        except Candidate.DoesNotExist:
-            continue
+        record_one_rating(request, id, rating)
 
 def get_percentages():
     ratings = Sums.objects.all()
@@ -95,38 +92,32 @@ def get_ballot():
                   key=lambda candidate: candidate.shame)
 
 def user_voted(request):
-    return Approval.objects.filter(user=request.user).count > 0
-
+    return Approval.objects.filter(user=request.user).count() > 0
 
 def primary(request):
-    record_visit(request, 'primary')
-    return render(request, 'primary.html', dict(full_context(),
-                                                ratings = get_percentages(),
-                                                numvotes = Approval.objects.filter(candidate_id=1).count(),
-                                                voted = request.user.is_authenticated() and user_voted(request),
-                                                saved = ('saved' in request.GET)))
+    return render(request, 'primary.html', 
+                  dict(full_context(),
+                       ratings = get_percentages(),
+                       # .distinct unavailable on sqlite3
+                       numvotes = Approval.objects.values('user').annotate(Count('user')).count(),
+                       voted = request.user.is_authenticated() and user_voted(request),
+                       saved = ('saved' in request.GET)))
 
 def vote(request):
-    record_visit(request, 'vote')
-
     if not request.user.is_authenticated():
         return render(request, 'login.html', dict(full_context()))
     
-    if not user_voted(request):
+    if not user_voted(request) and 'fav' not in request.POST:
         return render(request, 'vote.html', dict(full_context(), candidates = get_ballot()))
 
-    return approval(request)
+    if 'fav' in request.POST:
+        for approval in Approval.objects.filter(user=request.user):
+            if approval.rating == 10:
+                approval.rating = 9
+                approval.save()
 
-@login_required(redirect_field_name=None)
-def random(request):
-    record_visit(request, 'random')
+        record_one_rating(request, int(request.POST['fav']), 10)
 
-    candidates = get_ballot()
-    shuffle(candidates)
-    return render(request, 'vote.html', dict(full_context(), candidates=candidates))
-
-@login_required(redirect_field_name=None)
-def approval(request):
     candidates = get_ballot()
     for candi in candidates:
         rating = 0
@@ -141,23 +132,18 @@ def approval(request):
 
 @login_required(redirect_field_name=None)
 def saverange(request):
-    record_visit(request, 'saverange')
     record_ratings(request)
 
     return redirect("/?saved")
 
 def about(request):
-    record_visit(request, 'about')
     return render(request, 'about.html', full_context())
 
 def npos(request):
-    record_visit(request, 'npos')
     return render(request, 'npos.html', full_context())
 
 def platform(request):
-    record_visit(request, 'platform')
     return render(request, 'platform.html', full_context())
 
 def regions(request):
-    record_visit(request, 'regions')
     return render(request, 'regions.html', full_context())

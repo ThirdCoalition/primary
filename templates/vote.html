@@ -14,7 +14,7 @@
     <tr>
       <td class="range">
         <div style="background-color:{{ c.color }};">
-          <span onclick="javascript: location.href='/approval?fav={{ c.name }}';">
+          <span onclick="javascript: saveFavorite({{ c.id }});">
             <input class="rangeValue" readonly="readonly" />
           </span>
         </div>
