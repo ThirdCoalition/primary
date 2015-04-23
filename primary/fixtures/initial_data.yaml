@@ -12,7 +12,7 @@
   pk: 2
   fields:
     name: Green
-    synopsis: Live with the Planet, not on it
+    synopsis: One World, One Chance
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.gp.org
     color: Green
@@ -62,7 +62,7 @@
   pk: 7
   fields:
     name: Socialist
-    synopsis: Right-to-Life benefits for all Citizens
+    synopsis: From Each, To Each
     logo: http://todoidentifyfounder.com
     link: http://www.socialistparty-usa.org
     color: YellowGreen

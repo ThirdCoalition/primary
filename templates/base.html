@@ -4,15 +4,52 @@
   <head>
     <meta charset="utf-8">
     <title>Reclaim Congress</title>
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    
     <script type="text/javascript">
       function saveFavorite(id) {
         document.querySelector("#fav").value = id;
         document.querySelector("#favform").submit();
       }
 
+      var autosave_setup = false;
+      var autosave_needed = false;
+
+      function autosave_timer() {
+        if (!autosave_needed)
+          return;
+
+        $.ajax({
+          type: "POST",
+          url: "saverange",
+          data: $("#rangeform").serialize(),
+          success: function(msg) {
+            if (!autosave_needed) {
+              $(".saving-label").text("Saved");
+              $(".saving-label").css("background-color", "lightgreen");
+            }}})
+
+        autosave_needed = false;
+      }
+
+      function autosave(){
+        autosave_needed = true;
+        $(".saving-label").text("Saving");
+        $(".saving-label").css("background-color", "gold");
+
+        if (!autosave_setup) {
+          setInterval(autosave_timer, 1500);
+          autosave_setup = true;
+        }
+      }
+
       function tinkerApproval(id, delta) {
         input = document.getElementById(id);
         input.value = Math.min(9, Math.max(0, Number(input.value) + delta));
+
+        autosave();
       }
 
       function toggleApproval(ele) {
@@ -25,30 +62,15 @@
           input.value = "9";
         else
           input.value = "0";
-      }
 
-      function saveRange() {
-        var inputs = document.querySelectorAll(".rangeValue");
-        var valid = true;
-
-        for (var i=0; i<inputs.length; i++) {
-          var numeric = Number(inputs[i].value);
-          if (numeric >= 0 && numeric <= 10) {
-            continue;
-          }          
-          valid = false;
-          break;
-        }
-        
-        if (!valid) {
-          alert("You have entered an invalid entry. All values should be numeric in the range [0,9].");
-        } else {
-          document.querySelector("#rangeform").submit();
-        }
+        autosave();
       }
     </script>
 
     <style>
+      .saving-label {
+        padding:4px;
+      }
       .banner {
         height:60px;
         margin-left:20px; margin-right:20px;
