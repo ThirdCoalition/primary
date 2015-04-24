@@ -104,7 +104,7 @@ def primary(request):
 
 def vote(request):
     if not request.user.is_authenticated():
-        return render(request, 'login.html', full_context())
+        return render(request, 'login.html', full_context(msg = 'vote'))
     
     if not user_voted(request) and 'fav' not in request.POST:
         return render(request, 'vote.html', full_context(candidates = get_ballot()))
