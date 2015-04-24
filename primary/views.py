@@ -34,8 +34,8 @@ def almanacs():
              dict(title="Kafkaesque", location="kafkaesque"),
              dict(title="Sedaris", location="sedaris")]]
 
-def full_context():
-    return {'sections': sections()}
+def full_context(**kwargs):
+    return dict({'sections': sections()}, **kwargs)
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -96,19 +96,18 @@ def user_voted(request):
 
 def primary(request):
     return render(request, 'primary.html', 
-                  dict(full_context(),
-                       ratings = get_percentages(),
-                       # .distinct unavailable on sqlite3
-                       numvotes = Approval.objects.values('user').annotate(Count('user')).count(),
-                       voted = request.user.is_authenticated() and user_voted(request),
-                       saved = ('saved' in request.GET)))
+                  full_context(ratings = get_percentages(),
+                               # .distinct unavailable on sqlite3
+                               numvotes = Approval.objects.values('user').annotate(Count('user')).count(),
+                               voted = request.user.is_authenticated() and user_voted(request),
+                               saved = ('saved' in request.GET)))
 
 def vote(request):
     if not request.user.is_authenticated():
-        return render(request, 'login.html', dict(full_context()))
+        return render(request, 'login.html', full_context())
     
     if not user_voted(request) and 'fav' not in request.POST:
-        return render(request, 'vote.html', dict(full_context(), candidates = get_ballot()))
+        return render(request, 'vote.html', full_context(candidates = get_ballot()))
 
     if 'fav' in request.POST:
         for approval in Approval.objects.filter(user=request.user):
@@ -128,7 +127,7 @@ def vote(request):
         setattr(candi, 'rating', rating)
     
     fav = max(candidates, key=lambda candi: candi.rating)
-    return render(request, 'approval.html', dict(full_context(), fav=fav, candidates=candidates))
+    return render(request, 'approval.html', full_context(fav=fav, candidates=candidates))
 
 @login_required(redirect_field_name=None)
 def saverange(request):
@@ -152,7 +151,7 @@ def blog(request):
     return render(request, 'blog.html', full_context())
 
 def almanac(request):
-    return render(request, 'almanac.html', dict(full_context(), almanacs = almanacs()))
+    return render(request, 'almanac.html', full_context(almanacs = almanacs()))
 
 @login_required(redirect_field_name=None)
 def account(request):
