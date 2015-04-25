@@ -2,11 +2,47 @@
 
 {% load staticfiles %}
 
+{% load macros %}
+
+{% macro location_form button %}
+  <form id="accountform" method="post"> {% csrf_token %}
+    <input name="location" maxlength="10" value="{{ settings.location }}{{ test }}"
+           style="text-align:center; font-size:large;" />
+    {% if button %}
+      <input type="submit" style="font-size:large;" />
+    {% endif %}
+  </form>
+{% endmacro %}
+
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
   <p>Hello {{ user.get_full_name|default:user.username }}.</p>
-  <p><a href="{% url 'auth:logout' %}?next=/">Logout</a></p>
+
+  <p>Your delegate is: {{ settings.delegate.get_full_name|default:settings.delegate.username }}.</p>
+
+  {% if request.path == '/account' %}
+    <p>Your zipcode/country code is: {% use_macro location_form "button" %}</p>
+
+    <p>Your referral link is:</p>
+    <p>http://www.reclaimcongress.org/delegate/user/{{ user.id }}</p>
+    <p>[TODO: Share buttons]</p>
+
+    <p><a href="{% url 'auth:logout' %}?next=/">Logout</a></p>
+  {% else %}
+    {% if new_delegate %}
+      <form id="confirmform" method="post" style="display:none;"> {% csrf_token %}
+        <input name="confirm" value="yes" />
+      </form>
+
+      <p>{{ new_delegate.get_full_name|default:new_delegate.username }} is requesting to be your delegate. Do you confirm?</p>
+      <p><a href="javascript: document.querySelector('#confirmform').submit();">Confirm Delegate</a>&nbsp;&nbsp;<a href="/">No, Take me home</a></p>
+    {% else %}
+      <p>Please enter your zipcode/country code: {% use_macro location_form %}</p>
+      <p><a href="javascript: document.querySelector('#accountform').submit();">Continue</a>
+        to vote for your favorite party.</p>
+    {% endif %}
+  {% endif %}
 </div>
 
 {% endblock %}

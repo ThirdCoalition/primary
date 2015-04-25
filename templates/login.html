@@ -5,14 +5,21 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>Welcome to Reclaim Congress! Please login:
-          <span class="logins">
-            <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
-              <img src="{% static 'facebook.png' %}" /></a>
-            <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
-              <img src="{% static 'reddit.png' %}" /></a>
-          </span>
-     to {{ msg }}.</p>
+  <p>Welcome to Reclaim Congress!</p>
+
+  {% if msg == 'register' %}
+  <p>{{ delegate.get_full_name|default:delegate.username }} would like to be your delegate.</p>
+  <p>By registering, you are trusting him or her to speak on your behalf in matters you abstain from.</p>
+  {% endif %}
+
+  <p>Please login
+    <span class="logins">
+      <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+        <img src="{% static 'facebook.png' %}" /></a>
+      <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
+        <img src="{% static 'reddit.png' %}" /></a>
+    </span>
+   to {{ msg }}.</p>
 </div>
 
 {% endblock %}

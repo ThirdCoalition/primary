@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect
 
 from datetime import datetime
 
-from models import Candidate, Approval, Sums
+from django.contrib.auth.models import User
+from models import Candidate, Approval, UserSettings, Sums
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
@@ -153,6 +154,42 @@ def blog(request):
 def almanac(request):
     return render(request, 'almanac.html', full_context(almanacs = almanacs()))
 
+def get_user_settings(request):
+    return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user))
+
 @login_required(redirect_field_name=None)
 def account(request):
-    return render(request, 'account.html', full_context())
+    settings,created = get_user_settings(request)
+    if 'location' in request.POST:
+        settings.location = request.POST['location']
+        settings.save()
+
+    return render(request, 'account.html', full_context(settings=settings))
+
+def delegate(request, userid):
+    rep = User.objects.get(id=int(userid))
+
+    if not request.user.is_authenticated():
+        return render(request, 'login.html', full_context(delegate=rep, msg='register'))
+
+    settings,created = get_user_settings(request)
+
+    if created:
+        settings.delegate = rep
+        settings.save()
+        return account(request)
+
+    if 'location' in request.POST:
+        settings.location = request.POST['location']
+        settings.save()
+        return redirect('/vote')
+        
+    if settings.delegate == rep: #Reusing a delegacy link after completing setup
+        return redirect('/')
+
+    if 'confirm' in request.POST:
+        settings.delegate = rep
+        settings.save()
+        return redirect('/account')
+
+    return render(request, 'account.html', full_context(settings=settings, new_delegate=rep))
