@@ -31,21 +31,21 @@
 - model: primary.Candidate
   pk: 4
   fields:
-    name: Reform
-    synopsis: Transparency, Fiscal Responsibility, Accountability
+    name: Technocracy
+    synopsis: Knowledge and Skill
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.reformparty.org
-    color: DarkSlateBlue
+    link: http://www.reddit.com/r/technocracy
+    color: OrangeRed
     fgcolor: Black
     shame: false
 - model: primary.Candidate
   pk: 5
   fields:
-    name: Constitution
-    synopsis: Virtue, Liberty, Independence
+    name: Transhumanism
+    synopsis: Motto Needed
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.constitutionparty.org
-    color: DarkRed
+    link: http://en.wikipedia.org/wiki/Transhumanism
+    color: DarkOrchid
     fgcolor: White
     shame: false
 - model: primary.Candidate
@@ -91,20 +91,10 @@
 - model: primary.Candidate
   pk: 10
   fields:
-    name: Justice
-    synopsis: Justice for All
+    name: Occupy
+    synopsis: Demonstration Army
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.justicepartyusa.org/
-    color: DeepSkyBlue
+    link: http://en.wikipedia.org/wiki/Occupy_movement
+    color: Silver
     fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 11
-  fields:
-    name: Modern Whig
-    synopsis: Common Sense, Courage, Country
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
-    color: DarkOrchid
-    fgcolor: Black
-    shame: false
+    shame: true
