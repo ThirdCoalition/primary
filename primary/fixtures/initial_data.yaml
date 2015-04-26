@@ -16,7 +16,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.gp.org
     color: Green
-    fgcolor: Black
+    fgcolor: White
     shame: false
 - model: primary.Candidate
   pk: 3
@@ -76,7 +76,7 @@
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
     link: http://www.democrats.org
     color: Blue
-    fgcolor: Black
+    fgcolor: White
     shame: true
 - model: primary.Candidate
   pk: 9
