@@ -160,14 +160,19 @@ def get_user_settings(request):
 @login_required(redirect_field_name=None)
 def account(request):
     settings,created = get_user_settings(request)
-    if 'location' in request.POST:
+
+    if 'location' in request.POST and request.POST['location'].isalnum():
         settings.location = request.POST['location']
+        settings.save()
+
+    if 'handle' in request.POST and request.POST['handle'].isalnum():
+        settings.handle = request.POST['handle']
         settings.save()
 
     return render(request, 'account.html', full_context(settings=settings))
 
-def delegate(request, userid):
-    rep = User.objects.get(id=int(userid))
+def delegate(request, handle):
+    rep = UserSettings.objects.get(handle=handle).user
 
     if not request.user.is_authenticated():
         return render(request, 'login.html', full_context(delegate=rep, msg='register'))
@@ -179,7 +184,7 @@ def delegate(request, userid):
         settings.save()
         return account(request)
 
-    if 'location' in request.POST:
+    if 'location' in request.POST and request.POST['location'].isalnum():
         settings.location = request.POST['location']
         settings.save()
         return redirect('/vote')

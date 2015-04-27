@@ -6,7 +6,7 @@
 
 {% macro location_form button %}
   <form id="accountform" method="post"> {% csrf_token %}
-    <input name="location" maxlength="10" value="{{ settings.location }}{{ test }}"
+    <input name="location" maxlength="10" value="{{ settings.location }}"
            style="text-align:center; font-size:large;" />
     {% if button %}
       <input type="submit" style="font-size:large;" />
@@ -24,8 +24,17 @@
   {% if request.path == '/account' %}
     <p>Your zipcode/country code is: {% use_macro location_form "button" %}</p>
 
+    <p>Your referral code is:</p>
+    <form id="handleform" method="post"> {% csrf_token %}
+      <input name="handle" maxlength="20" value="{{ settings.handle }}"
+             style="text-align:center; font-size:large;" />
+      <input type="submit" style="font-size:large;" />
+    </form>
+
+    {% if settings.handle != '' %}
     <p>Your referral link is:</p>
-    <p>http://www.reclaimcongress.org/delegate/user/{{ user.id }}</p>
+      <p>http://www.onlineun.org/delegate/user/{{ settings.handle }}</p>
+    {% endif %}
     <p>[TODO: Share buttons]</p>
 
     <p><a href="{% url 'auth:logout' %}?next=/">Logout</a></p>
