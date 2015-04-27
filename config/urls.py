@@ -8,5 +8,5 @@ urlpatterns = patterns('',
 
     url(r'^$', 'primary.views.primary', name='primary'),
     url(r'^delegate/user/(?P<handle>\w+)$', 'primary.views.delegate', name='delegate'),
-    *[url(r'^%s$' % s, 'primary.views.%s' % s, name=s) for s in ('about', 'npos', 'platform', 'regions', 'vote', 'saverange', 'account')]
+    *[url(r'^%s$' % s, 'primary.views.%s' % s, name=s) for s in ('about', 'npos', 'platform', 'regions', 'vote', 'saverange', 'account', 'release')]
 )

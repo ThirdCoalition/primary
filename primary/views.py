@@ -10,7 +10,7 @@ from models import Candidate, Approval, UserSettings, Sums
 def sections():
     return [{'title': 'Primary', 'location': '/'},
             {'title': 'Platform', 'location': '/platform'},
-            {'title': 'Regions', 'location': '/regions'},
+            {'title': 'Release', 'location': '/release'},
             {'title': 'NPOs', 'location': '/npos'},
             {'title': 'About', 'location': '/about'}]
 
@@ -154,6 +154,9 @@ def blog(request):
 def almanac(request):
     return render(request, 'almanac.html', full_context(almanacs = almanacs()))
 
+def release(request):
+    return render(request, 'release.html', full_context())
+
 def get_user_settings(request):
     return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user))
 
@@ -166,8 +169,9 @@ def account(request):
         settings.save()
 
     if 'handle' in request.POST and request.POST['handle'].isalnum():
-        settings.handle = request.POST['handle']
-        settings.save()
+        if UserSettings.objects.filter(handle=request.POST['handle']).count() == 0:
+            settings.handle = request.POST['handle']
+            settings.save()
 
     return render(request, 'account.html', full_context(settings=settings))
 
