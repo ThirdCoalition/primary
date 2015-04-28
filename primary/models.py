@@ -1,7 +1,11 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+class Region(models.Model):
+    name = models.CharField(max_length=20)
+
 class Candidate(models.Model):
+    region = models.ForeignKey(Region)
     name = models.CharField(max_length=30)
     synopsis = models.CharField(max_length=500)
     logo = models.URLField()
@@ -17,6 +21,7 @@ class Approval(models.Model):
 
 class UserSettings(models.Model):
     user = models.ForeignKey(User)
+    region = models.ForeignKey(Region)
     delegate = models.ForeignKey(User, related_name="delegate")
     location = models.CharField(max_length=10, default='')
     handle = models.CharField(max_length=20, default='')
