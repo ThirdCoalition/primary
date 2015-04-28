@@ -18,16 +18,4 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=20)),
             ],
         ),
-        migrations.AddField(
-            model_name='candidate',
-            name='region',
-            field=models.ForeignKey(default=1, to='primary.Region'),
-            preserve_default=False,
-        ),
-        migrations.AddField(
-            model_name='usersettings',
-            name='region',
-            field=models.ForeignKey(default=1, to='primary.Region'),
-            preserve_default=False,
-        ),
     ]
