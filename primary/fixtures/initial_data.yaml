@@ -1,3 +1,7 @@
+- model: primary.Region
+  pk: 1
+  fields:
+    name: International
 - model: primary.Candidate
   pk: 1
   fields:
