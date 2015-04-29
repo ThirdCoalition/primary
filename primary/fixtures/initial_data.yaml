@@ -108,3 +108,91 @@
     color: Silver
     fgcolor: Black
     shame: false
+- model: primary.Candidate
+  pk: 11
+  fields:
+    region_id: 2
+    name: Libertarian
+    synopsis: Don't Tread on Me
+    logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
+    link: http://www.lp.org
+    color: GoldenRod
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 12
+  fields:
+    region_id: 2
+    name: Green
+    synopsis: One World, One Chance
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.gp.org
+    color: Green
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 13
+  fields:
+    region_id: 2
+    name: Direct Democracy
+    synopsis: Be The Change
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://igg.me/at/ddp
+    color: BurlyWood
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 14
+  fields:
+    region_id: 2
+    name: Reform
+    synopsis: Transparency, Fiscal Responsibility, Accountability
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.reformparty.org
+    color: DarkSlateBlue
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 15
+  fields:
+    region_id: 2
+    name: Constitution
+    synopsis: Virtue, Liberty, Independence
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.constitutionparty.org
+    color: DarkRed
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 16
+  fields:
+    region_id: 2
+    name: Pirate
+    synopsis: Defending your Digital Rights
+    logo: http://todoidentifyfounder.com
+    link: http://www.uspirates.org
+    color: Black
+    fgcolor: White
+    shame: false
+- model: primary.Candidate
+  pk: 17
+  fields:
+    region_id: 2
+    name: Socialist
+    synopsis: From Each, To Each
+    logo: http://todoidentifyfounder.com
+    link: http://www.socialistparty-usa.org
+    color: YellowGreen
+    fgcolor: Black
+    shame: false
+- model: primary.Candidate
+  pk: 18
+  fields:
+    region_id: 2
+    name: Modern Whig
+    synopsis: Common Sense, Courage, Country
+    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    link: http://www.modernwhig.org/
+    color: DarkOrchid
+    fgcolor: White
+    shame: false
