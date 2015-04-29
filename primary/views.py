@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 
 from django.contrib.auth.models import User
-from models import Candidate, Approval, UserSettings, Sums
+from models import Region, Candidate, Approval, UserSettings, Sums
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
@@ -36,7 +36,7 @@ def almanacs():
              dict(title="Sedaris", location="sedaris")]]
 
 def full_context(**kwargs):
-    return dict({'sections': sections()}, **kwargs)
+    return dict({'sections': sections(), 'regions': Region.objects.all()}, **kwargs)
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -75,8 +75,15 @@ def record_ratings(request):
 
         record_one_rating(request, id, rating)
 
-def get_percentages():
-    ratings = Sums.objects.all()
+def get_region_id(request):
+    if request.user.is_authenticated():
+        settings,created = get_user_settings(request)
+        return settings.region.id
+
+    return 1
+
+def get_percentages(request):
+    ratings = Sums.objects.filter(candidate__region__id=get_region_id(request))
     total = max(sum(map(lambda r: r.approval, ratings)), 1)
     for rating in ratings:
         rating.approval = 100 * rating.approval / total
@@ -86,20 +93,20 @@ def get_percentages():
 
     return sorted(ratings, key=lambda rating: rating.candidate.shame, reverse=True)
 
-def get_ballot():
-    percentages = get_percentages()
+def get_ballot(request):
+    percentages = get_percentages(request)
     return sorted(map(lambda rating: rating.candidate,
                       sorted(percentages, key=lambda rating: rating.approval, reverse=True)),
                   key=lambda candidate: candidate.shame)
 
 def user_voted(request):
-    return Approval.objects.filter(user=request.user).count() > 0
+    return Approval.objects.filter(user=request.user, candidate__region__id=get_region_id(request)).count() > 0
 
 def primary(request):
     return render(request, 'primary.html', 
-                  full_context(ratings = get_percentages(),
+                  full_context(ratings = get_percentages(request),
                                # .distinct unavailable on sqlite3
-                               numvotes = Approval.objects.values('user').annotate(Count('user')).count(),
+                               numvotes = Approval.objects.filter(candidate__region__id=get_region_id(request)).values('user').annotate(Count('user')).count(),
                                voted = request.user.is_authenticated() and user_voted(request),
                                saved = ('saved' in request.GET)))
 
@@ -108,17 +115,17 @@ def vote(request):
         return render(request, 'login.html', full_context(msg = 'vote'))
     
     if not user_voted(request) and 'fav' not in request.POST:
-        return render(request, 'vote.html', full_context(candidates = get_ballot()))
+        return render(request, 'vote.html', full_context(candidates = get_ballot(request)))
 
     if 'fav' in request.POST:
-        for approval in Approval.objects.filter(user=request.user):
+        for approval in Approval.objects.filter(user=request.user, candidate__region__id=get_region_id(request)):
             if approval.rating == 10:
                 approval.rating = 9
                 approval.save()
 
         record_one_rating(request, int(request.POST['fav']), 10)
 
-    candidates = get_ballot()
+    candidates = get_ballot(request)
     for candi in candidates:
         rating = 0
         try:
@@ -158,7 +165,8 @@ def release(request):
     return render(request, 'release.html', full_context())
 
 def get_user_settings(request):
-    return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user))
+    intl = Region.objects.get(id=1)
+    return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user, region=intl))
 
 @login_required(redirect_field_name=None)
 def account(request):
@@ -168,6 +176,10 @@ def account(request):
         settings.location = request.POST['location']
         settings.save()
 
+    if 'region' in request.POST:
+        settings.region = Region.objects.get(id=int(request.POST['region']))
+        settings.save()
+    
     if 'handle' in request.POST and request.POST['handle'].isalnum():
         if UserSettings.objects.filter(handle=request.POST['handle']).count() == 0:
             settings.handle = request.POST['handle']
@@ -185,6 +197,7 @@ def delegate(request, handle):
 
     if created:
         settings.delegate = rep
+        settings.region = UserSettings.objects.get(user=rep).region
         settings.save()
         return account(request)
 
@@ -192,7 +205,7 @@ def delegate(request, handle):
         settings.location = request.POST['location']
         settings.save()
         return redirect('/vote')
-        
+
     if settings.delegate == rep: #Reusing a delegacy link after completing setup
         return redirect('/')
 

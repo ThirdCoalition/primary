@@ -22,7 +22,18 @@
   <p>Your delegate is: {{ settings.delegate.get_full_name|default:settings.delegate.username }}.</p>
 
   {% if request.path == '/account' %}
-    <p>Your zipcode/country code is: {% use_macro location_form "button" %}</p>
+    <p>Your region is:</p>
+    <form id="regionform" method="post"> {% csrf_token %}
+      <select name="region" style="font-size:large;">
+      {% for region in regions %}
+        <option {% if settings.region == region %}selected="selected"{% endif %}
+                value="{{ region.id }}">{{ region.name }}</option>
+      {% endfor %}
+      </select>
+      <input type="submit" style="font-size:large;" />
+    </form>
+
+    <p>Your postal code is: {% use_macro location_form "button" %}</p>
 
     <p>Your referral code is:</p>
     <form id="handleform" method="post"> {% csrf_token %}
@@ -47,7 +58,7 @@
       <p>{{ new_delegate.get_full_name|default:new_delegate.username }} is requesting to be your delegate. Do you confirm?</p>
       <p><a href="javascript: document.querySelector('#confirmform').submit();">Confirm Delegate</a>&nbsp;&nbsp;<a href="/">No, Take me home</a></p>
     {% else %}
-      <p>Please enter your zipcode/country code: {% use_macro location_form %}</p>
+      <p>Please enter your postal code: {% use_macro location_form %}</p>
       <p><a href="javascript: document.querySelector('#accountform').submit();">Continue</a>
         to vote for your favorite party.</p>
     {% endif %}

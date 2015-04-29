@@ -1,36 +1,40 @@
 - model: primary.Candidate
   pk: 1
   fields:
+    region_id: 1
     name: Libertarian
     synopsis: Don't Tread on Me
     logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
-    link: http://www.lp.org
+    link: http://www.libertarianinternational.org
     color: GoldenRod
     fgcolor: Black
     shame: false
 - model: primary.Candidate
   pk: 2
   fields:
+    region_id: 1
     name: Green
     synopsis: One World, One Chance
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.gp.org
+    link: http://www.globalgreens.org
     color: Green
     fgcolor: White
     shame: false
 - model: primary.Candidate
   pk: 3
   fields:
+    region_id: 1
     name: Direct Democracy
     synopsis: Be The Change
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://igg.me/at/ddp
+    link: http://www.democracy-international.org
     color: BurlyWood
     fgcolor: Black
     shame: false
 - model: primary.Candidate
   pk: 4
   fields:
+    region_id: 1
     name: Technocracy
     synopsis: Knowledge and Skill
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -41,36 +45,40 @@
 - model: primary.Candidate
   pk: 5
   fields:
+    region_id: 1
     name: Transhumanism
     synopsis: Motto Needed
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://en.wikipedia.org/wiki/Transhumanism
+    link: http://www.ieet.org
     color: DarkOrchid
     fgcolor: White
     shame: false
 - model: primary.Candidate
   pk: 6
   fields:
+    region_id: 1
     name: Pirate
     synopsis: Defending your Digital Rights
     logo: http://todoidentifyfounder.com
-    link: http://www.uspirates.org
+    link: http://www.pp-international.org
     color: Black
     fgcolor: White
     shame: false
 - model: primary.Candidate
   pk: 7
   fields:
+    region_id: 1
     name: Socialist
     synopsis: From Each, To Each
     logo: http://todoidentifyfounder.com
-    link: http://www.socialistparty-usa.org
+    link: http://www.european-left.org
     color: YellowGreen
     fgcolor: Black
     shame: false
 - model: primary.Candidate
   pk: 8
   fields:
+    region_id: 2
     name: Democrat
     synopsis: Same Old "Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -81,6 +89,7 @@
 - model: primary.Candidate
   pk: 9
   fields:
+    region_id: 2
     name: Republican
     synopsis: Same Old "Not Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -91,6 +100,7 @@
 - model: primary.Candidate
   pk: 10
   fields:
+    region_id: 1
     name: Occupy
     synopsis: Demonstration Army
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
