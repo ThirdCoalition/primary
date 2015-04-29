@@ -1,7 +1,7 @@
 - model: primary.Candidate
   pk: 1
   fields:
-    region_id: 1
+    region: 1
     name: Libertarian
     synopsis: Don't Tread on Me
     logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
@@ -12,7 +12,7 @@
 - model: primary.Candidate
   pk: 2
   fields:
-    region_id: 1
+    region: 1
     name: Green
     synopsis: One World, One Chance
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -23,7 +23,7 @@
 - model: primary.Candidate
   pk: 3
   fields:
-    region_id: 1
+    region: 1
     name: Direct Democracy
     synopsis: Be The Change
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -34,7 +34,7 @@
 - model: primary.Candidate
   pk: 4
   fields:
-    region_id: 1
+    region: 1
     name: Technocracy
     synopsis: Knowledge and Skill
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -45,7 +45,7 @@
 - model: primary.Candidate
   pk: 5
   fields:
-    region_id: 1
+    region: 1
     name: Transhumanism
     synopsis: Motto Needed
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -56,7 +56,7 @@
 - model: primary.Candidate
   pk: 6
   fields:
-    region_id: 1
+    region: 1
     name: Pirate
     synopsis: Defending your Digital Rights
     logo: http://todoidentifyfounder.com
@@ -67,7 +67,7 @@
 - model: primary.Candidate
   pk: 7
   fields:
-    region_id: 1
+    region: 1
     name: Socialist
     synopsis: From Each, To Each
     logo: http://todoidentifyfounder.com
@@ -78,7 +78,7 @@
 - model: primary.Candidate
   pk: 8
   fields:
-    region_id: 2
+    region: 2
     name: Democrat
     synopsis: Same Old "Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -89,7 +89,7 @@
 - model: primary.Candidate
   pk: 9
   fields:
-    region_id: 2
+    region: 2
     name: Republican
     synopsis: Same Old "Not Change"
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -100,7 +100,7 @@
 - model: primary.Candidate
   pk: 10
   fields:
-    region_id: 1
+    region: 1
     name: Occupy
     synopsis: Demonstration Army
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -111,7 +111,7 @@
 - model: primary.Candidate
   pk: 11
   fields:
-    region_id: 2
+    region: 2
     name: Libertarian
     synopsis: Don't Tread on Me
     logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
@@ -122,7 +122,7 @@
 - model: primary.Candidate
   pk: 12
   fields:
-    region_id: 2
+    region: 2
     name: Green
     synopsis: One World, One Chance
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -133,7 +133,7 @@
 - model: primary.Candidate
   pk: 13
   fields:
-    region_id: 2
+    region: 2
     name: Direct Democracy
     synopsis: Be The Change
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -144,7 +144,7 @@
 - model: primary.Candidate
   pk: 14
   fields:
-    region_id: 2
+    region: 2
     name: Reform
     synopsis: Transparency, Fiscal Responsibility, Accountability
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -155,7 +155,7 @@
 - model: primary.Candidate
   pk: 15
   fields:
-    region_id: 2
+    region: 2
     name: Constitution
     synopsis: Virtue, Liberty, Independence
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
@@ -166,7 +166,7 @@
 - model: primary.Candidate
   pk: 16
   fields:
-    region_id: 2
+    region: 2
     name: Pirate
     synopsis: Defending your Digital Rights
     logo: http://todoidentifyfounder.com
@@ -177,7 +177,7 @@
 - model: primary.Candidate
   pk: 17
   fields:
-    region_id: 2
+    region: 2
     name: Socialist
     synopsis: From Each, To Each
     logo: http://todoidentifyfounder.com
@@ -188,7 +188,7 @@
 - model: primary.Candidate
   pk: 18
   fields:
-    region_id: 2
+    region: 2
     name: Modern Whig
     synopsis: Common Sense, Courage, Country
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
