@@ -38,6 +38,9 @@ def almanacs():
 def full_context(**kwargs):
     return dict({'sections': sections(), 'regions': Region.objects.all()}, **kwargs)
 
+def myrender(request, template, **kwargs):
+    return render(request, template, full_context(**kwargs))
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -103,19 +106,24 @@ def user_voted(request):
     return Approval.objects.filter(user=request.user, candidate__region__id=get_region_id(request)).count() > 0
 
 def primary(request):
-    return render(request, 'primary.html', 
-                  full_context(ratings = get_percentages(request),
-                               # .distinct unavailable on sqlite3
-                               numvotes = Approval.objects.filter(candidate__region__id=get_region_id(request)).values('user').annotate(Count('user')).count(),
-                               voted = request.user.is_authenticated() and user_voted(request),
-                               saved = ('saved' in request.GET)))
+    return myrender(request, 'primary.html', 
+                    ratings = get_percentages(request),
+                    # .distinct unavailable on sqlite3
+                    numvotes = Approval.objects.filter(candidate__region__id=get_region_id(request)).values('user').annotate(Count('user')).count(),
+                    voted = request.user.is_authenticated() and user_voted(request),
+                    saved = ('saved' in request.GET))
 
-def vote(request):
+def vote(request, region="intl"):
     if not request.user.is_authenticated():
-        return render(request, 'login.html', full_context(msg = 'vote'))
-    
+        return myrender(request, 'login.html', msg = 'vote')
+
+    settings,created = get_user_settings(request)
+    if created:
+        settings.region = Region.objects.get(url=region)
+        settings.save()
+
     if not user_voted(request) and 'fav' not in request.POST:
-        return render(request, 'vote.html', full_context(candidates = get_ballot(request)))
+        return myrender(request, 'vote.html', candidates = get_ballot(request))
 
     if 'fav' in request.POST:
         for approval in Approval.objects.filter(user=request.user, candidate__region__id=get_region_id(request)):
@@ -135,7 +143,7 @@ def vote(request):
         setattr(candi, 'rating', rating)
     
     fav = max(candidates, key=lambda candi: candi.rating)
-    return render(request, 'approval.html', full_context(fav=fav, candidates=candidates))
+    return myrender(request, 'approval.html', fav=fav, candidates=candidates)
 
 @login_required(redirect_field_name=None)
 def saverange(request):
@@ -144,25 +152,25 @@ def saverange(request):
     return redirect("/?saved")
 
 def about(request):
-    return render(request, 'about.html', full_context())
+    return myrender(request, 'about.html')
 
 def npos(request):
-    return render(request, 'npos.html', full_context())
+    return myrender(request, 'npos.html')
 
 def platform(request):
-    return render(request, 'platform.html', full_context())
+    return myrender(request, 'platform.html')
 
 def regions(request):
-    return render(request, 'regions.html', full_context())
+    return myrender(request, 'regions.html')
 
 def blog(request):
-    return render(request, 'blog.html', full_context())
+    return myrender(request, 'blog.html')
 
 def almanac(request):
-    return render(request, 'almanac.html', full_context(almanacs = almanacs()))
+    return myrender(request, 'almanac.html', almanacs = almanacs())
 
 def release(request):
-    return render(request, 'release.html', full_context())
+    return myrender(request, 'release.html')
 
 def get_user_settings(request):
     intl = Region.objects.get(id=1)
@@ -185,13 +193,13 @@ def account(request):
             settings.handle = request.POST['handle']
             settings.save()
 
-    return render(request, 'account.html', full_context(settings=settings))
+    return myrender(request, 'account.html', settings=settings)
 
 def delegate(request, handle):
     rep = UserSettings.objects.get(handle=handle).user
 
     if not request.user.is_authenticated():
-        return render(request, 'login.html', full_context(delegate=rep, msg='register'))
+        return myrender(request, 'login.html', delegate=rep, msg='register')
 
     settings,created = get_user_settings(request)
 
@@ -214,4 +222,4 @@ def delegate(request, handle):
         settings.save()
         return redirect('/account')
 
-    return render(request, 'account.html', full_context(settings=settings, new_delegate=rep))
+    return myrender(request, 'account.html', settings=settings, new_delegate=rep)

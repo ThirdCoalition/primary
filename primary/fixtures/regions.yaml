@@ -2,15 +2,19 @@
   pk: 1
   fields:
     name: International
+    url: intl
 - model: primary.Region
   pk: 2
   fields:
     name: United States
+    url: usa
 - model: primary.Region
   pk: 3
   fields:
     name: United Kingdom
+    url: uk
 - model: primary.Region
   pk: 4
   fields:
     name: Australia
+    url: aus

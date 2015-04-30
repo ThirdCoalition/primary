@@ -3,6 +3,7 @@ from django.db import models
 
 class Region(models.Model):
     name = models.CharField(max_length=20)
+    url = models.CharField(max_length=15)
 
 class Candidate(models.Model):
     region = models.ForeignKey(Region)
