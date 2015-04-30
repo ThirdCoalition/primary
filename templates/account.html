@@ -43,8 +43,9 @@
     </form>
 
     {% if settings.handle != '' %}
-    <p>Your referral link is:</p>
-      <p>http://www.onlineun.org/delegate/user/{{ settings.handle }}</p>
+    <p>Your referral page will display the name: <b>{{ user.get_full_name|default:user.username }}</b></p>
+
+    <p>Your referral link is: http://www.onlineun.org/delegate/user/{{ settings.handle }}</p>
     {% endif %}
     <p>[TODO: Share buttons]</p>
 
