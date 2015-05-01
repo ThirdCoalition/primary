@@ -22,8 +22,8 @@
   <p>Your delegate is: {{ settings.delegate.get_full_name|default:settings.delegate.username }}.</p>
 
   {% if request.path == '/account' %}
-    <p>Your region is:</p>
-    <form id="regionform" method="post"> {% csrf_token %}
+    <p style="display:none;">Your region is:</p>
+    <form style="display:none;" id="regionform" method="post"> {% csrf_token %}
       <select name="region" style="font-size:large;">
       {% for region in regions %}
         <option {% if settings.region == region %}selected="selected"{% endif %}
