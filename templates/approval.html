@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>Select any other parties that you approve of. View the <a href="/">results</a>. <span class="saving-label">&nbsp;</span></p>
+  <p>Select any other {% if is_party %}parties{% else %}candidates{% endif %} that you approve of. View the <a href="/">results</a>. <span class="saving-label">&nbsp;</span></p>
 </div>
 
 <div class="topdiv">
@@ -23,8 +23,13 @@
         </td>
       
         <td class="candidate" style="background-color:gainsboro; border:2px dashed black;">
+        {% if is_party %}
           <p><b>{{ fav.name }}</b> - {{ fav.synopsis }}</p>
           <a href="{{ fav.link }}" target="_blank">homepage</a>
+        {% else %}
+          <p><b>{{ fav.name }}</b></p>
+          <p style="font-size:large;">{{ fav.synopsis }}</p>
+        {% endif %}
         </td>
       </tr>
 
@@ -52,8 +57,13 @@
           </td>
       
           <td class="candidate">
+          {% if is_party %}
             <p>{{ c.name }} - {{ c.synopsis }}</p>
             <a href="{{ c.link }}" target="_blank">homepage</a>
+          {% else %}
+            <p>{{ c.name }}</p>
+            <p style="font-size:large;">{{ c.synopsis }}</p>
+          {% endif %}
           </td>
         </tr>
       {% endif %}

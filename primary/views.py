@@ -35,11 +35,11 @@ def almanacs():
              dict(title="Kafkaesque", location="kafkaesque"),
              dict(title="Sedaris", location="sedaris")]]
 
-def full_context(**kwargs):
-    return dict({'sections': sections(), 'regions': Region.objects.all()}, **kwargs)
-
 def myrender(request, template, **kwargs):
-    return render(request, template, full_context(**kwargs))
+    return render(request, template, dict({'sections': sections(),
+                                           'is_party': False,
+                                           'regions': Region.objects.all()},
+                                          **kwargs))
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -78,15 +78,15 @@ def record_ratings(request):
 
         record_one_rating(request, id, rating)
 
-def get_region_id(request):
+def get_region(request):
     if request.user.is_authenticated():
         settings,created = get_user_settings(request)
-        return settings.region.id
+        return settings.region
 
-    return 1
+    return Region.objects.get(id=5)
 
 def get_percentages(request):
-    ratings = Sums.objects.filter(candidate__region__id=get_region_id(request))
+    ratings = Sums.objects.filter(candidate__region=get_region(request))
     total = max(sum(map(lambda r: r.approval, ratings)), 1)
     for rating in ratings:
         rating.approval = 100 * rating.approval / total
@@ -103,17 +103,17 @@ def get_ballot(request):
                   key=lambda candidate: candidate.shame)
 
 def user_voted(request):
-    return Approval.objects.filter(user=request.user, candidate__region__id=get_region_id(request)).count() > 0
+    return Approval.objects.filter(user=request.user, candidate__region=get_region(request)).count() > 0
 
 def primary(request):
     return myrender(request, 'primary.html', 
                     ratings = get_percentages(request),
-                    # .distinct unavailable on sqlite3
-                    numvotes = Approval.objects.filter(candidate__region__id=get_region_id(request)).values('user').annotate(Count('user')).count(),
+                    # .distinct unavailable on sqlite3, which is used for testing
+                    numvotes = Approval.objects.filter(candidate__region=get_region(request)).values('user').annotate(Count('user')).count(),
                     voted = request.user.is_authenticated() and user_voted(request),
                     saved = ('saved' in request.GET))
 
-def vote(request, region="intl"):
+def vote(request, region="usapres"):
     if not request.user.is_authenticated():
         return myrender(request, 'login.html', msg = 'vote')
 
@@ -126,7 +126,7 @@ def vote(request, region="intl"):
         return myrender(request, 'vote.html', candidates = get_ballot(request))
 
     if 'fav' in request.POST:
-        for approval in Approval.objects.filter(user=request.user, candidate__region__id=get_region_id(request)):
+        for approval in Approval.objects.filter(user=request.user, candidate__region=get_region(request)):
             if approval.rating == 10:
                 approval.rating = 9
                 approval.save()
@@ -173,8 +173,8 @@ def release(request):
     return myrender(request, 'release.html')
 
 def get_user_settings(request):
-    intl = Region.objects.get(id=1)
-    return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user, region=intl))
+    usapres = Region.objects.get(id=5)
+    return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user, region=usapres))
 
 @login_required(redirect_field_name=None)
 def account(request):

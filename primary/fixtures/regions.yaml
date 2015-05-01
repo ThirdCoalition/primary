@@ -18,3 +18,8 @@
   fields:
     name: Australia
     url: aus
+- model: primary.Region
+  pk: 5
+  fields:
+    name: US President
+    url: usapres
