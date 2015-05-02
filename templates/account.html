@@ -46,6 +46,8 @@
     <p>Your referral page will display the name: <b>{{ user.get_full_name|default:user.username }}</b></p>
 
     <p>Your referral link is: http://www.reclaimcongress.org/delegate/user/{{ settings.handle }}</p>
+
+    <p>Your constituency size is: {{ constituency_size }}</p>
     {% endif %}
     <p>[TODO: Share buttons]</p>
 

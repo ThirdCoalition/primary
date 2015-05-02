@@ -39,3 +39,20 @@ class Sums(Candidate):
     class Meta:
         managed = False
         ordering = ['-approval']
+
+# This is another view
+# Stub for sqlite3
+# create view primary_weight as select user_id as id, user_id, 1 as count from primary_usersettings;
+#
+# Actual view for postgresql
+# create view primary_weight as (with recursive t(child, parent) as (
+#   select user_id, delegate_id from primary_usersettings where user_id != delegate_id
+# union
+#   select t.child, p.delegate_id from t, primary_usersettings p where t.parent = p.user_id)
+# select parent as id, parent as user_id, count(*) as count from t group by parent);
+class Weight(models.Model):
+    user = models.ForeignKey(User)
+    count = models.IntegerField()
+
+    class Meta:
+        managed = False

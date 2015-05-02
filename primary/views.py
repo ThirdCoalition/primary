@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 
 from django.contrib.auth.models import User
-from models import Region, Candidate, Approval, UserSettings, Sums
+from models import Region, Candidate, Approval, UserSettings, Sums, Weight
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
@@ -191,7 +191,13 @@ def account(request):
             settings.handle = request.POST['handle']
             settings.save()
 
-    return myrender(request, 'account.html', settings=settings)
+    constituency_size = 0
+    try:
+        constituency_size = Weight.objects.get(user=request.user).count
+    except Weight.DoesNotExist:
+        pass
+
+    return myrender(request, 'account.html', settings=settings, constituency_size=constituency_size)
 
 def delegate(request, handle):
     rep = UserSettings.objects.get(handle=handle).user
