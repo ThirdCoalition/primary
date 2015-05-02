@@ -14,19 +14,17 @@ import dj_database_url
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '@+k1@)5ghuqm3%l3#%@o5r73-%zf9pi#pjabokia6qa5yss4v7'
+if os.environ.get('DJANGO_SECRET'):
+    SECRET_KEY = os.environ.get('DJANGO_SECRET')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 TEMPLATE_DEBUG = True
+if os.environ.get('PRODUCTION'):
+    DEBUG = False
+    TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.reclaimcongress.org']
 
 # Application definition
 

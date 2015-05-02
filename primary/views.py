@@ -10,8 +10,6 @@ from models import Region, Candidate, Approval, UserSettings, Sums
 def sections():
     return [{'title': 'Primary', 'location': '/'},
             {'title': 'Platform', 'location': '/platform'},
-            {'title': 'Release', 'location': '/release'},
-            {'title': 'NPOs', 'location': '/npos'},
             {'title': 'About', 'location': '/about'}]
 
 def almanacs():
