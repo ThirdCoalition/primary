@@ -40,9 +40,13 @@
         $(".saving-label").css("background-color", "gold");
 
         if (!autosave_setup) {
-          setInterval(autosave_timer, 1500);
+          setInterval(autosave_timer, 1000);
           autosave_setup = true;
         }
+      }
+
+      function fineTuneApproval() {
+        $(".arrow").css("display", "inline-block")
       }
 
       function tinkerApproval(id, delta) {
@@ -163,6 +167,7 @@
         filter:alpha(opacity=80);
       }
       .star {
+        display:none;
         height:32px;
         opacity:.3;
         filter:alpha(opacity=30);
@@ -173,6 +178,7 @@
         filter:alpha(opacity=80);
       }
       .arrow {
+        display:none;
         height:16px;
         opacity:.5;
         filter:alpha(opacity=50);
@@ -215,6 +221,7 @@
         background-color:AliceBlue;
       }
     </style>
+    
   </head>
   <body>
     <div class="topdiv" style="height:80px; vertical-align:middle;">
