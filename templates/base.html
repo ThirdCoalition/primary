@@ -112,7 +112,13 @@
            caption: 'Reclaim Congress',
            display: 'popup'});
 
-        window.open(url, 'Share on Facebook', 'resizable=yes,width=600,height=350');
+        window.open(url, '_blank', 'resizable=yes,width=600,height=350');
+      }
+
+      function shareReddit(handle) {
+        url = "http://www.reddit.com/submit?" + encodeCGIArgs(
+          {url: 'http://www.reclaimcongress.org/delegate/user/' + handle});
+        window.open(url, '_blank');
       }
     </script>
 
