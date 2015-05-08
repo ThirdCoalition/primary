@@ -91,6 +91,29 @@
             this.href = tokens[0] + "vote";
         });
       }
+
+      function encodeCGIArgs(paramObject) {
+        var result = '';
+
+        for (var key in paramObject) {
+          if (result)
+            result += '&';
+          result += encodeURIComponent(key) + '=' + encodeURIComponent(paramObject[key]);
+        }
+
+        return result;
+      }
+
+      function shareFacebook(handle) {
+        url = "https://www.facebook.com/dialog/feed?" + encodeCGIArgs(
+          {app_id: '1609869345899087',
+           link: 'http://www.reclaimcongress.org/delegate/user/' + handle,
+           redirect_uri: 'http://www.reclaimcongress.org/closewindow',
+           caption: 'Reclaim Congress',
+           display: 'popup'});
+
+        window.open(url, 'Share on Facebook', 'resizable=yes');
+      }
     </script>
 
     <style>
@@ -159,6 +182,10 @@
       .faceholder {
         height:24px;
         vertical-align:-4px;
+      }
+      .faceholder2 {
+        height:32px;
+        vertical-align:bottom;
       }
       .topdiv.introtext {
         font-size:medium;
