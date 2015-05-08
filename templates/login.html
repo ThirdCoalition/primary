@@ -7,19 +7,25 @@
 <div class="topdiv" style="padding-top:4px;">
   <p>Welcome to Reclaim Congress!</p>
 
+  <p>We are hosting independent primaries and online debates for the 2016 elections.</p>
+
   {% if msg == 'register' %}
-  <p>{{ delegate.get_full_name|default:delegate.username }} would like to be your delegate.</p>
-  <p>By registering, you are trusting him or her to speak on your behalf in matters you abstain from.</p>
+  <p>{{ delegate_placard }} would like to be your delegate.</p>
+  <p>Do you trust him or her to represent your interests?</p>
+  <a class="btn-blue" href="javascript:confirm();">Confirm</a>
+  <a class="btn-red" href="javascript:cancel();">Cancel</a>
+  <p id="cancel-p" style="display:none;">No problem, you can represent yourself.</p>
   {% endif %}
 
-  <p>Please login
+  <p id="login-p" {% if msg == 'register' %}style="display:none;"{% endif %}>Please login
     <span class="logins">
       <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
         <img src="{% static 'facebook.png' %}" /></a>
       <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
         <img src="{% static 'reddit.png' %}" /></a>
     </span>
-   to {{ msg }}.</p>
+   to {{ msg }}.
+  </p>
 </div>
 
 {% endblock %}

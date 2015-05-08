@@ -17,53 +17,67 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>Hello {{ user.get_full_name|default:user.username }}.</p>
-
-  <p>Your delegate is: {{ settings.delegate.get_full_name|default:settings.delegate.username }}.</p>
-
   {% if request.path == '/account' %}
-    <p style="display:none;">Your region is:</p>
-    <form style="display:none;" id="regionform" method="post"> {% csrf_token %}
-      <select name="region" style="font-size:large;">
-      {% for region in regions %}
-        <option {% if settings.region == region %}selected="selected"{% endif %}
-                value="{{ region.id }}">{{ region.name }}</option>
-      {% endfor %}
-      </select>
-      <input type="submit" style="font-size:large;" />
-    </form>
+    <div class="topdiv settingsdiv" style="background-color:#EEE888;">
+      <h2 style="margin:8px;">Recruitment</h2>
 
-    <p>Your postal code is: {% use_macro location_form "button" %}</p>
+      {% if settings.handle != '' %}
+        <p style="margin-top:10px;">Your constituency size is: {{ constituency_size }}</p>
 
-    <p>Your referral code is:</p>
-    <form id="handleform" method="post"> {% csrf_token %}
-      <input name="handle" maxlength="20" value="{{ settings.handle }}"
-             style="text-align:center; font-size:large;" />
-      <input type="submit" style="font-size:large;" />
-    </form>
+        <p>Your delegacy page will display: {{ user_placard }}</p>
 
-    {% if settings.handle != '' %}
-    <p>Your referral page will display the name: <b>{{ user.get_full_name|default:user.username }}</b></p>
+        <p>Request Constituents:</p>
 
-    <p>Your referral link is: http://www.reclaimcongress.org/delegate/user/{{ settings.handle }}</p>
+        <p>Your referral code is:</p>
+      {% else %}
+        <p>Choose a referral code for your delegacy:</p>
+      {% endif %}
 
-    <p>Your constituency size is: {{ constituency_size }}</p>
-    {% endif %}
+      <form id="handleform" method="post" style="display:inline-block;"> {% csrf_token %}
+        <input name="handle" maxlength="20" value="{{ settings.handle }}"
+               style="text-align:center; font-size:large;" />
+        <input type="submit" style="font-size:large;" />
+      </form>
+    </div>
 
-    <p><a href="{% url 'auth:logout' %}?next=/">Logout</a></p>
+    <div class="topdiv settingsdiv">
+      <h2 style="margin:8px;">Settings</h2>
+
+      <p style="display:none;">Your region is:</p>
+      <form style="display:none;" id="regionform" method="post"> {% csrf_token %}
+        <select name="region" style="font-size:large;">
+          {% for region in regions %}
+          <option {% if settings.region == region %}selected="selected"{% endif %}
+                  value="{{ region.id }}">{{ region.name }}</option>
+          {% endfor %}
+        </select>
+        <input type="submit" style="font-size:large;" />
+      </form>
+
+      <p style="margin-top:10px;">Your postal code is: {% use_macro location_form "button" %}</p>
+
+      <p>Your delegate is: {{ delegate_placard }}</p>
+    </div>
+
+    <p><a class="btn-red" href="{% url 'auth:logout' %}?next=/">Logout</a></p>
   {% else %}
     {% if new_delegate %}
       <form id="confirmform" method="post" style="display:none;"> {% csrf_token %}
         <input name="confirm" value="yes" />
       </form>
 
-      <p>{{ new_delegate.get_full_name|default:new_delegate.username }} is requesting to be your delegate. Do you confirm?</p>
-      <p><a href="javascript: document.querySelector('#confirmform').submit();">Confirm Delegate</a>&nbsp;&nbsp;<a href="/">No, Take me home</a></p>
+      <p>{{ new_delegate }} is requesting to be your delegate. Do you confirm?</p>
+      <a class="btn-blue" href="javascript:void(0);"
+         onclick="javascript: document.querySelector('#confirmform').submit();">Confirm</a>
+      <a class="btn-red" href="/">Cancel</a>
     {% else %}
-      <p>Please enter your postal code: {% use_macro location_form %}</p>
-      <p><a href="javascript: document.querySelector('#accountform').submit();">Continue</a>
-        to vote for your favorite party.</p>
-    {% endif %}
+      <p>Your delegate is: {{ delegate_placard }}</p>
+
+      <p style="margin-bottom:10px;">Please enter your postal code: {% use_macro location_form %}</p>
+
+      <a class="btn-blue" href="javascript:void(0);"
+         onclick="javascript: document.querySelector('#accountform').submit();">Continue &raquo;</a>
+     {% endif %}
   {% endif %}
 </div>
 

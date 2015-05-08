@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 
 from datetime import datetime
 
@@ -90,7 +91,7 @@ def get_percentages(request):
         rating.approval = 100 * rating.approval / total
 
         # arbitrary scaling factor and minimum width
-        setattr(rating, 'display_width', min(25, max(2, rating.approval)) * 20)
+        setattr(rating, 'display_width', min(25, max(2, rating.approval)) * 22)
 
     return sorted(ratings, key=lambda rating: rating.candidate.shame, reverse=True)
 
@@ -174,6 +175,9 @@ def get_user_settings(request):
     usapres = Region.objects.get(id=5)
     return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user, region=usapres))
 
+def placard(acct):
+    return render_to_string('placard.html', {'acct':acct})
+
 @login_required(redirect_field_name=None)
 def account(request):
     settings,created = get_user_settings(request)
@@ -197,13 +201,17 @@ def account(request):
     except Weight.DoesNotExist:
         pass
 
-    return myrender(request, 'account.html', settings=settings, constituency_size=constituency_size)
+    return myrender(request, 'account.html',
+                    settings=settings,
+                    constituency_size=constituency_size,
+                    user_placard=placard(request.user),
+                    delegate_placard=placard(settings.delegate))
 
 def delegate(request, handle):
     rep = UserSettings.objects.get(handle=handle).user
 
     if not request.user.is_authenticated():
-        return myrender(request, 'login.html', delegate=rep, msg='register')
+        return myrender(request, 'login.html', delegate_placard=placard(rep), msg='register')
 
     settings,created = get_user_settings(request)
 
@@ -226,4 +234,4 @@ def delegate(request, handle):
         settings.save()
         return redirect('/account')
 
-    return myrender(request, 'account.html', settings=settings, new_delegate=rep)
+    return myrender(request, 'account.html', settings=settings, new_delegate=placard(rep))

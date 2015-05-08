@@ -7,7 +7,7 @@
 <div class="topdiv" style="padding-top:4px;">
   <p class="introtext">{{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} 
     {% if user.is_authenticated %}
-      {% if voted %}<a href="/vote">Adjust</a> your vote anytime.
+      {% if voted %}<p>Next, become a <a href="/account">delegate</a> and build a constituency.</p>
       {% else %}Cast your <a href="/vote">Vote</a>
       {% endif %}
     {% else %}Please login to vote.

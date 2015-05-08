@@ -1,0 +1,7 @@
+{% load staticfiles %}
+
+{% if acct.get_full_name %}
+  <img src="{% static 'facebook.png' %}" class="faceholder" /> {{ acct.get_full_name }}
+{% else %}
+  <img src="{% static 'reddit.png' %}" class="faceholder" /> <a target="_blank" href="http://www.reddit.com/u/{{ acct.username }}">/u/{{ acct.username }}</a>
+{% endif %}
