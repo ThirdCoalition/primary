@@ -171,6 +171,9 @@ def almanac(request):
 def release(request):
     return myrender(request, 'release.html')
 
+def closewindow(request):
+    return myrender(request, 'closewindow.html')
+
 def get_user_settings(request):
     usapres = Region.objects.get(id=5)
     return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user, region=usapres))
