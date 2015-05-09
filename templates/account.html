@@ -30,8 +30,14 @@
           <a href="javascript:void(0);" onclick="shareFacebook('{{ settings.handle }}');">
             <img src="{% static 'facebook.png' %}" class="faceholder2" /></a>
 
+          <a href="javascript:void(0);" onclick="shareTwitter('{{ settings.handle }}');">
+            <img src="{% static 'twitter.png' %}" class="faceholder2" /></a>
+
           <a href="javascript:void(0);" onclick="shareReddit('{{ settings.handle }}');">
             <img src="{% static 'reddit.png' %}" class="faceholder2" /></a>
+
+          <a href="javascript:void(0);" onclick="shareEmail('{{ settings.handle }}');">
+            <img src="{% static 'email.jpg' %}" class="faceholder2" /></a>
         </p>
 
         <p>Your referral code is:</p>

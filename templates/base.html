@@ -98,6 +98,9 @@
         for (var key in paramObject) {
           if (result)
             result += '&';
+          else
+            result = '?';
+
           result += encodeURIComponent(key) + '=' + encodeURIComponent(paramObject[key]);
         }
 
@@ -105,7 +108,7 @@
       }
 
       function shareFacebook(handle) {
-        url = "https://www.facebook.com/dialog/feed?" + encodeCGIArgs(
+        url = "https://www.facebook.com/dialog/feed" + encodeCGIArgs(
           {app_id: '1609869345899087',
            link: 'http://www.reclaimcongress.org/delegate/user/' + handle,
            redirect_uri: 'http://www.reclaimcongress.org/closewindow',
@@ -115,9 +118,21 @@
         window.open(url, '_blank', 'resizable=yes,width=600,height=350');
       }
 
+      function shareTwitter(handle) {
+        url = "http://www.twitter.com/intent/tweet" + encodeCGIArgs(
+          {text: 'http://www.reclaimcongress.org/delegate/user/' + handle});
+        window.open(url, '_blank');
+      }
+
       function shareReddit(handle) {
-        url = "http://www.reddit.com/submit?" + encodeCGIArgs(
+        url = "http://www.reddit.com/submit" + encodeCGIArgs(
           {url: 'http://www.reclaimcongress.org/delegate/user/' + handle});
+        window.open(url, '_blank');
+      }
+
+      function shareEmail(handle) {
+        url = "mailto:" + encodeCGIArgs(
+          {body: 'http://www.reclaimcongress.org/delegate/user/' + handle});
         window.open(url, '_blank');
       }
     </script>
