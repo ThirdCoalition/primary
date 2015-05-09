@@ -36,12 +36,13 @@ def almanacs():
              dict(title="Sedaris", location="sedaris")]]
 
 def myrender(request, template, **kwargs):
-    return render(request, template, dict({'sections': sections(),
-                                           'absolute_uri': request.build_absolute_uri(),
-                                           'absolute_banner_uri': request.build_absolute_uri(static('ddp.png')),
-                                           'is_party': False,
-                                           'regions': Region.objects.all()},
-                                          **kwargs))
+    return render(request, template,
+                  dict({'absolute_uri': request.build_absolute_uri(),
+                        'absolute_banner_uri': request.build_absolute_uri(static('ddp-square-og.png')),
+                        'sections': sections(),
+                        'is_party': False,
+                        'regions': Region.objects.all()},
+                       **kwargs))
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
