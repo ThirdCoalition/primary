@@ -36,6 +36,7 @@ def almanacs():
 
 def myrender(request, template, **kwargs):
     return render(request, template, dict({'sections': sections(),
+                                           'absolute_uri': request.build_absolute_uri(),
                                            'is_party': False,
                                            'regions': Region.objects.all()},
                                           **kwargs))
