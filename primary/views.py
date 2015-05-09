@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.templatetags.static import static
 
 from datetime import datetime
 
@@ -37,6 +38,7 @@ def almanacs():
 def myrender(request, template, **kwargs):
     return render(request, template, dict({'sections': sections(),
                                            'absolute_uri': request.build_absolute_uri(),
+                                           'absolute_banner_uri': request.build_absolute_uri(static('banner.png')),
                                            'is_party': False,
                                            'regions': Region.objects.all()},
                                           **kwargs))
