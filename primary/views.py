@@ -215,10 +215,13 @@ def account(request):
                     delegate_placard=placard(settings.delegate))
 
 def delegate(request, handle):
-    rep = UserSettings.objects.get(handle=handle).user
+    delegate_settings = UserSettings.objects.get(handle=handle)
+    rep = delegate_settings.user
 
     if not request.user.is_authenticated():
-        return myrender(request, 'login.html', delegate_placard=placard(rep), msg='register')
+        return myrender(request, 'login.html', msg='register',
+                        delegate_settings=delegate_settings,
+                        delegate_placard=placard(rep))
 
     settings,created = get_user_settings(request)
 
