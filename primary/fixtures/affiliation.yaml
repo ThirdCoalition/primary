@@ -1,0 +1,24 @@
+- model: primary.Affiliation
+  fields:
+    user: 1
+    affiliate: 11
+- model: primary.Affiliation
+  fields:
+    user: 1
+    affiliate: 12
+- model: primary.Affiliation
+  fields:
+    user: 1
+    affiliate: 16
+- model: primary.Affiliation
+  fields:
+    user: 2
+    affiliate: 11
+- model: primary.Affiliation
+  fields:
+    user: 2
+    affiliate: 12
+- model: primary.Affiliation
+  fields:
+    user: 2
+    affiliate: 16

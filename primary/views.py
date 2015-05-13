@@ -7,7 +7,7 @@ from django.templatetags.static import static
 from datetime import datetime
 
 from django.contrib.auth.models import User
-from models import Region, Candidate, Approval, UserSettings, Sums, Weight
+from models import Region, Candidate, Approval, UserSettings, Affiliation, Sums, Weight
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
@@ -185,6 +185,11 @@ def get_user_settings(request):
 def placard(acct):
     return render_to_string('placard.html', {'acct':acct})
 
+def delegate_details(settings):
+    return render_to_string('delegate.html', {'placard':placard(settings.user),
+                                              'affiliates':Affiliation.objects.filter(user=settings.user),
+                                              'settings':settings})
+
 @login_required(redirect_field_name=None)
 def account(request):
     settings,created = get_user_settings(request)
@@ -220,8 +225,7 @@ def delegate(request, handle):
 
     if not request.user.is_authenticated():
         return myrender(request, 'login.html', msg='register',
-                        delegate_settings=delegate_settings,
-                        delegate_placard=placard(rep))
+                        delegate_details=delegate_details(delegate_settings))
 
     settings,created = get_user_settings(request)
 
@@ -236,12 +240,13 @@ def delegate(request, handle):
         settings.save()
         return redirect('/vote')
 
-    if settings.delegate == rep: #Reusing a delegacy link after completing setup
-        return redirect('/')
+    if settings.delegate == rep:
+        return myrender(request, 'anything.html', anything=delegate_details(delegate_settings))
 
     if 'confirm' in request.POST:
         settings.delegate = rep
         settings.save()
         return redirect('/account')
 
-    return myrender(request, 'account.html', settings=settings, new_delegate=placard(rep))
+    return myrender(request, 'account.html', settings=settings,
+                    new_delegate=delegate_details(delegate_settings))

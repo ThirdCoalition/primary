@@ -10,18 +10,9 @@
   <p>We are hosting independent primaries and online debates for the 2016 elections.</p>
 
   {% if msg == 'register' %}
-  <div class="topdiv settingsdiv" style="background-color:khaki">
-    <p>{{ delegate_placard }} would like to be your delegate.</p>
+  {{ delegate_details }}
 
-    <blockquote class="delegate-info">
-      <h2 style="margin-top:0px;">"{{ delegate_settings.motto }}"</h2>
-
-      <p>{{ delegate_settings.platform1 }}</p>
-      <p>{{ delegate_settings.platform2 }}</p>
-    </blockquote>
-  </div>
-
-  <p>Do you trust him or her to represent your interests?</p>
+  <p style="margin-bottom:0px;">Do you trust him or her to represent your interests?</p>
   <a class="btn-blue" href="javascript:confirm();">Confirm</a>
   <a class="btn-red" href="javascript:cancel();">Cancel</a>
   <p id="cancel-p" style="display:none;">No problem, you can represent yourself.</p>

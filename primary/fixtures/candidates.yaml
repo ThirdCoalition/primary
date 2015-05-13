@@ -4,7 +4,7 @@
     region: 1
     name: Libertarian
     synopsis: Don't Tread on Me
-    logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
+    logo: libertarian.png
     link: http://www.libertarianinternational.org
     color: GoldenRod
     fgcolor: Black
@@ -15,7 +15,7 @@
     region: 1
     name: Green
     synopsis: One World, One Chance
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: green.png
     link: http://www.globalgreens.org
     color: Green
     fgcolor: White
@@ -26,7 +26,7 @@
     region: 1
     name: Direct Democracy
     synopsis: Be The Change
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: ddp.png
     link: http://www.democracy-international.org
     color: BurlyWood
     fgcolor: Black
@@ -37,7 +37,7 @@
     region: 1
     name: Technocracy
     synopsis: Knowledge and Skill
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: technocracy.png
     link: http://www.technocracy.org
     color: OrangeRed
     fgcolor: Black
@@ -48,7 +48,7 @@
     region: 1
     name: Transhumanism
     synopsis: Motto Needed
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: transhumanism.png
     link: http://www.ieet.org
     color: DarkOrchid
     fgcolor: White
@@ -59,7 +59,7 @@
     region: 1
     name: Pirate
     synopsis: Defending your Digital Rights
-    logo: http://todoidentifyfounder.com
+    logo: pirate.png
     link: http://www.pp-international.net
     color: Black
     fgcolor: White
@@ -70,7 +70,7 @@
     region: 1
     name: Socialist
     synopsis: From Each, To Each
-    logo: http://todoidentifyfounder.com
+    logo: socialist.png
     link: http://www.european-left.org
     color: YellowGreen
     fgcolor: Black
@@ -81,7 +81,7 @@
     region: 2
     name: Democrat
     synopsis: Same Old "Change"
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: democract.png
     link: http://www.democrats.org
     color: Blue
     fgcolor: White
@@ -92,7 +92,7 @@
     region: 2
     name: Republican
     synopsis: Same Old "Not Change"
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: republican.png
     link: http://www.gop.com
     color: Red
     fgcolor: Black
@@ -103,7 +103,7 @@
     region: 1
     name: Occupy
     synopsis: Demonstration Army
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: occupy.png
     link: http://en.wikipedia.org/wiki/Occupy_movement
     color: Silver
     fgcolor: Black
@@ -114,7 +114,7 @@
     region: 2
     name: Libertarian
     synopsis: Don't Tread on Me
-    logo: http://www.libertarianporcupine.org/wp-content/uploads/2013/03/porcupinePNG.png
+    logo: libertarian.png
     link: http://www.lp.org
     color: GoldenRod
     fgcolor: Black
@@ -125,7 +125,7 @@
     region: 2
     name: Green
     synopsis: One World, One Chance
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: green.png
     link: http://www.gp.org
     color: Green
     fgcolor: White
@@ -136,7 +136,7 @@
     region: 2
     name: Direct Democracy
     synopsis: Be The Change
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: ddp.png
     link: http://igg.me/at/ddp
     color: BurlyWood
     fgcolor: Black
@@ -147,7 +147,7 @@
     region: 2
     name: Reform
     synopsis: Transparency, Fiscal Responsibility, Accountability
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: reform.png
     link: http://www.reformparty.org
     color: DarkSlateBlue
     fgcolor: White
@@ -158,7 +158,7 @@
     region: 2
     name: Constitution
     synopsis: Virtue, Liberty, Independence
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: constitution.png
     link: http://www.constitutionparty.org
     color: DarkRed
     fgcolor: White
@@ -169,7 +169,7 @@
     region: 2
     name: Pirate
     synopsis: Defending your Digital Rights
-    logo: http://todoidentifyfounder.com
+    logo: pirate.png
     link: http://www.uspirates.org
     color: Black
     fgcolor: White
@@ -180,7 +180,7 @@
     region: 2
     name: Socialist
     synopsis: From Each, To Each
-    logo: http://todoidentifyfounder.com
+    logo: socialist.png
     link: http://www.socialistparty-usa.org
     color: YellowGreen
     fgcolor: Black
@@ -191,7 +191,7 @@
     region: 2
     name: Modern Whig
     synopsis: Common Sense, Courage, Country
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
+    logo: whig.png
     link: http://www.modernwhig.org/
     color: DarkOrchid
     fgcolor: White

@@ -80,11 +80,15 @@
         autosave();
       }
 
+      function scroll_to_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+
       function confirm_cancel_helper() {
-        $(".btn-blue").fadeOut();
+        $(".btn-blue").fadeOut(400);
         $(".btn-red").fadeOut(400);
 
-        setInterval(function(){ $("#login-p").css("display", "block"); }, 400);
+        setTimeout(function(){ $("#login-p").css("display", "block"); scroll_to_bottom(); }, 400);
       }
 
       function confirm() {
@@ -93,7 +97,7 @@
 
       function cancel() {
         confirm_cancel_helper();
-        setInterval(function(){ $("#cancel-p").css("display", "block"); }, 400);
+        setTimeout(function(){ $("#cancel-p").css("display", "block"); scroll_to_bottom(); }, 400);
         $("a").each(function() {
           tokens = this.href.split("delegate");
           if (tokens.length > 1)
@@ -147,7 +151,6 @@
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
-        padding-bottom:12px;
       }
       .delegate-info {
         box-shadow:1px 1px 5px #BBB;
@@ -339,6 +342,7 @@
         padding: 10px 20px 10px 20px;
         text-decoration: none;
         margin: 20px;
+        display: inline-block;
       }
       .btn-blue:hover {
         background: #3cb0fd;
@@ -365,6 +369,7 @@
         padding: 10px 20px 10px 20px;
         text-decoration: none;
         margin: 20px;
+        display: inline-block;
       }
       .btn-red:hover {
         background: #ffaa00;

@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+<div class="topdiv settingsdiv" style="background-color:khaki">
+  <p>{{ placard }} would like to be your delegate.</p>
+  
+  <blockquote class="delegate-info">
+    <h2 style="margin-top:0px;">"{{ settings.motto }}"</h2>
+    
+    <p>{{ settings.platform1 }}</p>
+    <p>{{ settings.platform2 }}</p>
+  </blockquote>
+
+  <h2 style="margin-bottom:8px;">Affiliations</h2>
+
+  <div>
+  {% for affiliate in affiliates %}
+    <blockquote class="delegate-info" style="padding-left:17%; text-align:left;">
+      <span style="display:inline-block; width:50px; text-align:center; padding-right:2px;">
+        <img src="{% static affiliate.affiliate.logo %}" style="height:36px; display:inline-block; vertical-align:middle;"/></span>
+      <h2 style="margin:0px; display:inline-block; text-align:left; vertical-align:middle;">
+        {{ affiliate.affiliate.name }} - {{ affiliate.affiliate.synopsis }}
+      </h2>
+    </blockquote>
+  {% endfor %}
+  </div>
+</div>
