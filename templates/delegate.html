@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <div class="topdiv settingsdiv" style="background-color:khaki">
-  <p>{{ placard }} would like to be your delegate.</p>
+  <p>{{ placard }} {% if is_currently %}is currently{% else %}would like to be{% endif %} your delegate.</p>
   
   <blockquote class="delegate-info">
     <h2 style="margin-top:0px;">"{{ settings.motto }}"</h2>

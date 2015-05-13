@@ -199,8 +199,9 @@ def get_user_settings(request):
 def placard(acct):
     return render_to_string('placard.html', {'acct': acct, 'profile': UserProfile.objects.get(user=acct)})
 
-def delegate_details(settings):
+def delegate_details(settings, is_currently=False):
     return render_to_string('delegate.html', {'placard': placard(settings.user),
+                                              'is_currently': is_currently,
                                               'affiliates': Affiliation.objects.filter(user=settings.user),
                                               'settings': settings})
 
@@ -255,7 +256,8 @@ def delegate(request, handle):
         return redirect('/vote')
 
     if settings.delegate == rep:
-        return myrender(request, 'anything.html', anything=delegate_details(delegate_settings))
+        return myrender(request, 'anything.html',
+                        anything=delegate_details(delegate_settings, is_currently=True))
 
     if 'confirm' in request.POST:
         settings.delegate = rep
