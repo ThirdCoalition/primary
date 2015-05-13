@@ -1,13 +1,27 @@
+from datetime import datetime
+
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.templatetags.static import static
 
-from datetime import datetime
-
 from django.contrib.auth.models import User
-from models import Region, Candidate, Approval, UserSettings, Affiliation, Sums, Weight
+from models import Region, Candidate, Approval, UserProfile, UserSettings, Affiliation, Sums, Weight
+
+from social.backends.facebook import FacebookOAuth2
+from social.backends.reddit import RedditOAuth2
+
+# used in social auth pipeline
+def save_profile(backend, user, response, *args, **kwargs):
+    if isinstance(backend, FacebookOAuth2):
+        avatar = 'http://graph.facebook.com/{0}/picture'.format(response['id'])
+    if isinstance(backend, RedditOAuth2):
+        avatar = static('snoo.png')
+
+    profile,created = UserProfile.objects.get_or_create(user=user, defaults=dict(avatar=avatar))
+    profile.avatar = avatar
+    profile.save()
 
 def sections():
     return [{'title': 'Primary', 'location': '/'},
@@ -183,12 +197,12 @@ def get_user_settings(request):
     return UserSettings.objects.get_or_create(user=request.user, defaults=dict(delegate=request.user, region=usapres))
 
 def placard(acct):
-    return render_to_string('placard.html', {'acct':acct})
+    return render_to_string('placard.html', {'acct': acct, 'profile': UserProfile.objects.get(user=acct)})
 
 def delegate_details(settings):
-    return render_to_string('delegate.html', {'placard':placard(settings.user),
-                                              'affiliates':Affiliation.objects.filter(user=settings.user),
-                                              'settings':settings})
+    return render_to_string('delegate.html', {'placard': placard(settings.user),
+                                              'affiliates': Affiliation.objects.filter(user=settings.user),
+                                              'settings': settings})
 
 @login_required(redirect_field_name=None)
 def account(request):

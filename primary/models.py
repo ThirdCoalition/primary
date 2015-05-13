@@ -20,6 +20,10 @@ class Approval(models.Model):
     rating = models.IntegerField()
     candidate = models.ForeignKey(Candidate)
 
+class UserProfile(models.Model):
+    user = models.ForeignKey(User)
+    avatar = models.URLField()
+
 class UserSettings(models.Model):
     user = models.ForeignKey(User)
     region = models.ForeignKey(Region)
