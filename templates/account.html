@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% load staticfiles %}
@@ -7,9 +8,9 @@
 {% macro location_form button %}
   <form id="accountform" method="post"> {% csrf_token %}
     <input name="location" maxlength="10" value="{{ settings.location }}"
-           style="text-align:center; font-size:large;" />
+           style="text-align:center;" />
     {% if button %}
-      <input type="submit" style="font-size:large;" />
+      <input type="submit" />
     {% endif %}
   </form>
 {% endmacro %}
@@ -24,7 +25,7 @@
       {% if settings.handle != '' %}
         <p style="margin-top:10px;margin-bottom:20px;">Your constituency size is: {{ constituency_size }}</p>
 
-        <p style="margin-top:20px;">Recruit Constituents:
+        <p style="margin-top:20px;">Recruit constituents:
           <a href="javascript:void(0);" onclick="shareFacebook('{{ settings.handle }}');">
             <img src="{% static 'facebook.png' %}" class="faceholder2" /></a>
 
@@ -40,15 +41,41 @@
 
         <p>Your delegacy page will display: {{ user_placard }}</p>
 
-        <p>Your referral code is:</p>
+        <hr>
+        <h2 style="margin:6px;">Platform</h2>
+
+        <form id="platformform" method="post"> {% csrf_token %}
+          <input name="motto" maxlength="100" style="width:602px; margin-bottom:6px;" placeholder="Motto"
+                 value="{{ settings.motto }}" required />
+          <textarea name="platform" maxlength="2000" style="width:600px;" placeholder="Platform"
+                    rows="10" required>{{ settings.platform }}</textarea><br>
+
+          <h2 style="margin:6px;">Party Affiliations</h2>
+          
+          <blockquote class="delegate-info" style="width:580px;display:inline-block;margin-top:6px;">
+            {% for affiliate in affiliates %}
+              <div><label class="noselect">
+                  <input type="checkbox" name="affiliate_{{ affiliate.id }}"
+                         {% if affiliate.selected %}checked{% endif %}
+                         style="vertical-align:1px;" />{{ affiliate.name }}
+              </label></div>
+            {% endfor %}
+          </blockquote><br>
+
+          <input style="margin-bottom:10px;" type="submit" value="Save Changes" />
+        </form>
+        
+        <hr>
+
+        <p style="margin-bottom:10px;">Your referral code is:</p>
       {% else %}
-        <p>Choose a referral code for your delegacy:</p>
+        <p>First, choose a referral code for your delegacy:</p>
       {% endif %}
 
       <form id="handleform" method="post" style="display:inline-block;"> {% csrf_token %}
         <input name="handle" maxlength="20" value="{{ settings.handle }}"
-               style="text-align:center; font-size:large;" />
-        <input type="submit" style="font-size:large;" />
+               style="text-align:center;" />
+        <input type="submit" />
       </form>
     </div>
 
@@ -63,7 +90,7 @@
                   value="{{ region.id }}">{{ region.name }}</option>
           {% endfor %}
         </select>
-        <input type="submit" style="font-size:large;" />
+        <input type="submit" />
       </form>
 
       <p style="margin-top:10px;">Your postal code is: {% use_macro location_form "button" %}</p>

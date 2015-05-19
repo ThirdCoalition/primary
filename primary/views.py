@@ -209,6 +209,8 @@ def delegate_details(settings, is_currently=False):
 def account(request):
     settings,created = get_user_settings(request)
 
+    candidates = Candidate.objects.filter(region__url="usa").order_by("name")
+
     if 'location' in request.POST and request.POST['location'].isalnum():
         settings.location = request.POST['location']
         settings.save()
@@ -222,14 +224,29 @@ def account(request):
             settings.handle = request.POST['handle']
             settings.save()
 
+    if 'platform' in request.POST:
+        settings.motto = request.POST['motto']
+        settings.platform = request.POST['platform']
+        settings.save()
+
+        Affiliation.objects.filter(user=request.user).delete()
+        for candi in candidates:
+            if "affiliate_%d" % (candi.id) in request.POST:
+                Affiliation(user=request.user, affiliate=candi).save()
+
     constituency_size = 0
     try:
         constituency_size = Weight.objects.get(user=request.user).count
     except Weight.DoesNotExist:
         pass
 
+    affiliates = Affiliation.objects.filter(user=request.user)
+    for candi in candidates:
+        setattr(candi, 'selected', len(filter(lambda aff: aff.affiliate == candi, affiliates)))
+                                            
     return myrender(request, 'account.html',
                     settings=settings,
+                    affiliates=candidates,
                     constituency_size=constituency_size,
                     user_placard=placard(request.user),
                     delegate_placard=placard(settings.delegate))

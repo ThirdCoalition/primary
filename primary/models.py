@@ -31,8 +31,7 @@ class UserSettings(models.Model):
     location = models.CharField(max_length=10, default='')
     handle = models.CharField(max_length=20, default='')
     motto = models.CharField(max_length=100, default='')
-    platform1 = models.CharField(max_length=1000, default='')
-    platform2 = models.CharField(max_length=1000, default='')
+    platform = models.CharField(max_length=2000, default='')
 
     def delegate_settings(self):
         return UserSettings.objects.get(user=self.delegate)
