@@ -7,8 +7,8 @@
 <div class="topdiv" style="padding-top:4px;">
   <p class="introtext">{{ numvotes }} votes recorded so far.{% if saved %} Thanks for voting!{% endif %} 
     {% if user.is_authenticated %}
-      {% if voted %}<p>Next, become a <a href="/account">delegate</a> and build a constituency.</p>
-      {% else %}Cast your <a href="/vote">Vote</a>
+      {% if not voted %}
+        Cast your <a class="btn-blue" href="/vote" style="margin:2px;">Vote &raquo;</a>
       {% endif %}
     {% else %}Please login to vote.
     {% endif %}
@@ -37,11 +37,11 @@
   {% endfor %} 
 </table>
 
-<div class="topdiv" style="padding-top:4px;">
+<div class="topdiv" style="padding-top:4px;padding-bottom:8px;">
   <p style="display:inline; font-size:x-large;">
     {% if user.is_authenticated %}
-      {% if voted %}<a href="/vote">Adjust</a> your vote anytime.
-      {% else %}Cast your <a href="/vote">Vote</a>
+      {% if voted %}<a href="/vote" class="btn-red">&laquo; Adjust your vote</a>&nbsp;<a href="/account" class="btn-blue">Define your platform &raquo;</a>
+      {% else %}Cast your <a class="btn-blue" href="/vote" style="margin:2px;">Vote &raquo;</a>
       {% endif %}
     {% else %}Please login to vote.
     {% endif %}

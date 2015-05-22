@@ -151,6 +151,7 @@
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
+        margin:0px;
       }
       .delegate-info {
         box-shadow:1px 1px 5px #BBB;
@@ -168,8 +169,8 @@
         padding:4px;
       }
       .banner {
-        height:45px;
-        margin-left:20px; margin-right:20px;
+        height:44px;
+        margin:4px;
         display:inline;
       }
       .topdiv {
@@ -194,34 +195,52 @@
       }
       .navdiv {
         background-color:lightgreen;
-        height:28px;
-        padding:4px;
+        height:56px;
+        padding:4px 10%;
         vertical-align:middle;
-        width:100%;
-        text-align:center;
+        width:80%;
+        text-align:left;
         position:relative;
+      }
+      .navdiv .current-page {
+        cursor:default;
+      }
+      .navdiv div {
+        height:56px;
+        width:90px;
+        cursor:pointer;
+        display:inline-block;
+        text-align:center;
+        margin:0px 6px;
+        padding-top:2px;
+      }
+      .navdiv div img {
+        height:28px;
       }
       .navdiv a {
         margin:2px 6px;
         vertical-align:middle;
-        font-size:large;
+        font-size:20px;
+        text-decoration:none;
+        color:black;
       }
       .navdiv p {
         display:inline-block;
         margin:2px 6px;
-        font-size:large;
+        font-size:20px;
         vertical-align:middle;
       }
       .navdiv span a {
         margin-left:0px;
       }
-      .navdiv img {
-        height:24px;
+      .navdiv div span .nav-login {
+        height:26px;
         vertical-align:bottom;
+        margin-bottom:3px;
       }
       .logins img {
         height:24px;
-        vertical-align:bottom;
+        vertical-align:-5px;
       }
       .faceholder {
         height:50px;
@@ -231,8 +250,8 @@
         height:32px;
         vertical-align:bottom;
       }
-      .topdiv.introtext {
-        font-size:medium;
+      .topdiv .introtext {
+        margin:20px 0px 10px;
       }
       .results {
         width:100%;
@@ -362,7 +381,7 @@
         font-size: 20px;
         padding: 10px 20px 10px 20px;
         text-decoration: none;
-        margin: 20px;
+        margin: 14px;
         display: inline-block;
       }
       .btn-blue:hover {
@@ -389,7 +408,7 @@
         font-size: 20px;
         padding: 10px 20px 10px 20px;
         text-decoration: none;
-        margin: 20px;
+        margin: 14px;
         display: inline-block;
       }
       .btn-red:hover {
@@ -404,41 +423,48 @@
     </style>  
   </head>
   <body>
-    <div class="topdiv" style="height:80px; vertical-align:middle;">
-      <img src="{% static 'ddp.png' %}" alt="banner"
-	   class="banner" />
-      <p style="font-size:xx-large; display:inline-block;"><b>Reclaim Congress</b></p>
-      <img src="{% static 'ddp.png' %}" alt="banner"
-	   class="banner" />
-    </div>
-
     <div class="navdiv" style="">
+      <a href="/" style="margin-right:14px;">
+        <img src="{% static 'ddp.png' %}" alt="banner" class="banner" />
+        <p style="vertical-align:18px; font-size:26px; display:inline-block;"><b>Reclaim Congress</b></p>
+      </a>
+
       {% for page in sections %}
-        {% if request.path == "/vote" and page.title == "Primary" %}
-          <a href="/">Primary</a><p>&raquo; Vote</p>
-        {% elif request.path == "/approval" and page.title == "Primary" %}
-          <a href="/">Primary</a><p>&raquo; Approval</p>
-        {% elif request.path == "/range" and page.title == "Primary" %}
-          <a href="/">Primary</a><p>&raquo; Range Approval</p>
-        {% elif request.path == page.location %}
-          <p><b>{{ page.title }}</b></p>
+        {% if request.path == page.location %}
+          <div class="current-page">
+            <img src="{% static page.icon %}" />
+            <p><b>{{ page.title }}</b></p>
+          </div>
         {% else %}
-          <a href="{{ page.location }}">{{ page.title }}</a>
+          <div onclick="javascript:window.location.href='{{ page.location }}'">
+            <img src="{% static page.icon %}" />
+            <p>{{ page.title }}</p>
+          </div>
         {% endif %}
       {% endfor %}
 
       {% if user and user.is_authenticated %}
-        {% if request.path == "/account" %}<p><b>Account</b></p>
-        {% else %}<a href="/account">Account</a>
+        {% if request.path == "/account" %}
+          <div class="current-page">
+            <img src="{% static 'account.png' %}" />
+            <p><b>Settings</b></p>
+          </div>
+        {% else %}
+          <div onclick="javascript:window.location.href='/account'">
+            <img src="{% static 'account.png' %}" />
+            <p>Settings</p>
+          </div>
         {% endif %}
       {% else %}
-        <p>Login:</p>
+        <div>
           <span>
             <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
-              <img src="{% static 'facebook.png' %}" /></a>
+              <img src="{% static 'facebook.png' %}" class="nav-login" /></a>
             <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
-              <img src="{% static 'reddit.png' %}" /></a>
+              <img src="{% static 'reddit.png' %}" class="nav-login" /></a>
           </span>
+          <p>Login</p>
+        </div>
       {% endif %}
     </div>
 

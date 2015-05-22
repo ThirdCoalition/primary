@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>Select any other {% if is_party %}parties{% else %}candidates{% endif %} that you approve of. View the <a href="/?saved">results</a>. <span class="saving-label">&nbsp;</span></p>
+  <p class="introtext">Select any other {% if is_party %}parties{% else %}candidates{% endif %} that you approve of. <span class="saving-label">&nbsp;</span></p>
 </div>
 
 <div class="topdiv">
@@ -74,7 +74,7 @@
 </div>
 
 <div class="topdiv" style="padding-top:4px;">
-  <p>Optionally <a href="javascript:void(0);" onclick="javascript:fineTuneApproval();">fine tune</a> your ratings. View the <a href="/?saved" onclick="saveRange()">results</a>. <span class="saving-label">&nbsp;</span></p>
+  <a href="javascript:void(0);" onclick="javascript:fineTuneApproval();" class="btn-red">Fine Tune</a><a href="/?saved" class="btn-blue">Continue &raquo;</a></p>
 </div>
 
 {% endblock %}

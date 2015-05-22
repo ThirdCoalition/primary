@@ -24,9 +24,9 @@ def save_profile(backend, user, response, *args, **kwargs):
     profile.save()
 
 def sections():
-    return [{'title': 'Primary', 'location': '/'},
-            {'title': 'Platform', 'location': '/platform'},
-            {'title': 'About', 'location': '/about'}]
+    return [{'title': 'Primary', 'location': '/', 'icon': 'primary.png'},
+            {'title': 'Platform', 'location': '/platform', 'icon': 'platform.png'},
+            {'title': 'About', 'location': '/about', 'icon': 'about.png'}]
 
 def almanacs():
     return [[dict(title="Foundations", location="foundations"),
