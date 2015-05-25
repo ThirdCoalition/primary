@@ -58,7 +58,7 @@ def almanacs():
 def myrender(request, template, og_title="Reclaim Congress", og_desc="Independent Primaries, Online Debates, and Liquid Democracy. Register today and make your vote count again.", **kwargs):
     return render(request, template,
                   dict({'absolute_uri': request.build_absolute_uri(),
-                        'absolute_banner_uri': request.build_absolute_uri(static('ddp-square-og.png')),
+                        'absolute_banner_uri': request.build_absolute_uri(static('ddp-square-300.png')),
                         'sections': sections(),
                         'og_title': og_title,
                         'og_desc': og_desc,
