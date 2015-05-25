@@ -20,9 +20,9 @@ if os.environ.get('DJANGO_SECRET'):
 
 DEBUG = True
 TEMPLATE_DEBUG = True
-#if os.environ.get('PRODUCTION'):
-#    DEBUG = False
-#    TEMPLATE_DEBUG = False
+if os.environ.get('PRODUCTION'):
+    DEBUG = False
+    TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['.reclaimcongress.org']
 

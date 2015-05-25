@@ -239,8 +239,8 @@
         margin-bottom:3px;
       }
       .logins img {
-        height:24px;
-        vertical-align:-5px;
+        height:32px;
+        vertical-align:-9px;
       }
       .faceholder {
         height:50px;
@@ -456,10 +456,12 @@
           </div>
         {% endif %}
       {% else %}
-        <div>
+        <div style="width:120px;">
           <span>
             <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
               <img src="{% static 'facebook.png' %}" class="nav-login" /></a>
+            <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">
+              <img src="{% static 'twitter.png' %}" class="nav-login" /></a>
             <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
               <img src="{% static 'reddit.png' %}" class="nav-login" /></a>
           </span>

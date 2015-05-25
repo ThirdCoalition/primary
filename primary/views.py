@@ -11,11 +11,14 @@ from models import Region, Candidate, Approval, UserProfile, UserSettings, Affil
 
 from social.backends.facebook import FacebookOAuth2
 from social.backends.reddit import RedditOAuth2
+from social.backends.twitter import TwitterOAuth
 
 # used in social auth pipeline
 def save_profile(backend, user, response, *args, **kwargs):
     if isinstance(backend, FacebookOAuth2):
         avatar = 'http://graph.facebook.com/{0}/picture'.format(response['id'])
+    if isinstance(backend, TwitterOAuth):
+        avatar = response['profile_image_url']
     if isinstance(backend, RedditOAuth2):
         avatar = static('snoo.png')
 
