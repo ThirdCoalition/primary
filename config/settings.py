@@ -93,6 +93,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
     'social.backends.reddit.RedditOAuth2',
     'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
@@ -120,3 +121,5 @@ SOCIAL_AUTH_REDDIT_KEY = os.environ.get('REDDIT_KEY')
 SOCIAL_AUTH_REDDIT_SECRET = os.environ.get('REDDIT_SECRET')
 SOCIAL_AUTH_TWITTER_KEY = os.environ.get('TWITTER_KEY')
 SOCIAL_AUTH_TWITTER_SECRET = os.environ.get('TWITTER_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('GOOGLE_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('GOOGLE_SECRET')

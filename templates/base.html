@@ -137,6 +137,11 @@
         window.open(url, '_blank');
       }
 
+      function shareGoogle(handle) {
+        var url = "http://plus.google.com/share" + shareArgs('url', handle);
+        window.open(url, '_blank');
+      }
+
       function shareReddit(handle) {
         url = "http://www.reddit.com/submit" + shareArgs('url', handle);
         window.open(url, '_blank');
@@ -456,12 +461,14 @@
           </div>
         {% endif %}
       {% else %}
-        <div style="width:120px;">
+        <div style="width:150px;">
           <span>
             <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
               <img src="{% static 'facebook.png' %}" class="nav-login" /></a>
             <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">
               <img src="{% static 'twitter.png' %}" class="nav-login" /></a>
+            <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">
+              <img src="{% static 'google.png' %}" class="nav-login" /></a>
             <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
               <img src="{% static 'reddit.png' %}" class="nav-login" /></a>
           </span>

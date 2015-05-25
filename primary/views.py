@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from models import Region, Candidate, Approval, UserProfile, UserSettings, Affiliation, Sums, Weight
 
 from social.backends.facebook import FacebookOAuth2
+from social.backends.google import GoogleOAuth2
 from social.backends.reddit import RedditOAuth2
 from social.backends.twitter import TwitterOAuth
 
@@ -17,9 +18,11 @@ from social.backends.twitter import TwitterOAuth
 def save_profile(backend, user, response, *args, **kwargs):
     if isinstance(backend, FacebookOAuth2):
         avatar = 'http://graph.facebook.com/{0}/picture'.format(response['id'])
-    if isinstance(backend, TwitterOAuth):
+    elif isinstance(backend, GoogleOAuth2):
+        avatar = response['image']['url']
+    elif isinstance(backend, TwitterOAuth):
         avatar = response['profile_image_url']
-    if isinstance(backend, RedditOAuth2):
+    elif isinstance(backend, RedditOAuth2):
         avatar = static('snoo.png')
 
     profile,created = UserProfile.objects.get_or_create(user=user, defaults=dict(avatar=avatar))
