@@ -22,6 +22,8 @@
     <span class="logins">
       <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
         <img src="{% static 'facebook.png' %}" /></a>
+      <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">
+        <img src="{% static 'twitter.png' %}" /></a>
       <a href="{% url 'social:begin' 'reddit' %}?next={{ request.path }}">
         <img src="{% static 'reddit.png' %}" /></a>
     </span>
