@@ -55,11 +55,13 @@ def almanacs():
              dict(title="Kafkaesque", location="kafkaesque"),
              dict(title="Sedaris", location="sedaris")]]
 
-def myrender(request, template, **kwargs):
+def myrender(request, template, og_title="Reclaim Congress", og_desc="Independent Primaries, Online Debates, and Liquid Democracy. Register today and make your vote count again.", **kwargs):
     return render(request, template,
                   dict({'absolute_uri': request.build_absolute_uri(),
                         'absolute_banner_uri': request.build_absolute_uri(static('ddp-square-og.png')),
                         'sections': sections(),
+                        'og_title': og_title,
+                        'og_desc': og_desc,
                         'is_party': False,
                         'regions': Region.objects.all()},
                        **kwargs))
@@ -263,6 +265,8 @@ def delegate(request, handle):
 
     if not request.user.is_authenticated():
         return myrender(request, 'login.html', msg='register',
+                        og_title = "Vote for %s to Reclaim Congress" % (rep.get_full_name() or rep.username),
+                        og_desc = "\"%s\" - %s" % (delegate_settings.motto, delegate_settings.platform),
                         delegate_details=delegate_details(delegate_settings))
 
     settings,created = get_user_settings(request)
