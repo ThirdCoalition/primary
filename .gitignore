@@ -3,3 +3,4 @@
 build/*
 *.sqlite3
 static_root/*
+.env
