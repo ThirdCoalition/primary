@@ -34,27 +34,6 @@ def sections():
             {'title': 'Platform', 'location': '/platform', 'icon': 'platform.png'},
             {'title': 'About', 'location': '/about', 'icon': 'about.png'}]
 
-def almanacs():
-    return [[dict(title="Foundations", location="foundations"),
-             dict(title="Brain Train", location="braintrain"),
-             dict(title="Wikis (back-story)", location="wayback"),
-             dict(title="There and Back", location="thereandback"),
-             dict(title="Infrastructure", location="infrastructure"),
-             dict(title="Memory", location="memory"),
-             dict(title="Disobedience", location="disobedience"),
-             dict(title="Meme Theory", location="meme"),
-             dict(title="Signs", location="signs")],
-            [dict(title="Ouroboros", location="ouroboros"),
-             dict(title="Labyrinths", location="labyrinths"),
-             dict(title="Guides", location="guides"),
-             dict(title="Compendiums", location="compendiums"),
-             dict(title="Simulacra", location="simulacra"),
-             dict(title="CS", location="cs"),
-             dict(title="Very Small", location="verysmall"),
-             dict(title="Universal", location="universal"),
-             dict(title="Kafkaesque", location="kafkaesque"),
-             dict(title="Sedaris", location="sedaris")]]
-
 def myrender(request, template, og_title="Reclaim Congress", og_desc="Independent Primaries, Online Debates, and Liquid Democracy. Register today and make your vote count again.", **kwargs):
     return render(request, template,
                   dict({'absolute_uri': request.build_absolute_uri(),
@@ -190,9 +169,6 @@ def regions(request):
 
 def blog(request):
     return myrender(request, 'blog.html')
-
-def almanac(request):
-    return myrender(request, 'almanac.html', almanacs = almanacs())
 
 def release(request):
     return myrender(request, 'release.html')
