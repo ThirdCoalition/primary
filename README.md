@@ -3,12 +3,20 @@
 This code has been set-up for and tested on the Heroku platform.
 We recommmend you stick to Heroku cause it's awesome.
 
-1. Customize primary/fixtures/
+1. Install postgres, setup DATABASE_URL
 
-2. python manage.py migrate
+2. `pip install -r requirements.txt`
 
-3. python manage.py loaddata primary/fixtures/your_data.yaml
+3. Customize primary/fixtures/
 
-4. install the summary view found in primary/models.py
+4. `python manage.py migrate`
 
-6. Enjoy!
+5. `python manage.py loaddata primary/fixtures/regions.yaml`
+
+6. `python manage.py loaddata primary/fixtures/candidates.yaml`
+
+7. Install the summary view via psql, find definition in primary/models.py (`create view..`)
+
+8. `python manage.py run`
+
+9. Find people to vote

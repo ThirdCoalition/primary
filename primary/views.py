@@ -31,10 +31,9 @@ def save_profile(backend, user, response, *args, **kwargs):
 
 def sections():
     return [{'title': 'Primary', 'location': '/', 'icon': 'primary.png'},
-            {'title': 'Platform', 'location': '/platform', 'icon': 'platform.png'},
             {'title': 'About', 'location': '/about', 'icon': 'about.png'}]
 
-def myrender(request, template, og_title="Reclaim Congress", og_desc="Independent Primaries, Online Debates, and Liquid Democracy. Register today and make your vote count again.", **kwargs):
+def myrender(request, template, og_title="Reclaim Congress", og_desc="Independent Primaries, Online Debates, and Liquid Democracy. Make your vote count again.", **kwargs):
     return render(request, template,
                   dict({'absolute_uri': request.build_absolute_uri(),
                         'absolute_banner_uri': request.build_absolute_uri(static('ddp-square-300.png')),
@@ -110,7 +109,7 @@ def user_voted(request):
     return Approval.objects.filter(user=request.user, candidate__region=get_region(request)).count() > 0
 
 def primary(request):
-    return myrender(request, 'primary.html', 
+    return myrender(request, 'primary.html',
                     ratings = get_percentages(request),
                     # .distinct unavailable on sqlite3, which is used for testing
                     numvotes = Approval.objects.filter(candidate__region=get_region(request)).values('user').annotate(Count('user')).count(),
@@ -145,7 +144,7 @@ def vote(request, region="usapres"):
         except Approval.DoesNotExist:
             pass
         setattr(candi, 'rating', rating)
-    
+
     fav = max(candidates, key=lambda candi: candi.rating)
     return myrender(request, 'approval.html', fav=fav, candidates=candidates)
 
@@ -202,7 +201,7 @@ def account(request):
     if 'region' in request.POST:
         settings.region = Region.objects.get(id=int(request.POST['region']))
         settings.save()
-    
+
     if 'handle' in request.POST and request.POST['handle'].isalnum():
         if UserSettings.objects.filter(handle=request.POST['handle']).count() == 0:
             settings.handle = request.POST['handle']
@@ -227,7 +226,7 @@ def account(request):
     affiliates = Affiliation.objects.filter(user=request.user)
     for candi in candidates:
         setattr(candi, 'selected', len(filter(lambda aff: aff.affiliate == candi, affiliates)))
-                                            
+
     return myrender(request, 'account.html',
                     settings=settings,
                     affiliates=candidates,

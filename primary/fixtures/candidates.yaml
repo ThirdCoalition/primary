@@ -203,7 +203,7 @@
     name: Hilary Clinton
     synopsis: (D) - Senator from New York
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
+    link: http://www.hillaryclinton.com/
     color: Blue
     fgcolor: White
     shame: false
@@ -212,9 +212,9 @@
   fields:
     region: 5
     name: Bernie Sanders
-    synopsis: (I) - Senator from Vermont
+    synopsis: (D) - Senator from Vermont
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
+    link: http://www.berniesanders.com/
     color: DarkSlateBlue
     fgcolor: White
     shame: false
@@ -222,65 +222,32 @@
   pk: 21
   fields:
     region: 5
-    name: Ted Cruz
-    synopsis: (R) - Senator from Texas
+    name: Donald Trump
+    synopsis: (R) - Businessman from New York
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
-    color: YellowGreen
+    link: http://www.donaldjtrump.com/
+    color: Red
     fgcolor: Black
     shame: false
 - model: primary.Candidate
   pk: 22
   fields:
     region: 5
-    name: Rand Paul
-    synopsis: (R) - Senator from Kentucky
+    name: Jill Stein
+    synopsis: (G) - Representative from Massachusetts
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
-    color: Red
-    fgcolor: Black
+    link: http://www.jill2016.com/
+    color: Green
+    fgcolor: White
     shame: false
 - model: primary.Candidate
   pk: 23
   fields:
     region: 5
-    name: Marco Rubio
-    synopsis: (R) - Senator from Florida
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
-    color: DarkRed
-    fgcolor: White
-    shame: false
-- model: primary.Candidate
-  pk: 24
-  fields:
-    region: 5
-    name: Jill Stein
-    synopsis: (G) - Candidate from Massachusetts
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
-    color: Green
-    fgcolor: White
-    shame: false
-- model: primary.Candidate
-  pk: 25
-  fields:
-    region: 5
     name: Gary Johnson
     synopsis: (L) - Governor from New Mexico
     logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
+    link: http://www.johnsonweld.com/
     color: GoldenRod
     fgcolor: Black
-    shame: false
-- model: primary.Candidate
-  pk: 26
-  fields:
-    region: 5
-    name: Jesse Ventura
-    synopsis: (I) - Governor from Minnesota
-    logo: http://www.greenparty.org.uk/assets/logos/GPLogoWorldGreenForWeb.jpg
-    link: http://www.modernwhig.org/
-    color: DarkOrchid
-    fgcolor: White
     shame: false
